@@ -24,7 +24,7 @@
     <!-- Toast 1 -->
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
         <div id="DefToast1" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header bg-primary">
+            <div class="toast-header bg-success">
                 <strong class="me-auto text-light"><i class="bi bi-exclamation-octagon"></i> STCAMP404</strong>
                 <small class="text-light">informasi</small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -39,7 +39,7 @@
     <!-- Toast 2 -->
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
         <div id="DefToast2" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header bg-primary">
+            <div class="toast-header bg-success">
                 <strong class="me-auto text-light"><i class="bi bi-exclamation-octagon"></i> STCAMP404</strong>
                 <small class="text-light">informasi</small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -54,7 +54,7 @@
     <!-- Toast 3 -->
     <div class="toast-container position-fixed bottom-0 end-0 p-3">
         <div id="DefToast3" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header bg-primary">
+            <div class="toast-header bg-success">
                 <strong class="me-auto text-light"><i class="bi bi-exclamation-octagon"></i> STCAMP404</strong>
                 <small class="text-light">informasi</small>
                 <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>

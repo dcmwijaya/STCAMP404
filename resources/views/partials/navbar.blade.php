@@ -18,9 +18,35 @@
         </li>
       </ul>
       <form class="d-flex">
-        <button class="btn btn-outline-success masuk" type="submit"><i class="bi bi-door-open me-1"></i> Masuk</button>
+        <a class="btn btn-outline-success masuk" type="submit" id="ToastDefault4"><i class="bi bi-door-open me-1"></i> Masuk</a>
       </form>
     </div>
   </div>
 </nav>
 <!-- Navbar Akhir -->
+
+<!-- Toast 4 -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="DefToast4" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-success">
+            <strong class="me-auto text-light"><i class="bi bi-exclamation-octagon"></i> STCAMP404</strong>
+            <small class="text-light">informasi</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            <i class="bi bi-caret-right-fill"></i> Fungsi belum ditambahkan oleh admin!
+        </div>
+    </div>
+</div>
+<!-- Akhir Toast 4 -->
+
+<script>
+    const toastTrigger4 = document.getElementById('ToastDefault4')
+    const toastLiveExample4 = document.getElementById('DefToast4')
+    if (toastTrigger4) {
+        toastTrigger4.addEventListener('click', () => {
+            const toast4 = new bootstrap.Toast(toastLiveExample4)
+            toast4.show()
+        })
+    }
+</script>
