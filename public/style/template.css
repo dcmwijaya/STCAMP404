@@ -1,1 +1,54 @@
-/* CSS Template */
+/* Navbar */
+.mainnavcolor{
+    background-color: skyblue;
+}
+
+.navbar-collapse{
+    padding-left: 5%;
+}
+
+.nav-item{
+    margin-right: 20px;
+}
+
+.nav-link:hover, .masuk{
+    font-weight: 500;
+}
+
+/* Footer */
+.footercontainer{
+    padding: 20px 50px 20px 50px;
+}
+
+/* Font Options */
+.serif {
+    font-family: Times, "Times New Roman", Georgia, serif;
+}
+
+.sansserif {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.monospace {
+    font-family: "Lucida Console", Courier, monospace;
+}
+
+.cursive {
+    font-family: cursive;
+}
+
+.fantasy {
+    font-family: fantasy;
+}
+
+.emoji {
+    font-family: emoji;
+}
+
+.math {
+    font-family: math;
+}
+
+.fangsong {
+    font-family: fangsong;
+}

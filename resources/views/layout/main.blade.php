@@ -5,4 +5,6 @@
     @yield('container')
 </div>
 
-@include('partials.footer')
+<div class="footercontainer">
+    @include('partials.footer')
+</div>
