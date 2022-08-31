@@ -11,8 +11,18 @@
     margin-right: 20px;
 }
 
-.nav-link:hover, .masuk{
+.nav-link:hover, .masuk, .btn-ik, .btn-ds{
     font-weight: 500;
+}
+
+/* Content */
+.card-text {
+    text-align: justify;
+}
+
+.card-img-top{
+    height: 320px;
+    width: auto;
 }
 
 /* Footer */
