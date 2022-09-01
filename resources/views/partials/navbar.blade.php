@@ -18,12 +18,52 @@
         </li>
       </ul>
       <form class="d-flex">
-        <a class="btn btn-outline-success masuk" type="submit" id="ToastDefault4"><i class="bi bi-door-open me-1"></i> Masuk</a>
+        <a class="btn btn-outline-success masuk" type="submit" data-bs-toggle="modal" data-bs-target="#ModalInfo1"><i class="bi bi-door-open me-1"></i> Masuk</a>
       </form>
     </div>
   </div>
 </nav>
 <!-- Navbar Akhir -->
+
+  <!-- Pop Up Modal 1-->
+    <div class="modal fade modallogin" id="ModalInfo1" tabindex="-1" aria-labelledby="ModalInfo1Label" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-light">
+                    <h5 class="modal-title"><i class="bi bi-door-open me-1"></i> Masuk</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-2">
+                      <div class="col-md-12">
+                        <label for="exampleInputEmail1"><i class="bi bi-envelope me-1"></i> Email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan email anda...">
+                      </div>
+                      <div class="col-md-6 mt-4">
+                        <label for="exampleInputPassword1"><i class="bi bi-key me-1"></i> Kata Sandi</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Masukan kata sandi anda...">
+                        <div class="lupas col-md-12 mt-3">
+                          <a type="button" class="lupas" id="ToastDefault4">Lupa Password <i class="bi bi-patch-question"></i></a>
+                        </div>
+                      </div>
+                      <div class="col-md-6 mt-4" style="padding: 32px">
+                        <div class="form-group form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">Setuju</label>
+                        </div>
+                      </div>
+                    </form>
+                </div>
+                <div class="modal-footer bg-success">
+                    <a type="button" class="btn btn-outline-warning btn-sm btnreg" href="{{ url('../registrasi') }}">
+                    <i class="bi bi-person-lines-fill me-1"></i> <span class="fontreg">Registrasi</span></a>
+                    <a type="submit" class="btn btn-outline-info btn-sm btnmasuk" id="ToastDefault1">
+                    <i class="bi bi-door-open me-1"></i> <span class="fontmasuk">Masuk</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Akhir Pop Up Modal 1-->
 
 <!-- Toast 4 -->
 <div class="toast-container position-fixed bottom-0 end-0 p-3">

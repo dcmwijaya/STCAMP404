@@ -3,6 +3,28 @@
     background-color: skyblue;
 }
 
+.modallogin{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: 6%;
+}
+
+input::placeholder, .lupas {
+    font: 14px sans-serif;
+    text-decoration: none;
+}
+
+.fontmasuk,
+.fontreg {
+    color: white;
+}
+
+.fontmasuk:hover,
+.fontreg:hover {
+    color: black;
+}
+
 .navbar-collapse{
     padding-left: 5%;
 }
