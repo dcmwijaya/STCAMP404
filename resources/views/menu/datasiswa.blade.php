@@ -19,8 +19,7 @@
                 <th scope="col">No</th>
                 <th scope="col">Nama Siswa</th>
                 <th scope="col">Nomor Induk Siswa</th>
-                <th scope="col">Pelatihan</th>
-                <th scope="col">Waktu Daftar</th>
+                <th scope="col">Ambil Pelatihan</th>
             </tr>
         </thead>
         <tbody>
@@ -29,35 +28,30 @@
                 <td>Jaya Mangunati</td>
                 <td>20220101</td>
                 <td>Bootstrap 5</td>
-                <td>02/08/2022</td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td>Jadiyan Marto</td>
                 <td>20220102</td>
                 <td>Codeigniter 4</td>
-                <td>02/08/2022</td>
             </tr>
             <tr>
                 <th scope="row">3</th>
                 <td>Chondro Aminoto</td>
                 <td>20220103</td>
                 <td>Git</td>
-                <td>05/08/2022</td>
             </tr>
             <tr>
                 <th scope="row">4</th>
                 <td>Gatot Subroto</td>
                 <td>20220104</td>
                 <td>Laravel 8</td>
-                <td>10/08/2022</td>
             </tr>
             <tr>
                 <th scope="row">5</th>
                 <td>Jihan Minarti</td>
                 <td>20220105</td>
                 <td>Codeigniter 4</td>
-                <td>12/08/2022</td>
             </tr>
         </tbody>
     </table>

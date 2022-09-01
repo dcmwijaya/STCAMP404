@@ -16,7 +16,7 @@
 }
 
 /* Content */
-.card-text {
+.card-text, .accordion-body {
     text-align: justify;
 }
 
