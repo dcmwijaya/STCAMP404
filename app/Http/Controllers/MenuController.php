@@ -20,4 +20,9 @@ class MenuController extends Controller
     {
         return view('menu/infokegiatan');
     }
+
+    public function regist()
+    {
+        return view('menu/registrasi');
+    }
 }
