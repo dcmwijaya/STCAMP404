@@ -18,6 +18,9 @@
                 <i class="bi bi-facebook"></i>
             </a></li>
         </ul>
+        <div class="col-md-5 d-flex align-items-center mt-1">
+            Jl. Gunung Anyar, No. 28, Surabaya, Jawa Timur
+        </div>
     </footer>
     <!-- Footer Akhir -->
 

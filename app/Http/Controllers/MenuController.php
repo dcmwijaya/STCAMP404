@@ -25,4 +25,9 @@ class MenuController extends Controller
     {
         return view('menu/registrasi');
     }
+
+    public function dashboardaccount()
+    {
+        return view('menu/dashboard');
+    }
 }

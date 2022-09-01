@@ -18,3 +18,4 @@ Route::get('/', [MenuController::class, 'home']);
 Route::get('/data-siswa', [MenuController::class, 'datasiswa']);
 Route::get('/info-kegiatan', [MenuController::class, 'infokegiatan']);
 Route::get('/registrasi', [MenuController::class, 'regist']);
+Route::get('/dashboard', [MenuController::class, 'dashboardaccount']);
