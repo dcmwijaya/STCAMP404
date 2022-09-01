@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
@@ -11,9 +12,10 @@ class SiswaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function datasiswacamp404()
     {
-        //
+        $data = Siswa::all();
+        return view('menu.datasiswa')->with('data',$data);
     }
 
     /**

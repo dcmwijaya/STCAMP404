@@ -23,36 +23,14 @@
             </tr>
         </thead>
         <tbody>
+            @foreach($data as $v)
             <tr>
-                <th scope="row">1</th>
-                <td>Jaya Mangunati</td>
-                <td>20220101</td>
-                <td>Bootstrap 5</td>
+                <td scope="row">{{ $v->id }}</td>
+                <td>{{ $v->nama_siswa }}</td>
+                <td>{{ $v->nis }}</td>
+                <td>{{ $v->pelatihan }}</td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jadiyan Marto</td>
-                <td>20220102</td>
-                <td>Codeigniter 4</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Chondro Aminoto</td>
-                <td>20220103</td>
-                <td>Git</td>
-            </tr>
-            <tr>
-                <th scope="row">4</th>
-                <td>Gatot Subroto</td>
-                <td>20220104</td>
-                <td>Laravel 8</td>
-            </tr>
-            <tr>
-                <th scope="row">5</th>
-                <td>Jihan Minarti</td>
-                <td>20220105</td>
-                <td>Codeigniter 4</td>
-            </tr>
+            @endforeach
         </tbody>
     </table>
 
