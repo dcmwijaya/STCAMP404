@@ -13,21 +13,21 @@ class MenuController extends Controller
 
     public function datasiswa()
     {
-        return view('menu/datasiswa');
+        return view('menu.datasiswa');
     }
 
     public function infokegiatan()
     {
-        return view('menu/infokegiatan');
+        return view('menu.infokegiatan');
     }
 
     public function regist()
     {
-        return view('menu/registrasi');
+        return view('menu.registrasi');
     }
 
     public function dashboardaccount()
     {
-        return view('menu/dashboard');
+        return view('menu.dashboard');
     }
 }

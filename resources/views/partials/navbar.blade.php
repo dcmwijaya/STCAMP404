@@ -11,10 +11,7 @@
           <a class="nav-link" href="{{ url('/') }}"><i class="bi bi-house-fill me-1"></i> Beranda</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ url('/data-siswa') }}"><i class="bi bi-bar-chart-steps me-1"></i> Data Siswa</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ url('/info-kegiatan') }}"><i class="bi bi-megaphone-fill me-1"></i> Info Kegiatan</a>
+          <a class="nav-link" href="{{ url('/dashboard') }}"><i class="bi bi-person-rolodex me-1"></i> Dashboard</a>
         </li>
       </ul>
       <form class="d-flex">

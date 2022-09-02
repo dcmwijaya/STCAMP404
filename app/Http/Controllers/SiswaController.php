@@ -15,7 +15,7 @@ class SiswaController extends Controller
     public function datasiswacamp404()
     {
         $data = Siswa::all();
-        return view('menu.datasiswa')->with('data',$data);
+        return view('menu.datasiswa', ['data' => $data]);
     }
 
     /**

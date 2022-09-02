@@ -88,3 +88,9 @@ td{
 .fangsong {
     font-family: fangsong;
 }
+
+/* Profile */
+.img-profile{
+    min-height: 17em;
+    max-height: 17em;
+}
