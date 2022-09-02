@@ -3,7 +3,7 @@
     background-color: skyblue;
 }
 
-.modallogin{
+.modallogin, .modalmenu{
     position: absolute;
     left: 50%;
     top: 50%;
@@ -33,11 +33,16 @@ input::placeholder, .lupas {
     margin-right: 20px;
 }
 
-.nav-link:hover, .masuk, .btn-ik, .btn-ds{
+.nav-link:hover, .masuk, 
+.btn-ik, .btn-ds, .btncancel, 
+.btnacc, .keluar{
     font-weight: 500;
 }
 
 /* Content */
+.text-sm {
+    font-size: small;
+}
 .card-text, .accordion-body {
     text-align: justify;
 }

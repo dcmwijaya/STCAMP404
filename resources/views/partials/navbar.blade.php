@@ -15,7 +15,8 @@
         </li>
       </ul>
       <form class="d-flex">
-        <a class="btn btn-outline-success masuk" type="submit" data-bs-toggle="modal" data-bs-target="#ModalInfo1"><i class="bi bi-door-open me-1"></i> Masuk</a>
+        <a class="btn btn-outline-success masuk" type="submit" data-bs-toggle="modal" data-bs-target="#Modal1"><i class="bi bi-door-open me-1"></i> Masuk</a>
+        <a class="btn btn-outline-success keluar" type="submit" href="{{ url('/') }}"><i class="bi bi-door-closed me-1"></i> Keluar</a>
       </form>
     </div>
   </div>
@@ -23,7 +24,7 @@
 <!-- Navbar Akhir -->
 
   <!-- Pop Up Modal 1-->
-    <div class="modal fade modallogin" id="ModalInfo1" tabindex="-1" aria-labelledby="ModalInfo1Label" aria-hidden="true">
+    <div class="modal fade modallogin" id="Modal1" tabindex="-1" aria-labelledby="Modal1Label" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-success text-light">
@@ -54,7 +55,7 @@
                 <div class="modal-footer bg-success">
                     <a type="button" class="btn btn-outline-warning btn-sm btnreg" href="{{ url('../registrasi') }}">
                     <i class="bi bi-person-lines-fill me-1"></i> <span class="fontreg">Registrasi</span></a>
-                    <a type="submit" class="btn btn-outline-info btn-sm btnmasuk" id="ToastDefault1">
+                    <a type="submit" class="btn btn-outline-info btn-sm btnmasuk" id="ToastDefault5">
                     <i class="bi bi-door-open me-1"></i> <span class="fontmasuk">Masuk</span></a>
                 </div>
             </div>
@@ -77,6 +78,21 @@
 </div>
 <!-- Akhir Toast 4 -->
 
+<!-- Toast 5 -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="DefToast5" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header bg-success">
+            <strong class="me-auto text-light"><i class="bi bi-exclamation-octagon"></i> STCAMP404</strong>
+            <small class="text-light">informasi</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            <i class="bi bi-caret-right-fill"></i> Fungsi belum ditambahkan oleh admin!
+        </div>
+    </div>
+</div>
+<!-- Akhir Toast 5 -->
+
 <script>
     const toastTrigger4 = document.getElementById('ToastDefault4')
     const toastLiveExample4 = document.getElementById('DefToast4')
@@ -84,6 +100,14 @@
         toastTrigger4.addEventListener('click', () => {
             const toast4 = new bootstrap.Toast(toastLiveExample4)
             toast4.show()
+        })
+    }
+    const toastTrigger5 = document.getElementById('ToastDefault5')
+    const toastLiveExample5 = document.getElementById('DefToast5')
+    if (toastTrigger5) {
+        toastTrigger5.addEventListener('click', () => {
+            const toast5 = new bootstrap.Toast(toastLiveExample5)
+            toast5.show()
         })
     }
 </script>
