@@ -2,16 +2,30 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
 
 class Siswa extends Model
 {
-    use HasFactory;
-    protected $table = "siswa";
-    protected $primaryKey = 'id';
+    public $tb = "siswa";
 
-    protected $fillable = [
-        'nis', 'nama_siswa', 'pelatihan'
-    ];
+    public function allData()
+    {
+        return DB::table($tb)->get();
+    }
+
+    public function createData($dt)
+    {
+        DB::table($tb)->insert($dt);
+    }
+
+    public function updateData($id, $dt)
+    {
+        DB::table($tb)->update($id, $dt);
+    }
+
+    public function deleteData($id)
+    {
+        DB::table($tb)->delete($id);
+    }
 }

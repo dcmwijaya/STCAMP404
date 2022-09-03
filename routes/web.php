@@ -16,10 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route Menu
 Route::get('/', [MenuController::class, 'home']);
 Route::get('/data-siswa', [MenuController::class, 'datasiswa']);
 Route::get('/info-kegiatan', [MenuController::class, 'infokegiatan']);
 Route::get('/registrasi', [MenuController::class, 'regist']);
 Route::get('/dashboard', [MenuController::class, 'dashboardaccount']);
-Route::get('/data-siswa', [SiswaController::class, 'datasiswacamp404']);
 Auth::routes();
+
+// Route Accessbility
+Route::get('/data-siswa', [SiswaController::class, 'datasiswacamp404']);
+Route::get('/data-siswa/add', [SiswaController::class, 'create']);
+Route::get('/data-siswa/update', [SiswaController::class, 'update']);
+Route::get('/data-siswa/delete', [SiswaController::class, 'delete']);

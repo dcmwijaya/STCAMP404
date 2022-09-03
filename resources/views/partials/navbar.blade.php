@@ -31,7 +31,7 @@
 <!-- Navbar Akhir -->
 
 <!-- Pop Up Modal 1-->
-<div class="modal fade modallogin" id="Modal1" tabindex="-1" aria-labelledby="Modal1Label" aria-hidden="true">
+{{-- <div class="modal fade modallogin" id="Modal1" tabindex="-1" aria-labelledby="Modal1Label" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header bg-success text-light">
@@ -85,5 +85,5 @@
         </div>
       </form>
     </div>
-</div>
+</div> --}}
 <!-- Akhir Pop Up Modal 1-->
