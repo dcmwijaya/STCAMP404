@@ -23,7 +23,7 @@
     <div class="row row-cols-1 row-cols-md-2 g-4 mt-5">
         <div class="col">
             <div class="card">
-            <img src="{{ url('../assets/img/content/pic1.jpg') }}" class="card-img-top" alt="codeigniter4">
+            <img src="{{ url('asset/img/content/pic1.jpg') }}" class="card-img-top" alt="codeigniter4">
             <div class="card-body">
                 <h5 class="card-title">Pelatihan Codeigniter 4</h5><hr>
                 <p class="card-text">Codeigniter merupakan salah satu framework PHP terpopuler untuk membangun website. Framework ini berfokus 
@@ -34,7 +34,7 @@
         </div>
         <div class="col">
             <div class="card">
-            <img src="{{ url('../assets/img/content/pic2.jpg') }}" class="card-img-top" alt="laravel8">
+            <img src="{{ url('asset/img/content/pic2.jpg') }}" class="card-img-top" alt="laravel8">
             <div class="card-body">
                 <h5 class="card-title">Pelatihan Laravel 8</h5><hr>
                 <p class="card-text">Laravel merupakan salah satu framework PHP terpopuler untuk membangun website. Framework ini berfokus 
@@ -45,7 +45,7 @@
         </div>
         <div class="col">
             <div class="card">
-            <img src="{{ url('../assets/img/content/pic3.jpg') }}" class="card-img-top" alt="bootstrap5">
+            <img src="{{ url('asset/img/content/pic3.jpg') }}" class="card-img-top" alt="bootstrap5">
             <div class="card-body">
                 <h5 class="card-title">Pelatihan Bootstrap 5</h5><hr>
                 <p class="card-text">Bootstrap adalah salah satu framework front-end website terbaik yang cepat dan ringan.
@@ -56,7 +56,7 @@
         </div>
         <div class="col">
             <div class="card">
-            <img src="{{ url('../assets/img/content/pic4.jpg') }}" class="card-img-top" alt="git">
+            <img src="{{ url('asset/img/content/pic4.jpg') }}" class="card-img-top" alt="git">
             <div class="card-body">
                 <h5 class="card-title">Pelatihan Git</h5><hr>
                 <p class="card-text">GIT (Group Inclusive Tour) adalah sebuah tools penting bagi para programmer dan developer yang berfungsi sebagai control system untuk 

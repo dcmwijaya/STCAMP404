@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Sep 2022 pada 19.38
+-- Waktu pembuatan: 03 Sep 2022 pada 20.17
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.4.15
 
@@ -140,12 +140,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `siswa_id`, `name`, `role`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Admin STCamp404', 'admin', 'admin@stcamp404.com', NULL, '$2y$10$i1YkM.RUnIYHJTl8QDO6.uRoPQs0lae81mbnXBqtvL0hXJz4Ei3Zq', NULL, NULL, NULL),
-(2, 20220101, 'Jaya Mangunati', 'siswa', '20220101@stcamp404.com', NULL, '$2y$10$ae8TwT27qQgqvmm5UG2c3OhkI.qQ7W2oAWWyBMhGN9Ku3J.2qK1ym', NULL, NULL, NULL),
-(3, 20220102, 'Jadiyan Marto', 'siswa', '20220102@stcamp404.com', NULL, '$2y$10$d3Uk3YVYLxrhB.F7x4PQDuJFZeHXGSfeI4adpDClU2V8GnbzXeEiu', NULL, NULL, NULL),
-(4, 20220103, 'Chondro Aminoto', 'siswa', '20220103@stcamp404.com', NULL, '$2y$10$dT6sLBlJkNq.nO6BKKQrzu60Qj7cVmxEFtXfRS7rDqcu./fOTe3AC', NULL, NULL, NULL),
-(5, 20220104, 'Gatot Subroto', 'siswa', '20220104@stcamp404.com', NULL, '$2y$10$9nuWmCsG/VhpqpzR6iocy.6NeuFgEWzh3cLz/tnIgjGsjzao9ihxK', NULL, NULL, NULL),
-(6, 20220105, 'Jihan Minarti', 'siswa', '20220105@stcamp404.com', NULL, '$2y$10$.dH4WqhLXQAgzWpP/Oekd.1d3F3qRpWiLmJosC2BWA2HnWZy1jkii', NULL, NULL, NULL);
+(1, NULL, 'Admin STCamp404', 'admin', 'admin@stcamp404.ac.id', NULL, '$2y$10$i1YkM.RUnIYHJTl8QDO6.uRoPQs0lae81mbnXBqtvL0hXJz4Ei3Zq', NULL, NULL, NULL),
+(2, 20220101, 'Jaya Mangunati', 'siswa', '20220101@stcamp404.ac.id', NULL, '$2y$10$ae8TwT27qQgqvmm5UG2c3OhkI.qQ7W2oAWWyBMhGN9Ku3J.2qK1ym', NULL, NULL, NULL),
+(3, 20220102, 'Jadiyan Marto', 'siswa', '20220102@stcamp404.ac.id', NULL, '$2y$10$d3Uk3YVYLxrhB.F7x4PQDuJFZeHXGSfeI4adpDClU2V8GnbzXeEiu', NULL, NULL, NULL),
+(4, 20220103, 'Chondro Aminoto', 'siswa', '20220103@stcamp404.ac.id', NULL, '$2y$10$dT6sLBlJkNq.nO6BKKQrzu60Qj7cVmxEFtXfRS7rDqcu./fOTe3AC', NULL, NULL, NULL),
+(5, 20220104, 'Gatot Subroto', 'siswa', '20220104@stcamp404.ac.id', NULL, '$2y$10$9nuWmCsG/VhpqpzR6iocy.6NeuFgEWzh3cLz/tnIgjGsjzao9ihxK', NULL, NULL, NULL),
+(6, 20220105, 'Jihan Minarti', 'siswa', '20220105@stcamp404.ac.id', NULL, '$2y$10$.dH4WqhLXQAgzWpP/Oekd.1d3F3qRpWiLmJosC2BWA2HnWZy1jkii', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables

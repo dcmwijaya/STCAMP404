@@ -21,7 +21,5 @@ Route::get('/data-siswa', [MenuController::class, 'datasiswa']);
 Route::get('/info-kegiatan', [MenuController::class, 'infokegiatan']);
 Route::get('/registrasi', [MenuController::class, 'regist']);
 Route::get('/dashboard', [MenuController::class, 'dashboardaccount']);
-Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('siswa', SiswaController::class);
 Route::get('/data-siswa', [SiswaController::class, 'datasiswacamp404']);
+Auth::routes();

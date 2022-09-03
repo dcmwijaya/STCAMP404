@@ -2,18 +2,21 @@
 
 @section('container')
     <h1><i class="bi bi-person-rolodex me-1"></i> Dashboard</h1><hr>
+    @if (session('status'))
         <div class="alert alert-primary alert-dismissible fade show" role="alert">
-            <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i> Hai <strong>Data Masih Dummy!
+            <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i> Hai <strong> 
+                {{-- {{ Auth::user()->name }} --}}
                 </strong> selamat datang di menu utama website STCAMP404.</small>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
+    @endif
     <br>    
     <div class="row row-cols-1 row-cols-md-2 g-4">
         <div class="col">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-6">
-                        <img src="{{ url('../assets/img/profile/cewek.jpg') }}" class="img-fluid rounded-start img-profile" alt="gambarpengguna">
+                        <img src="{{ url('asset/img/profile/cewek.jpg') }}" class="img-fluid rounded-start img-profile" alt="gambarpengguna">
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">
