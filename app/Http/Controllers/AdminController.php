@@ -41,6 +41,7 @@ class AdminController extends Controller
     {
         $findID = DBS::find($id);
         $findID->delete();
+        DBS::reset();
         $msg = ' Selamat anda berhasil menghapus data siswa!!';
         return redirect()->route('data-pelatihan')->with('deleteAdminNotif', $msg);
     }

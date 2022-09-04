@@ -97,7 +97,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-2" action="/data-pelatihan/update/{{ $v->id }}" method="POST">
+                    <form class="row g-2" action="/data-pelatihan/add" method="POST">
                     @csrf                
                         <div class="col-md-12 mt-2">
                             <label for="exampleCreateNIS"><i class="bi bi-building me-1"></i> Nomor Induk Siswa</label>
