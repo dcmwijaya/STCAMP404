@@ -2,32 +2,35 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Siswa;
+use App\Models\DBS;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
 {
-    public function datasiswacamp404()
+    public function index()
     {
-        $data = Siswa::allData();
-        return view('menu.datasiswa', ['data' => $data]);
+        $readDB = DBS::all();
+        return view('menu.datasiswa', ['data' => $readDB]);
+        
     }
 
-    public function create($datasiswa)
+    public function create(Request $reqdata)
     {
-        $data = Siswa::createData();
-        return view('menu.datasiswa', ['data' => $data]);
+        $insertdata = $reqdata->all();
+        DBS::create($insertdata);
+        // $pesan = 'Anda berhasil menambahkan data pelatihan!!';
+        // return redirect()->route('menu.datasiswa')->with('addnotif', $pesan);
     }
 
     public function update($id)
     {
-        $data = Siswa::updateData();
-        return view('menu.datasiswa', ['data' => $data]);
+        $data = DBS::updateData();
+        return view('menu.datasiswa', ['datasiswa2' => $data]);
     }
 
     public function delete($id)
     {
-        $data = Siswa::deleteData();
-        return view('menu.datasiswa', ['data' => $data]);
+        $data = DBS::deleteData();
+        return view('menu.datasiswa', ['datasiswa3' => $data]);
     }
 }

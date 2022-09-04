@@ -18,23 +18,32 @@
             </div>
         </div>
     </div>
+    @if ($msg = Session::get('addAdminNotif'))
+        <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+            <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
+                {{ $msg }}
+            </small>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    <br>    
     <table class="table table-striped table-hover table-bordered caption-top mt-3 col-sm-12 table-responsive">
         <thead class="table-success">
             <tr>
-                <th scope="col">No</th>
                 <th scope="col">Nomor Induk Siswa</th>
                 <th scope="col">Nama Siswa</th>
                 <th scope="col">Ambil Pelatihan</th>
+                <th scope="col">Dibuat</th>
                 <th scope="col">Aksi</th>
             </tr>
         </thead>
         <tbody>
             @foreach($data as $v)
             <tr>
-                <td scope="row">{{ $v->id }}</td>
                 <td>{{ $v->nis }}</td>
                 <td>{{ $v->nama_siswa }}</td>
                 <td>{{ $v->pelatihan }}</td>
+                <td>{{ $v->created_at }}</td>
                 <td>
                     <div class="d-grid gap-2">
                         <a class="btn btn-outline-warning btn-sm text-dark" data-bs-toggle="modal" data-bs-target="#Modal4">
@@ -113,33 +122,36 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-2">
-                      <div class="col-md-12 mt-2">
+                <form class="row g-2" action="/data-siswa/admin/add" method="POST">
+                @csrf                
+                    <div class="col-md-12 mt-2">
+                        <label for="exampleCreateNIS"><i class="bi bi-building me-1"></i> Nomor Induk Siswa</label>
+                        <input type="number" name="nis" class="form-control mt-2" id="exampleCreateNIS" value="{{ $nis }}">
+                    </div>
+                    <div class="col-md-12 mt-4">
                         <label for="exampleCreateName"><i class="bi bi-person me-1"></i> Nama Pengguna</label>
-                        <input type="name" class="form-control mt-2" id="exampleCreateName" placeholder="Masukan nama lengkap...">
-                      </div>
-                      <div class="col-md-12 mt-4">
+                        <input type="text" name="nama_siswa" class="form-control mt-2" id="exampleCreateName" placeholder="Tulis nama lengkap..." required/>
+                    </div>
+                    <div class="col-md-12 mt-4">
                         <label for="exampleCreateCamp"><i class="bi bi-award me-1"></i> Pelatihan</label>
                         <div class="input-group mb-3 mt-2">
                             <label class="input-group-text" for="inputGroupSelect01">
                                 <small class="text-sm">Opsi:</small>
                             </label>
-                            <select class="form-select text-sm" id="inputGroupSelect01">
-                                <option value="1" selected class="text-sm">Bootstrap 5</option>
-                                <option value="2" class="text-sm">Git</option>
-                                <option value="3" class="text-sm">Laravel 8</option>
-                                <option value="4" class="text-sm">Codeigniter 4</option>
+                            <select class="form-select text-sm" name="pelatihan" id="inputGroupSelect01">
+                                <option value="Bootstrap 5" selected class="text-sm">Bootstrap 5</option>
+                                <option value="Git" class="text-sm">Git</option>
+                                <option value="Laravel 8" class="text-sm">Laravel 8</option>
+                                <option value="Codeigniter 4" class="text-sm">Codeigniter 4</option>
                             </select>
                         </div>
-                      </div>
-                    </form>
+                    </div>
                 </div>
                 <div class="modal-footer bg-success mt-2">
-                    <a type="button" class="btn btn-secondary btn-sm btncancel text-light" data-bs-dismiss="modal">
-                    <i class="bi bi-person-x me-1"></i> Batal</a>
-                    <a type="submit" class="btn btn-primary btn-sm btnacc text-light" id="ToastDefault8">
-                    <i class="bi bi-person-check me-1"></i> Setuju</a>
-                </div>
+                        <a class="btn btn-secondary btn-sm btncancel text-light" data-bs-dismiss="modal"><i class="bi bi-person-x me-1"></i> Batal</a>
+                        <button type="submit" class="btn btn-primary btn-sm btnacc text-light"><i class="bi bi-person-check me-1"></i> Setuju</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
