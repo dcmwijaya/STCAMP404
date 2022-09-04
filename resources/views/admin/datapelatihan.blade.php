@@ -9,16 +9,20 @@
             <div class="col-sm-12 mt-4">
                 <form class="d-flex">
                     <div class="col-sm-8">
-                        <a class="btn btn-outline-info text-dark me-4" role="group" data-bs-toggle="modal" data-bs-target="#ModalCreate"><i class="bi bi-person-plus-fill me-1"></i> Tambah</a>
+                        <a class="btn btn-outline-info text-dark me-2" role="group" data-bs-toggle="modal" data-bs-target="#ModalCreate"><i class="bi bi-person-plus-fill me-1"></i> Tambah</a>
+                        <a class="btn btn-outline-info text-dark" role="group" href="{{ url('/data-pelatihan') }}"><i class="bi bi-arrow-clockwise me-1"></i> Refresh</a>
                     </div>
-                    <input class="form-control me-2" type="search" placeholder="Cari Data Siswa...." aria-label="Search">
-                    <button class="btn btn-outline-success btn-group" role="group" id="ToastDefault7"><i class="bi bi-search me-1"></i> Cari</button>
+                    <form action="{{ url('/data-pelatihan') }}" method="GET">
+                        <input class="form-control me-2" type="search" name="search" placeholder="Cari Data Siswa...." aria-label="Search">
+                        <button type="submit" class="btn btn-outline-success btn-group" role="group"><i class="bi bi-search me-1"></i> Cari</button>
+                    </form>
                 </form>
             </div>
         </div>
     </div>
 
-    
+
+    <!-- Session Alert Admin -->
     @if ($msgAdmin = Session::get('addAdminNotif'))
         <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
             <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
@@ -44,6 +48,7 @@
         </div>
     @endif
     <br>    
+    <!-- Akhir Session Alert Admin -->
 
 
     <table class="table table-striped table-hover table-bordered caption-top mt-3 col-sm-12 table-responsive">
@@ -75,19 +80,12 @@
             @endforeach
         </tbody>
     </table>
+    {{ $data->links() }}
 
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#"><<</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">>></a></li>
-        </ul>
-    </nav>
 
-    @foreach($data as $v)
+    
     <!-- Bagian Admin Modal -->
+    @foreach($data as $v)
     <!-- Pop Up Modal Create-->
     <div class="modal fade modalmenu" id="ModalCreate" tabindex="-1" aria-labelledby="ModalCreateLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -97,7 +95,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-2" action="/data-pelatihan/add" method="POST">
+                    <form class="row g-2" action="{{ url('/data-pelatihan/add') }}" method="POST">
                     @csrf                
                         <div class="col-md-12 mt-2">
                             <label for="exampleCreateNIS"><i class="bi bi-building me-1"></i> Nomor Induk Siswa</label>
@@ -141,7 +139,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-2" action="/data-pelatihan/update/{{ $v->id }}" method="POST">
+                    <form class="row g-2" action="{{ url('/data-pelatihan/update/'.$v->id) }}" method="POST">
                         @csrf
                         <div class="col-md-12 mt-2">
                             <label for="exampleUpdateName"><i class="bi bi-person me-1"></i> Nama Pengguna</label>
@@ -186,7 +184,7 @@
                 <div class="modal-footer bg-success mt-2">
                     <a type="button" class="btn btn-secondary btn-sm btncancel text-light" data-bs-dismiss="modal">
                     <i class="bi bi-person-x me-1"></i> Batal</a>
-                    <a type="submit" href="/data-pelatihan/delete/{{ $v->id }}" class="btn btn-primary btn-sm btnacc text-light">
+                    <a type="submit" href="{{ url('/data-pelatihan/delete/'.$v->id) }}" class="btn btn-primary btn-sm btnacc text-light">
                     <i class="bi bi-person-check me-1"></i> Setuju</a>
                 </div>
             </div>
@@ -194,33 +192,4 @@
     </div>
     <!-- Akhir Pop Up Modal Delete-->
     @endforeach
-
-
-    <!-- Bagian Admin Toast -->
-    <!-- Toast 7 -->
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="DefToast7" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header bg-success">
-                <strong class="me-auto text-light"><i class="bi bi-exclamation-octagon"></i> STCAMP404</strong>
-                <small class="text-light">informasi</small>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-                <i class="bi bi-caret-right-fill"></i> Fungsi belum ditambahkan oleh admin!
-            </div>
-        </div>
-    </div>
-    <!-- Akhir Toast 7 -->
-
-    <script>
-        // Bagian Admin
-        const toastTrigger7 = document.getElementById('ToastDefault7')
-        const toastLiveExample7 = document.getElementById('DefToast7')
-        if (toastTrigger7) {
-            toastTrigger7.addEventListener('click', () => {
-                const toast7 = new bootstrap.Toast(toastLiveExample7)
-                toast7.show()
-            })
-        }
-    </script>
 @endsection

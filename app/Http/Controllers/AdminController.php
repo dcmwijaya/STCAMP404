@@ -3,21 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Models\DBS;
-use App\Models\PEL;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function index()
+    public function index(Request $reqdata)
     {
         $nis = '202201';
-        $readDB = DBS::all();
-        $readPEL = PEL::all();
-        $data = [
-            'nis' => $nis,
-            'data' => $readDB,
-            'pel' => $readPEL
-        ];
+        if($reqdata->has('search')){
+            $search = DBS::where('nis','LIKE','%'.$reqdata->search.'%')->orWhere('nama_siswa', 'LIKE', '%'.$reqdata->search.'%')->orWhere('pelatihan', 'LIKE', '%'.$reqdata->search.'%')->orWhere('created_at', 'LIKE', '%' . $reqdata->search . '%');
+            $searchData = $search->paginate(5);
+            $data = [
+                'nis' => $nis,
+                'data' => $searchData
+            ];
+        } else{
+            $readDB = DBS::paginate(5);
+            $data = [
+                'nis' => $nis,
+                'data' => $readDB
+            ];
+        }
         return view('admin.datapelatihan', $data);
     }
 
