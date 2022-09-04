@@ -1,0 +1,226 @@
+@extends('layout.main')
+
+@section('container')
+    <!-- Bagian Admin -->
+    <h1><i class="bi bi-bar-chart-steps me-1"></i> Data Siswa</h1><hr><br>
+    <div class="table-title">
+        <div class="row">
+            <div class="col"><caption> Data Pelatihan Siswa STCAMP404 :</caption></div>
+            <div class="col-sm-12 mt-4">
+                <form class="d-flex">
+                    <div class="col-sm-8">
+                        <a class="btn btn-outline-info text-dark me-4" role="group" data-bs-toggle="modal" data-bs-target="#ModalCreate"><i class="bi bi-person-plus-fill me-1"></i> Tambah</a>
+                    </div>
+                    <input class="form-control me-2" type="search" placeholder="Cari Data Siswa...." aria-label="Search">
+                    <button class="btn btn-outline-success btn-group" role="group" id="ToastDefault7"><i class="bi bi-search me-1"></i> Cari</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+    @if ($msgAdmin = Session::get('addAdminNotif'))
+        <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+            <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
+                {{ $msgAdmin }}
+            </small>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    @if ($msgAdmin = Session::get('updateAdminNotif'))
+        <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+            <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
+                {{ $msgAdmin }}
+            </small>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    @if ($msgAdmin = Session::get('deleteAdminNotif'))
+        <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+            <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
+                {{ $msgAdmin }}
+            </small>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    <br>    
+
+
+    <table class="table table-striped table-hover table-bordered caption-top mt-3 col-sm-12 table-responsive">
+        <thead class="table-success">
+            <tr>
+                <th scope="col">Nomor Induk Siswa</th>
+                <th scope="col">Nama Siswa</th>
+                <th scope="col">Ambil Pelatihan</th>
+                <th scope="col">Dibuat</th>
+                <th scope="col">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($data as $v)
+            <tr>
+                <td>{{ $v->nis }}</td>
+                <td>{{ $v->nama_siswa }}</td>
+                <td>{{ $v->pelatihan }}</td>
+                <td>{{ $v->created_at }}</td>
+                <td>
+                    <div class="d-grid gap-2">
+                        <a class="btn btn-outline-warning btn-sm text-dark" data-bs-toggle="modal" data-bs-target="#ModalUpdate-{{ $v->id }}">
+                            <i class="bi bi-pencil-square me-1"></i> Ubah</a>
+                        <a class="btn btn-outline-danger btn-sm text-dark" data-bs-toggle="modal" data-bs-target="#ModalDelete-{{ $v->id }}">
+                            <i class="bi bi-trash3 me-1"></i> Hapus</a>
+                    </div>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#"><<</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">>></a></li>
+        </ul>
+    </nav>
+
+    @foreach($data as $v)
+    <!-- Bagian Admin Modal -->
+    <!-- Pop Up Modal Create-->
+    <div class="modal fade modalmenu" id="ModalCreate" tabindex="-1" aria-labelledby="ModalCreateLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-light">
+                    <h5 class="modal-title"><i class="bi bi-person-plus-fill me-1"></i> Tambah Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-2" action="/data-pelatihan/update/{{ $v->id }}" method="POST">
+                    @csrf                
+                        <div class="col-md-12 mt-2">
+                            <label for="exampleCreateNIS"><i class="bi bi-building me-1"></i> Nomor Induk Siswa</label>
+                            <input type="number" name="nis" class="form-control mt-2" id="exampleCreateNIS" value="{{ $nis }}">
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <label for="exampleCreateName"><i class="bi bi-person me-1"></i> Nama Pengguna</label>
+                            <input type="text" name="nama_siswa" class="form-control mt-2" id="exampleCreateName" placeholder="Tulis nama lengkap..." required/>
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <label for="exampleCreateCamp"><i class="bi bi-award me-1"></i> Pelatihan</label>
+                            <div class="input-group mb-3 mt-2">
+                                <label class="input-group-text" for="inputGroupSelect01">
+                                    <small class="text-sm">Opsi:</small>
+                                </label>
+                                <select class="form-select text-sm" name="pelatihan" id="inputGroupSelect01">
+                                    <option value="Bootstrap 5" selected class="text-sm">Bootstrap 5</option>
+                                    <option value="Git" class="text-sm">Git</option>
+                                    <option value="Laravel 8" class="text-sm">Laravel 8</option>
+                                    <option value="Codeigniter 4" class="text-sm">Codeigniter 4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer bg-success mt-2">
+                        <a class="btn btn-secondary btn-sm btncancel text-light" data-bs-dismiss="modal"><i class="bi bi-person-x me-1"></i> Batal</a>
+                        <button type="submit" class="btn btn-primary btn-sm btnacc text-light"><i class="bi bi-person-check me-1"></i> Setuju</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Akhir Pop Up Modal Create-->
+
+    <!-- Pop Up Modal Update-->
+    <div class="modal fade modalmenu" id="ModalUpdate-{{ $v->id }}" tabindex="-1" aria-labelledby="ModalUpdateLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-light">
+                    <h5 class="modal-title"><i class="bi bi-pencil-square me-1"></i> Ubah Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-2" action="/data-pelatihan/update/{{ $v->id }}" method="POST">
+                        @csrf
+                        <div class="col-md-12 mt-2">
+                            <label for="exampleUpdateName"><i class="bi bi-person me-1"></i> Nama Pengguna</label>
+                            <input type="name" class="form-control mt-2" name="nama_siswa" id="exampleUpdateName" value="{{ $v->nama_siswa }}">
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <label for="exampleCreateCamp"><i class="bi bi-award me-1"></i> Pelatihan</label>
+                            <div class="input-group mb-3 mt-2">
+                                <label class="input-group-text" for="inputGroupSelect02">
+                                    <small class="text-sm">Opsi Ubah:</small>
+                                </label>
+                                <select class="form-select text-sm" name="pelatihan" id="inputGroupSelect02">
+                                    <option value="Bootstrap 5" {{ $v->pelatihan=="Bootstrap 5" ? 'selected' : '' }} class="text-sm">Bootstrap 5</option>
+                                    <option value="Git" {{ $v->pelatihan=="Git" ? 'selected' : '' }} class="text-sm">Git</option>
+                                    <option value="Laravel 8" {{ $v->pelatihan=="Laravel 8" ? 'selected' : '' }} class="text-sm">Laravel 8</option>
+                                    <option value="Codeigniter 4" {{ $v->pelatihan=="Codeigniter 4" ? 'selected' : '' }} class="text-sm">Codeigniter 4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer bg-success mt-2">
+                        <a type="button" class="btn btn-secondary btn-sm btncancel text-light" data-bs-dismiss="modal"><i class="bi bi-person-x me-1"></i> Batal</a>
+                        <button type="submit" class="btn btn-primary btn-sm btnacc text-light"><i class="bi bi-person-check me-1"></i> Setuju</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Akhir Pop Up Modal Update-->
+
+    <!-- Pop Up Modal Delete-->
+    <div class="modal fade modalmenu" id="ModalDelete-{{ $v->id }}" tabindex="-1" aria-labelledby="ModalDeleteLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-success text-light">
+                    <h5 class="modal-title"><i class="bi bi-trash3 me-1"></i> Hapus Data</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <small class="text-muted">Anda yakin ingin menghapus data yang memiliki ID = "{{ $v->id }}" ini ?</small>
+                </div>
+                <div class="modal-footer bg-success mt-2">
+                    <a type="button" class="btn btn-secondary btn-sm btncancel text-light" data-bs-dismiss="modal">
+                    <i class="bi bi-person-x me-1"></i> Batal</a>
+                    <a type="submit" href="/data-pelatihan/delete/{{ $v->id }}" class="btn btn-primary btn-sm btnacc text-light">
+                    <i class="bi bi-person-check me-1"></i> Setuju</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Akhir Pop Up Modal Delete-->
+    @endforeach
+
+
+    <!-- Bagian Admin Toast -->
+    <!-- Toast 7 -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="DefToast7" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header bg-success">
+                <strong class="me-auto text-light"><i class="bi bi-exclamation-octagon"></i> STCAMP404</strong>
+                <small class="text-light">informasi</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                <i class="bi bi-caret-right-fill"></i> Fungsi belum ditambahkan oleh admin!
+            </div>
+        </div>
+    </div>
+    <!-- Akhir Toast 7 -->
+
+    <script>
+        // Bagian Admin
+        const toastTrigger7 = document.getElementById('ToastDefault7')
+        const toastLiveExample7 = document.getElementById('DefToast7')
+        if (toastTrigger7) {
+            toastTrigger7.addEventListener('click', () => {
+                const toast7 = new bootstrap.Toast(toastLiveExample7)
+                toast7.show()
+            })
+        }
+    </script>
+@endsection

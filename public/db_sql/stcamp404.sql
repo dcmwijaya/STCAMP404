@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Sep 2022 pada 19.34
+-- Waktu pembuatan: 05 Sep 2022 pada 00.42
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.4.15
 
@@ -75,6 +75,27 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `pelatihan`
+--
+
+CREATE TABLE `pelatihan` (
+  `id` int(11) NOT NULL,
+  `nama_pelatihan` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `pelatihan`
+--
+
+INSERT INTO `pelatihan` (`id`, `nama_pelatihan`) VALUES
+(1, 'Bootstrap 5'),
+(2, 'Git'),
+(3, 'Laravel 8'),
+(4, 'Codeigniter 4');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `personal_access_tokens`
 --
 
@@ -110,15 +131,13 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id`, `nis`, `nama_siswa`, `pelatihan`, `created_at`, `updated_at`) VALUES
-(1, 20220101, 'Jaya Mangunati', 'Bootstrap 5', '2022-07-07 12:00:00', '2022-07-07 12:00:00'),
-(2, 20220102, 'Jadiyan Marto', 'Codeigniter 4', '2022-09-04 12:02:25', '2022-09-04 12:02:25'),
-(3, 20220103, 'Chondro Aminoto', 'Git', '2022-09-04 12:04:25', '2022-09-04 12:04:25'),
-(4, 20220104, 'Gatot Subroto', 'Laravel 8', '2022-09-04 12:06:25', '2022-09-04 12:06:25'),
-(5, 20220105, 'Jihan Minarti', 'Codeigniter 4', '2022-09-04 12:19:48', '2022-09-04 12:19:40'),
-(6, 20220106, 'Jakiiee', 'Bootstrap 5', '2022-09-04 12:25:44', '2022-09-04 12:25:44'),
-(7, 20220107, 'Adinda', 'Laravel 8', '2022-09-04 12:50:56', '2022-09-04 12:50:56'),
-(8, 20220108, 'Tsukiya', 'Git', '2022-09-04 13:02:00', '2022-09-04 13:02:00'),
-(9, 20220109, 'Rezkya Aninda Putri', 'Bootstrap 5', '2022-09-04 13:06:00', '2022-09-04 13:06:00');
+(1, 20220101, 'Jadiyan Marto', 'Codeigniter 4', '2022-09-04 12:02:25', '2022-09-04 12:02:25'),
+(2, 20220102, 'Chondro Aminoto', 'Git', '2022-09-04 12:04:25', '2022-09-04 12:04:25'),
+(3, 20220103, 'Gatot Subroto', 'Laravel 8', '2022-09-04 12:06:25', '2022-09-04 12:06:25'),
+(4, 20220104, 'Jihan Minarti', 'Codeigniter 4', '2022-09-04 12:19:48', '2022-09-04 12:19:40'),
+(5, 20220105, 'Jakiiee', 'Bootstrap 5', '2022-09-04 12:25:44', '2022-09-04 12:25:44'),
+(6, 20220106, 'Adinda', 'Laravel 8', '2022-09-04 12:50:56', '2022-09-04 12:50:56'),
+(7, 20220107, 'Rezkya Aninda Putri', 'Bootstrap 5', '2022-09-04 13:06:00', '2022-09-04 13:06:00');
 
 -- --------------------------------------------------------
 
@@ -175,6 +194,12 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
+-- Indeks untuk tabel `pelatihan`
+--
+ALTER TABLE `pelatihan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indeks untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
@@ -212,6 +237,12 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT untuk tabel `pelatihan`
+--
+ALTER TABLE `pelatihan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
@@ -221,7 +252,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`

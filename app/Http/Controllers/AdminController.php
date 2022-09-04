@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DBS;
+use App\Models\PEL;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -11,11 +12,13 @@ class AdminController extends Controller
     {
         $nis = '202201';
         $readDB = DBS::all();
+        $readPEL = PEL::all();
         $data = [
             'nis' => $nis,
-            'data' => $readDB
+            'data' => $readDB,
+            'pel' => $readPEL
         ];
-        return view('admin.datasiswa', $data);
+        return view('admin.datapelatihan', $data);
     }
 
     public function create(Request $reqdata)
@@ -26,17 +29,18 @@ class AdminController extends Controller
         return redirect()->route('data-pelatihan')->with('addAdminNotif', $msg);
     }
 
-    public function update($id)
+    public function update(Request $reqdata, $id)
     {
-        $data = DBS::find($id);
-        dd($data);
+        $findID = DBS::find($id);
+        $findID->update($reqdata->all());
         $msg = ' Selamat anda berhasil mengubah data siswa!!';
         return redirect()->route('data-pelatihan')->with('updateAdminNotif', $msg);
     }
 
     public function delete($id)
     {
-        $data = DBS::deleteData();
+        $findID = DBS::find($id);
+        $findID->delete();
         $msg = ' Selamat anda berhasil menghapus data siswa!!';
         return redirect()->route('data-pelatihan')->with('deleteAdminNotif', $msg);
     }

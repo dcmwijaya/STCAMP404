@@ -27,7 +27,7 @@ Auth::routes();
 // Route Admin Accessbility
 Route::get('/data-pelatihan', [AdminController::class, 'index'])->name('data-pelatihan');
 Route::post('/data-pelatihan/add', [AdminController::class, 'create'])->name('create');
-Route::get('/data-pelatihan/update/{id}', [AdminController::class, 'update'])->name('update');
+Route::post('/data-pelatihan/update/{id}', [AdminController::class, 'update'])->name('update');
 Route::get('/data-pelatihan/delete/{id}', [AdminController::class, 'delete'])->name('delete');
 
 // Route Siswa Accessbility
