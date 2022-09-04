@@ -15,7 +15,7 @@ class AdminController extends Controller
             'nis' => $nis,
             'data' => $readDB
         ];
-        return view('menu.datasiswa', $data);
+        return view('admin.datasiswa', $data);
     }
 
     public function create(Request $reqdata)
@@ -23,18 +23,21 @@ class AdminController extends Controller
         $getdata = $reqdata->all();
         DBS::create($getdata);
         $msg = ' Selamat anda berhasil menambahkan data siswa!!';
-        return redirect()->route('data-siswa')->with('addAdminNotif', $msg);
+        return redirect()->route('data-pelatihan')->with('addAdminNotif', $msg);
     }
 
     public function update($id)
     {
-        $data = DBS::updateData();
-        return view('menu.datasiswa', ['datasiswa2' => $data]);
+        $data = DBS::find($id);
+        dd($data);
+        $msg = ' Selamat anda berhasil mengubah data siswa!!';
+        return redirect()->route('data-pelatihan')->with('updateAdminNotif', $msg);
     }
 
     public function delete($id)
     {
         $data = DBS::deleteData();
-        return view('menu.datasiswa', ['datasiswa3' => $data]);
+        $msg = ' Selamat anda berhasil menghapus data siswa!!';
+        return redirect()->route('data-pelatihan')->with('deleteAdminNotif', $msg);
     }
 }

@@ -54,7 +54,8 @@
                                 </div>
                                 <div class="col">
                                     <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Data Siswa 
-                                        <a class="btn btn-sm btn-outline-success" href="{{ url('/data-siswa') }}">
+                                        <a class="btn btn-sm btn-outline-success" href="{{ url('/admin/data-siswa') }}">
+                                        {{-- <a class="btn btn-sm btn-outline-success" href="{{ url('/siswa/data-siswa') }}"> --}}
                                     <i class="bi bi-bar-chart-steps"></i></a></small></p>
                                 </div>
                                 <div class="col">
