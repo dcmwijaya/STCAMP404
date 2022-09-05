@@ -21,7 +21,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [GeneralController::class, 'home'])->name('home');
 Route::get('/home', [GeneralController::class, 'home'])->name('home');
 Route::get('/info-kegiatan', [GeneralController::class, 'infokegiatan'])->name('infokegiatan');
-Route::get('/registrasi', [GeneralController::class, 'register'])->name('register');
+Route::get('/registrasi', [GeneralController::class, 'register'])->name('registrasi');
+Route::post('/registrasiUser', [GeneralController::class, 'regUser'])->name('regUser');
 Route::get('/dashboard', [GeneralController::class, 'dashboardaccount'])->name('dashboardaccount');
 Auth::routes();
 

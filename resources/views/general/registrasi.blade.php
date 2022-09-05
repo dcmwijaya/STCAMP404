@@ -2,27 +2,57 @@
 
 @section('container')
     <h1><i class="bi bi-person-lines-fill me-1"></i> Registrasi</h1><hr>
-    <form class="form-group row">
+
+    <!-- Session Alert Admin -->
+    @if ($msgReg = Session::get('registerNotif'))
+        <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+            <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
+                {{ $msgReg }}
+            </small>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    <!-- Session Alert Admin -->
+    
+
+    <form class="form-group row" action="{{ url('/registrasiUser') }}" method="POST">
+        @csrf
+        <input name="siswa_id" type="hidden" value="{{ $defid + $jumlah }}">
         <div class="col-xl-12">
             <div class="col-md-6 mt-4 input-sm">
-                <label for="RegisterName"><i class="bi bi-envelope me-1"></i> Nama</label>
-                <input type="name" name="name" class="form-control mt-2" id="RegisterName" placeholder="Masukan nama anda..." required autofocus>
+                <label for="name"><i class="bi bi-envelope me-1"></i> Nama</label>
+                <input id="name" type="text" class="form-control mt-3 @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Masukan nama lengkap anda...">
+                @error('name')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
         </div>
         <div class="col-xl-12">
             <div class="col-md-6 mt-4 input-sm">
-                <label for="RegisterEmail"><i class="bi bi-envelope me-1"></i> Email</label>
-                <input type="email" name="email" class="form-control mt-2" id="RegisterEmail" aria-describedby="emailHelp" placeholder="Masukan email anda..." required>
+                <label for="email"><i class="bi bi-envelope me-1"></i> Email</label>
+                <input id="email" type="email" class="form-control mt-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Masukan email anda...">
+                @error('email')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
         </div>
         <div class="row">
             <div class="col-md-3 mt-4 input-sm me-4">
-                <label for="RegisterPassword1"><i class="bi bi-key me-1"></i> Kata Sandi</label>
+                <label for="password"><i class="bi bi-key me-1"></i> Kata Sandi</label>
                 <div class="input-group mb-3 mt-2">
                     <button onclick="ShowPassRegister()" class="btn btn-outline-secondary" type="button">
                     <i class="bi bi-eye-fill"></i>
                     </button>
-                    <input type="password" id="myInput2" name="password" class="form-control" placeholder="Masukan kata sandi anda..." required>
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Masukan kata sandi anda...">
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
                 <div class="col-md-12 mt-2">
                   <a href="#" class="login" data-bs-toggle="modal" data-bs-target="#ModalLogin">
@@ -31,53 +61,32 @@
                 </div>
             </div>
             <div class="col-md-3 mt-4 input-sm">
-                <label for="RegisterPassword2"><i class="bi bi-key me-1"></i> Konfirmasi Sandi</label>
+                <label for="password-confirm"><i class="bi bi-key me-1"></i> Konfirmasi Sandi</label>
                 <div class="input-group mb-3 mt-2">
                     <button onclick="ShowPassConfirmRegister()" class="btn btn-outline-secondary" type="button">
                     <i class="bi bi-eye-fill"></i>
                     </button>
-                    <input type="password" id="myInput3" name="password" class="form-control" placeholder="Konfirmasi kata sandi anda..." required>
+                    <input id="password-confirm" type="password" class="form-control @error('password') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password" placeholder="Konfirmasi kata sandi anda...">
+                    @error('password_confirmation')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3 mt-4 input-sm">
-                <a type="submit" class="btn btn-outline-success btn-sm btnreg" id="ToastDefault5">
-                <i class="bi bi-person-lines-fill me-1"></i> Registrasi</a>
+                <button type="submit" class="btn btn-outline-success btn-sm btnreg"><i class="bi bi-person-lines-fill me-1"></i> Registrasi</button>
             </div>
         </div>
     </form>
 
-    <!-- Toast 5 -->
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="DefToast5" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header bg-success">
-                <strong class="me-auto text-light"><i class="bi bi-exclamation-octagon"></i> STCAMP404</strong>
-                <small class="text-light">informasi</small>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-                <i class="bi bi-caret-right-fill"></i> Fungsi belum ditambahkan oleh admin!
-            </div>
-        </div>
-    </div>
-    <!-- Akhir Toast 5 -->
 
-    <script>
-        const toastTrigger5 = document.getElementById('ToastDefault5')
-        const toastLiveExample5 = document.getElementById('DefToast5')
-        if (toastTrigger5) {
-            toastTrigger5.addEventListener('click', () => {
-                const toast5 = new bootstrap.Toast(toastLiveExample5)
-                toast5.show()
-            })
-        }
-    </script>
-
-    <!-- Akhir Show Password-->
+    <!-- Show Password-->
     <script>
     function ShowPassRegister() {
-        var x = document.getElementById("myInput2");
+        var x = document.getElementById("password");
         if (x.type === "password") {
             x.type = "text";
         } else {
@@ -86,7 +95,7 @@
     }
 
     function ShowPassConfirmRegister() {
-        var x = document.getElementById("myInput3");
+        var x = document.getElementById("password-confirm");
         if (x.type === "password") {
             x.type = "text";
         } else {
