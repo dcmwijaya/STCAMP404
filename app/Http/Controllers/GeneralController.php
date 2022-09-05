@@ -14,7 +14,7 @@ class GeneralController extends Controller
         return view('general.infokegiatan');
     }
 
-    public function regist()
+    public function register()
     {
         return view('general.registrasi');
     }
@@ -22,5 +22,10 @@ class GeneralController extends Controller
     public function dashboardaccount()
     {
         return view('general.dashboard');
+    }
+
+    public function login()
+    {
+        // return redirect()->route('home');
     }
 }

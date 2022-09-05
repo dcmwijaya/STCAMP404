@@ -19,6 +19,11 @@
             <div class="col-md-3 mt-4 input-sm me-4">
                 <label for="exampleInputPassword1"><i class="bi bi-key me-1"></i> Kata Sandi</label>
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Masukan kata sandi anda...">
+                <div class="col-md-12 mt-2">
+                  <a href="#" class="login" data-bs-toggle="modal" data-bs-target="#ModalLogin">
+                    Sudah Punya Akun ? Login Sekarang <i class="bi bi-patch-exclamation-fill"></i>
+                  </a>
+                </div>
             </div>
             <div class="col-md-3 mt-4 input-sm">
                 <label for="exampleInputPassword2"><i class="bi bi-key me-1"></i> Konfirmasi Sandi</label>

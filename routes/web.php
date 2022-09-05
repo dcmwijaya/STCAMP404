@@ -18,10 +18,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route Menu
-Route::get('/', [GeneralController::class, 'home']);
-Route::get('/info-kegiatan', [GeneralController::class, 'infokegiatan']);
-Route::get('/registrasi', [GeneralController::class, 'regist']);
-Route::get('/dashboard', [GeneralController::class, 'dashboardaccount']);
+Route::get('/', [GeneralController::class, 'home'])->name('home');
+Route::get('/home', [GeneralController::class, 'home'])->name('home');
+Route::get('/info-kegiatan', [GeneralController::class, 'infokegiatan'])->name('infokegiatan');
+Route::get('/registrasi', [GeneralController::class, 'register'])->name('register');
+Route::get('/dashboard', [GeneralController::class, 'dashboardaccount'])->name('dashboardaccount');
 Auth::routes();
 
 // Route Admin Accessbility

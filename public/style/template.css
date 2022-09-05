@@ -10,7 +10,7 @@
     margin-top: 6%;
 }
 
-input::placeholder, .lupas {
+input::placeholder, .lupas, .login {
     font: 14px sans-serif;
     text-decoration: none;
 }

@@ -15,7 +15,7 @@
         </li>
       </ul>
       <form class="d-flex">
-        <a class="btn btn-outline-success masuk" data-bs-toggle="modal" data-bs-target="#Modal1"><i class="bi bi-door-open me-1"></i> Masuk</a>
+        <a class="btn btn-outline-success masuk" data-bs-toggle="modal" data-bs-target="#ModalLogin"><i class="bi bi-door-open me-1"></i> Masuk</a>
         <a class="btn btn-outline-success keluar" href="{{ route('logout') }}"
           onclick="event.preventDefault();
           document.getElementById('logout-form').submit();">
@@ -31,7 +31,7 @@
 <!-- Navbar Akhir -->
 
 <!-- Pop Up Modal 1-->
-{{-- <div class="modal fade modallogin" id="Modal1" tabindex="-1" aria-labelledby="Modal1Label" aria-hidden="true">
+<div class="modal fade modallogin" id="ModalLogin" tabindex="-1" aria-labelledby="ModalLoginLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header bg-success text-light">
@@ -39,7 +39,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form class="row g-2" method="POST" action="{{ route('login') }}">
+          <form class="row g-2" method="POST" action="{{ url('/dashboard') }}">
             @csrf
             <div class="col-md-12">
               <label for="email" class="col-form-label text-md-end"><i class="bi bi-envelope me-1"></i> Email</label>
@@ -78,12 +78,12 @@
           </form>
         </div>
         <div class="modal-footer bg-success">
-            <a type="button" class="btn btn-outline-warning btn-sm btnreg" href="{{ url('../registrasi') }}">
+            <a type="button" class="btn btn-outline-warning btn-sm btnreg" href="{{ url('registrasi') }}">
             <i class="bi bi-person-lines-fill me-1"></i> <span class="fontreg">Registrasi</span></a>
             <a type="submit" class="btn btn-outline-info btn-sm btnmasuk">
             <i class="bi bi-door-open me-1"></i> <span class="fontmasuk">Masuk</span></a>
         </div>
-      </form>
+      </div>
     </div>
-</div> --}}
+</div>
 <!-- Akhir Pop Up Modal 1-->
