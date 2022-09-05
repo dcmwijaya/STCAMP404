@@ -9,7 +9,7 @@ class DBS extends Model
 {
     protected $table = "siswa";
     protected $guarded = [];
-    protected $dates = ['create_at'];
+    protected $dates = ['updated_at'];
 
     public function reset(){
         DB::statement('SET  @num := 0;');

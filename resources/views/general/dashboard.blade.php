@@ -53,11 +53,15 @@
                                     <i class="bi bi-person-bounding-box"></i></a></small></p>
                                 </div>
                                 <div class="col">
-                                    <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Data Siswa 
+                                    <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Data Pelatihan 
                                         <a class="btn btn-sm btn-outline-success" href="{{ url('/data-pelatihan') }}">
-                                        {{-- <a class="btn btn-sm btn-outline-success" href="{{ url('/data-siswa') }}"> --}}
                                     <i class="bi bi-bar-chart-steps"></i></a></small></p>
                                 </div>
+                                {{-- <div class="col">
+                                    <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Data Siswa 
+                                        <a class="btn btn-sm btn-outline-success" href="{{ url('/data-pelatihan') }}">
+                                    <i class="bi bi-bar-chart-steps"></i></a></small></p>
+                                </div> --}}
                                 <div class="col">
                                     <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Info Pelatihan 
                                         <a class="btn btn-sm btn-outline-success" href="{{ url('/info-kegiatan') }}">

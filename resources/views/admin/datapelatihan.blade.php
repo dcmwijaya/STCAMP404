@@ -67,7 +67,7 @@
                 <td>{{ $v->nis }}</td>
                 <td>{{ $v->nama_siswa }}</td>
                 <td>{{ $v->pelatihan }}</td>
-                <td>{{ $v->created_at }}</td>
+                <td>{{ $v->updated_at }}</td>
                 <td>
                     <div class="d-grid gap-2">
                         <a class="btn btn-outline-warning btn-sm text-dark" data-bs-toggle="modal" data-bs-target="#ModalUpdate-{{ $v->id }}">
