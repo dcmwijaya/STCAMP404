@@ -36,7 +36,7 @@ class GeneralController extends Controller
         if(Auth::attempt($reqData->only('email','password'))){
             $msg = ' Haii !! Selamat datang di menu dashboard STCAMP404';
             return redirect()->route('dashboard')->with('LoginNotif', $msg);
-        }else if(!Auth::attempt($reqData->only('email', 'password'))) {
+        }else{
             return redirect()->route('home');
         }   
     }
