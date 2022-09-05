@@ -51,25 +51,26 @@
             </div>
             <div class="col-md-6 mt-2">
               <label for="password" class="col-form-label text-md-end"><i class="bi bi-key me-1"></i> Kata Sandi</label>
-              <input id="password" type="password" class="form-control @error('password') is-invalid
-              @enderror" name="password" required autocomplete="current-password" placeholder="Masukan kata sandi anda...">
+              <div class="input-group mb-3">
+                <button onclick="ShowPassLogin()" class="btn btn-outline-secondary" type="button">
+                  <i class="bi bi-eye-fill"></i>
+                </button>
+                <input type="password" id="myInput1" name="password" class="form-control @error('password') is-invalid @enderror" required autocomplete="current-password" placeholder="Masukan kata sandi anda...">
+              </div>
               @error('password')
                 <span class="invalid-feedback" role="alert">
                   <strong>{{ $message }}</strong>
                 </span>
               @enderror
-
               <div class="col-md-12 mt-2">
-                @if (Route::has('password.request'))
-                  <a class="lupas" href="{{ route('password.request') }}">
-                    Lupa Password <i class="bi bi-patch-question"></i>
-                  </a>
-                @endif
+                <a class="lupas" href="">
+                  Lupa Password <i class="bi bi-patch-question"></i>
+                </a>
               </div>
             </div>
             <div class="col-md-6 mt-4" style="padding: 32px">
               <div class="form-group form-check">
-                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} required>
                 <label class="form-check-label" for="remember">
                     Setuju & Ingat!!
                 </label>
@@ -87,3 +88,16 @@
     </div>
 </div>
 <!-- Akhir Pop Up Modal 1-->
+
+<!-- Akhir Show Password-->
+<script>
+function ShowPassLogin() {
+  var x = document.getElementById("myInput1");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+</script>
+<!-- Akhir Show Password-->

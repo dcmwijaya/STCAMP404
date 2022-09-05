@@ -5,20 +5,25 @@
     <form class="form-group row">
         <div class="col-xl-12">
             <div class="col-md-6 mt-4 input-sm">
-                <label for="exampleInputName1"><i class="bi bi-envelope me-1"></i> Nama</label>
-                <input type="name" class="form-control" id="exampleInputName1" placeholder="Masukan nama anda...">
+                <label for="RegisterName"><i class="bi bi-envelope me-1"></i> Nama</label>
+                <input type="name" name="name" class="form-control mt-2" id="RegisterName" placeholder="Masukan nama anda..." required autofocus>
             </div>
         </div>
         <div class="col-xl-12">
             <div class="col-md-6 mt-4 input-sm">
-                <label for="exampleInputEmail1"><i class="bi bi-envelope me-1"></i> Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukan email anda...">
+                <label for="RegisterEmail"><i class="bi bi-envelope me-1"></i> Email</label>
+                <input type="email" name="email" class="form-control mt-2" id="RegisterEmail" aria-describedby="emailHelp" placeholder="Masukan email anda..." required>
             </div>
         </div>
         <div class="row">
             <div class="col-md-3 mt-4 input-sm me-4">
-                <label for="exampleInputPassword1"><i class="bi bi-key me-1"></i> Kata Sandi</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Masukan kata sandi anda...">
+                <label for="RegisterPassword1"><i class="bi bi-key me-1"></i> Kata Sandi</label>
+                <div class="input-group mb-3 mt-2">
+                    <button onclick="ShowPassRegister()" class="btn btn-outline-secondary" type="button">
+                    <i class="bi bi-eye-fill"></i>
+                    </button>
+                    <input type="password" id="myInput2" name="password" class="form-control" placeholder="Masukan kata sandi anda..." required>
+                </div>
                 <div class="col-md-12 mt-2">
                   <a href="#" class="login" data-bs-toggle="modal" data-bs-target="#ModalLogin">
                     Sudah Punya Akun ? Login Sekarang <i class="bi bi-patch-exclamation-fill"></i>
@@ -26,8 +31,13 @@
                 </div>
             </div>
             <div class="col-md-3 mt-4 input-sm">
-                <label for="exampleInputPassword2"><i class="bi bi-key me-1"></i> Konfirmasi Sandi</label>
-                <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Masukan kata sandi anda...">
+                <label for="RegisterPassword2"><i class="bi bi-key me-1"></i> Konfirmasi Sandi</label>
+                <div class="input-group mb-3 mt-2">
+                    <button onclick="ShowPassConfirmRegister()" class="btn btn-outline-secondary" type="button">
+                    <i class="bi bi-eye-fill"></i>
+                    </button>
+                    <input type="password" id="myInput3" name="password" class="form-control" placeholder="Konfirmasi kata sandi anda..." required>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -63,4 +73,26 @@
             })
         }
     </script>
+
+    <!-- Akhir Show Password-->
+    <script>
+    function ShowPassRegister() {
+        var x = document.getElementById("myInput2");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+
+    function ShowPassConfirmRegister() {
+        var x = document.getElementById("myInput3");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }
+    </script>
+    <!-- Akhir Show Password-->
 @endsection

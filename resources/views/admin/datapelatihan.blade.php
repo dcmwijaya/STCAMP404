@@ -99,7 +99,7 @@
                     @csrf                
                         <div class="col-md-12 mt-2">
                             <label for="exampleCreateNIS"><i class="bi bi-building me-1"></i> Nomor Induk Siswa</label>
-                            <input type="number" name="nis" class="form-control mt-2" id="exampleCreateNIS" value="{{ $nis }}">
+                            <input type="number" name="nis" class="form-control mt-2" id="exampleCreateNIS" value="{{ $nis }}" autofocus>
                         </div>
                         <div class="col-md-12 mt-4">
                             <label for="exampleCreateName"><i class="bi bi-person me-1"></i> Nama Pengguna</label>
@@ -143,7 +143,7 @@
                         @csrf
                         <div class="col-md-12 mt-2">
                             <label for="exampleUpdateName"><i class="bi bi-person me-1"></i> Nama Pengguna</label>
-                            <input type="name" class="form-control mt-2" name="nama_siswa" id="exampleUpdateName" value="{{ $v->nama_siswa }}">
+                            <input type="name" class="form-control mt-2" name="nama_siswa" id="exampleUpdateName" value="{{ $v->nama_siswa }}" autofocus>
                         </div>
                         <div class="col-md-12 mt-4">
                             <label for="exampleCreateCamp"><i class="bi bi-award me-1"></i> Pelatihan</label>
