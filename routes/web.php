@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Main Route
+Auth::routes();
 
 // Route Menu
 Route::get('/', [GeneralController::class, 'home'])->name('home');
@@ -24,7 +26,6 @@ Route::get('/info-kegiatan', [GeneralController::class, 'infokegiatan'])->name('
 Route::get('/registrasi', [GeneralController::class, 'register'])->name('registrasi');
 Route::post('/registrasiUser', [GeneralController::class, 'regUser'])->name('regUser');
 Route::get('/dashboard', [GeneralController::class, 'dashboardaccount'])->name('dashboardaccount');
-Auth::routes();
 
 // Route Admin Accessbility
 Route::get('/data-pelatihan', [AdminController::class, 'index'])->name('data-pelatihan');

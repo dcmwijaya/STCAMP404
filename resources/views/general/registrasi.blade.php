@@ -23,8 +23,9 @@
                 <label for="name"><i class="bi bi-envelope me-1"></i> Nama</label>
                 <input id="name" type="text" class="form-control mt-3 @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Masukan nama lengkap anda...">
                 @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
+                    <span class="text-danger invalid-feedback" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        <strong> Kesalahan penulisan nama !</strong>
                     </span>
                 @enderror
             </div>
@@ -34,8 +35,9 @@
                 <label for="email"><i class="bi bi-envelope me-1"></i> Email</label>
                 <input id="email" type="email" class="form-control mt-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Masukan email anda...">
                 @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
+                    <span class="text-danger invalid-feedback" role="alert">
+                        <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                        <strong> Kesalahan penulisan email !</strong>
                     </span>
                 @enderror
             </div>
@@ -49,8 +51,9 @@
                     </button>
                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Masukan kata sandi anda...">
                     @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
+                        <span class="text-danger invalid-feedback" role="alert">
+                            <i class="bi bi-exclamation-triangle-fill me-2"></i>
+                            <strong> Password salah: gagal konfirmasi!</strong>
                         </span>
                     @enderror
                 </div>
@@ -67,11 +70,6 @@
                     <i class="bi bi-eye-fill"></i>
                     </button>
                     <input id="password-confirm" type="password" class="form-control @error('password') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password" placeholder="Konfirmasi kata sandi anda...">
-                    @error('password_confirmation')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
                 </div>
             </div>
         </div>

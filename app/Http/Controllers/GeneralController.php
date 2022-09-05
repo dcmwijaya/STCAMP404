@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\DBU;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\REQSTCAMP;
 
 class GeneralController extends Controller
 {
@@ -32,22 +31,19 @@ class GeneralController extends Controller
         return view('general.dashboard');
     }
 
-    public function regUser(Request $reqData)
-    {
-        // Validator::make($reqData, [
-        //     'name' => ['required', 'string', 'max:50'],
-        //     'email' => ['required', 'string', 'email', 'max:25', 'unique:users'],
-        //     'password' => ['required', 'string', 'min:8', 'confirmed', 'same:cpassword']
-        // ]);
-        
-        DBU::create([
-            'siswa_id' => $reqData->siswa_id,
-            'name' => $reqData->name,
-            'email' => $reqData->email,
-            'password' => bcrypt($reqData->cpassword)
-        ]);
-        
-        $msg = ' Selamat anda berhasil melakukan registrasi!!';
-        return redirect()->route('registrasi')->with('registerNotif', $msg);
+    public function regUser(REQSTCAMP $reqData)
+    {   
+        $validated = $reqData->validated();
+        if($validated){
+            DBU::create([
+                'siswa_id' => $reqData->siswa_id,
+                'name' => $reqData->name,
+                'email' => $reqData->email,
+                'password' => bcrypt($reqData->cpassword)
+            ]);
+
+            $msg = ' Selamat anda berhasil melakukan registrasi!!';
+            return redirect()->route('registrasi')->with('registerNotif', $msg);
+        }
     }
 }

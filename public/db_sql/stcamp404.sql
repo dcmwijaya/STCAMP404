@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Sep 2022 pada 00.42
+-- Waktu pembuatan: 05 Sep 2022 pada 22.14
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.4.15
 
@@ -135,9 +135,10 @@ INSERT INTO `siswa` (`id`, `nis`, `nama_siswa`, `pelatihan`, `created_at`, `upda
 (2, 20220102, 'Chondro Aminoto', 'Git', '2022-09-04 12:04:25', '2022-09-04 12:04:25'),
 (3, 20220103, 'Gatot Subroto', 'Laravel 8', '2022-09-04 12:06:25', '2022-09-04 12:06:25'),
 (4, 20220104, 'Jihan Minarti', 'Codeigniter 4', '2022-09-04 12:19:48', '2022-09-04 12:19:40'),
-(5, 20220105, 'Jakiiee', 'Bootstrap 5', '2022-09-04 12:25:44', '2022-09-04 12:25:44'),
-(6, 20220106, 'Adinda', 'Laravel 8', '2022-09-04 12:50:56', '2022-09-04 12:50:56'),
-(7, 20220107, 'Rezkya Aninda Putri', 'Bootstrap 5', '2022-09-04 13:06:00', '2022-09-04 13:06:00');
+(5, 20220106, 'Adinda Putri', 'Git', '2022-09-04 12:50:56', '2022-09-05 05:26:11'),
+(6, 20220107, 'Rezkya Aninda Putri', 'Bootstrap 5', '2022-09-04 13:06:00', '2022-09-04 13:06:00'),
+(7, 20220108, 'Tasya Ardhian Nisaa', 'Git', '2022-09-04 19:51:41', '2022-09-04 19:51:41'),
+(8, 20220109, 'Ayulia Mangunagara', 'Laravel 8', '2022-09-05 05:26:52', '2022-09-05 14:24:34');
 
 -- --------------------------------------------------------
 
@@ -252,13 +253,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
