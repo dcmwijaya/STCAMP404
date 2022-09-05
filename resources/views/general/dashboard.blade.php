@@ -16,10 +16,10 @@
         <div class="col">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
-                    <div class="col-md-6">
+                    <div class="col">
                         <img src="{{ url('asset/img/profile/cewek.jpg') }}" class="img-fluid rounded-start img-profile" alt="gambarpengguna">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col">
                         <div class="card-body">
                             <h5 class="card-title">Profil Pengguna</h5><hr>
                             <p class="card-text mt-2">
@@ -37,6 +37,75 @@
             </div>
         </div>
         <div class="col">
+            <h5><i class="bi bi-bar-chart-line-fill me-1"></i> Grafik Peminatan</h5><hr>
+            <script src="{{ url('highcharts/highcharts.js') }}"></script>
+            <script src="{{ url('highcharts/exporting.js') }}"></script>
+            <script src="{{ url('highcharts/export-data.js') }}"></script>
+            <script src="{{ url('highcharts/accessibility.js') }}"></script>
+
+            <figure class="highcharts-figure">
+                <div id="container"></div>
+                <script>
+                    Highcharts.chart('container', {
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: ''
+                        },
+                        subtitle: {
+                            text: ''
+                        },
+                        xAxis: {
+                            type: 'category',
+                            labels: {
+                            rotation: -45,
+                                style: {
+                                    fontSize: '13px',
+                                    fontFamily: 'Verdana, sans-serif'
+                                }
+                            }
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                            text: '<b>PELATIHAN STCAMP404</b>'
+                            }
+                        },
+                        legend: {
+                            enabled: false
+                        },
+                        tooltip: {
+                            pointFormat: 'Jumlah Peminat: <b>{point.y:%1f} orang</b>'
+                        },
+                        series: [{
+                            name: 'Pelatihan',
+                            data: [
+                                ['<b>Bootstrap 5</b>', 37],
+                                ['<b>Git</b>', 31],
+                                ['<b>Laravel 8</b>', 27],
+                                ['<b>Codeigniter</b>', 13]
+                            ],
+                            dataLabels: {
+                                enabled: true,
+                                rotation: -90,
+                                color: '#FFFFFF',
+                                align: 'right',
+                                format: '{point.y:%1f}', // one decimal
+                                y: 10, // 10 pixels down from the top
+                                style: {
+                                    fontSize: '13px',
+                                    fontFamily: 'Verdana, sans-serif'
+                                }
+                            }
+                        }]
+                    });
+                </script>
+            </figure>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 mt-5">
             <h5><i class="bi bi-grid-1x2-fill me-1"></i> Pengaturan</h5><hr><br>
             <div class="accordion" id="accordionExample">
                 <div class="accordion-item">
@@ -101,11 +170,15 @@
                     <form class="row g-2">
                       <div class="col-md-12 mt-2">
                         <label for="exampleUpdateName"><i class="bi bi-person me-1"></i> Nama Pengguna</label>
-                        <input type="name" class="form-control" id="exampleUpdateName" placeholder="Ubah nama anda...">
+                        <input type="text" class="form-control" name="name" id="exampleUpdateName" placeholder="Ubah nama anda..." required>
                       </div>
                       <div class="col-md-12 mt-4">
                         <label for="exampleUpdateEmail"><i class="bi bi-envelope me-1"></i> Email Pengguna</label>
-                        <input type="email" class="form-control" id="exampleUpdateEmail" aria-describedby="emailHelp" placeholder="Ubah email anda...">
+                        <input type="email" class="form-control" name="email" id="exampleUpdateEmail" aria-describedby="emailHelp" placeholder="Ubah email anda..." required>
+                      </div>
+                      <div class="col-md-12 mt-4">
+                        <label for="exampleUpdatePassword"><i class="bi bi-key me-1"></i> Kata Sandi</label>
+                        <input type="password" class="form-control" name="password" id="exampleUpdatePassword" placeholder="Ubah kata sandi anda..." required>
                       </div>
                     </form>
                 </div>

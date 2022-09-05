@@ -98,4 +98,5 @@ td{
 .img-profile{
     min-height: 17em;
     max-height: 17em;
+    max-width: auto;
 }
