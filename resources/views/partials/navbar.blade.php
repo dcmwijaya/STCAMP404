@@ -16,14 +16,7 @@
       </ul>
       <form class="d-flex">
         <a class="btn btn-outline-success masuk" data-bs-toggle="modal" data-bs-target="#ModalLogin"><i class="bi bi-door-open me-1"></i> Masuk</a>
-        <a class="btn btn-outline-success keluar" href="{{ route('logout') }}"
-          onclick="event.preventDefault();
-          document.getElementById('logout-form').submit();">
-          <i class="bi bi-door-closed me-1"></i> Keluar
-        </a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-          @csrf
-        </form>
+        <a class="btn btn-outline-success keluar" href="{{ url('/logout') }}"><i class="bi bi-door-closed me-1"></i> Keluar</a>
       </form>
     </div>
   </div>
@@ -32,67 +25,71 @@
 
 <!-- Pop Up Modal 1-->
 <div class="modal fade modallogin" id="ModalLogin" tabindex="-1" aria-labelledby="ModalLoginLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header bg-success text-light">
-            <h5 class="modal-title"><i class="bi bi-door-open me-1"></i> Masuk</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <form class="row g-2" method="POST" action="{{ url('/dashboard') }}">
-            @csrf
-            <div class="col-md-12">
-              <label for="email" class="col-form-label text-md-end"><i class="bi bi-envelope me-1"></i> Email</label>
-              <input id="email" type="email" class="form-control @error('email') is-invalid 
-              @enderror" name="email" value="{{ old('email') }}" aria-describedby="emailHelp"
-              placeholder="Masukan email anda..." required autocomplete="email" autofocus>@error('email')
-              <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
-              @enderror
-            </div>
-            <div class="col-md-6 mt-2">
-              <label for="password" class="col-form-label text-md-end"><i class="bi bi-key me-1"></i> Kata Sandi</label>
-              <div class="input-group mb-3">
-                <button onclick="ShowPassLogin()" class="btn btn-outline-secondary" type="button">
-                  <i class="bi bi-eye-fill"></i>
-                </button>
-                <input type="password" id="myInput1" name="password" class="form-control @error('password') is-invalid @enderror" required autocomplete="current-password" placeholder="Masukan kata sandi anda...">
-              </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-light">
+        <h5 class="modal-title"><i class="bi bi-door-open me-1"></i> Masuk</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form class="row g-2" method="POST" action="{{ url('/logress') }}">
+          @csrf
+          <div class="col-md-12">
+            <label for="email" class="col-form-label text-md-end"><i class="bi bi-envelope me-1"></i> Email</label>
+            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" 
+            name="email" value="{{ old('email') }}" placeholder="Masukan email anda..." required autocomplete="email" autofocus>
+            @error('email')
+              <i class="bi bi-exclamation-triangle-fill me-2"></i>
+              <span class="text-danger invalid-feedback" role="alert">
+                <strong> Kesalahan penulisan email !</strong>
+              </span>
+            @enderror
+          </div>
+          <div class="col-md-6 mt-2">
+            <label for="password" class="col-form-label text-md-end"><i class="bi bi-key me-1"></i> Kata Sandi</label>
+            <div class="input-group mb-3">
+              <button onclick="ShowPassLogin()" class="btn btn-outline-secondary" type="button">
+                <i class="bi bi-eye-fill"></i>
+              </button>
+              <input type="password" id="password" name="password" class="form-control @error('password') is-invalid @enderror"
+              required autocomplete="current-password" placeholder="Masukan kata sandi anda...">
               @error('password')
-                <span class="invalid-feedback" role="alert">
-                  <strong>{{ $message }}</strong>
+                <span class="text-danger invalid-feedback" role="alert">
+                  <strong class="me-2">Password salah! </strong><i class="bi bi-exclamation-triangle-fill"></i>
                 </span>
               @enderror
+            </div>
               <div class="col-md-12 mt-2">
-                <a class="lupas" href="">
+                <a class="lupas" href="{{ url('/forgetUser') }}">
                   Lupa Password <i class="bi bi-patch-question"></i>
                 </a>
               </div>
             </div>
             <div class="col-md-6 mt-4" style="padding: 32px">
-              <div class="form-group form-check">
-                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} required>
+              <div class="form-group form-check icheck-primary">
+                <input class="form-check-input" type="checkbox" name="remember" id="remember">
                 <label class="form-check-label" for="remember">
                     Setuju & Ingat!!
                 </label>
               </div>
             </div>
-          </form>
-        </div>
-        <div class="modal-footer bg-success">
-            <a type="button" class="btn btn-outline-warning btn-sm btnreg" href="{{ url('registrasi') }}">
-            <i class="bi bi-person-lines-fill me-1"></i> <span class="fontreg">Registrasi</span></a>
-            <a type="submit" class="btn btn-outline-info btn-sm btnmasuk">
-            <i class="bi bi-door-open me-1"></i> <span class="fontmasuk">Masuk</span></a>
-        </div>
-      </div>
+          </div>
+          <div class="modal-footer bg-success">
+              <a type="button" class="btn btn-outline-warning btn-sm btnreg" href="{{ url('/registrasi') }}">
+              <i class="bi bi-person-lines-fill me-1"></i> <span class="fontreg">Registrasi</span></a>
+              <button type="submit" class="btn btn-outline-info btn-sm btnmasuk">
+              <i class="bi bi-door-open me-1"></i> <span class="fontmasuk">Masuk</span></button>
+          </div>
+        </form>
     </div>
+  </div>
 </div>
 <!-- Akhir Pop Up Modal 1-->
 
 <!-- Show Password-->
 <script>
 function ShowPassLogin() {
-  var x = document.getElementById("myInput1");
+  var x = document.getElementById("password");
   if (x.type === "password") {
     x.type = "text";
   } else {

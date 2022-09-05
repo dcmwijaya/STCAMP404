@@ -24,13 +24,13 @@
                             <h5 class="card-title">Profil Pengguna</h5><hr>
                             <p class="card-text mt-2">
                                 <strong><i class="bi bi-building me-1"></i> Nomor Induk Siswa :</strong><br>
-                                <?= "20220101" ?></p>
+                                <?= Auth::users()->siswa_id ?></p>
                             <p class="card-text mt-2">
                                 <strong><i class="bi bi-person me-1"></i> Nama :</strong><br>
-                                <?= "Data Masih Dummy" ?></p>
+                                <?= {{ Auth::users()->name }} ?></p>
                             <p class="card-text mt-2">
                                 <strong><i class="bi bi-envelope me-1"></i> Email :</strong><br>
-                                <?= "dummy@stcamp404.com" ?></p>
+                                <?= {{ Auth::users()->email }} ?></p>
                         </div>
                     </div>
                 </div>

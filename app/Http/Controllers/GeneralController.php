@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\DBU;
 use App\Http\Requests\REQSTCAMP;
+use Illuminate\Support\Facades\Auth;
 
 class GeneralController extends Controller
 {
@@ -31,6 +32,20 @@ class GeneralController extends Controller
         return view('general.dashboard');
     }
 
+    public function logress(REQSTCAMP $reqData){
+        if(Auth::attempt($reqData->only('email','password'))){
+            $msg = ' Haii !! Selamat datang di menu dashboard STCAMP404';
+            return redirect()->route('dashboard')->with('LoginNotif', $msg);
+        }else if(!Auth::attempt($reqData->only('email', 'password'))) {
+            return redirect()->route('home');
+        }   
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('home');
+    }
+
     public function regUser(REQSTCAMP $reqData)
     {   
         $validated = $reqData->validated();
@@ -44,6 +59,27 @@ class GeneralController extends Controller
 
             $msg = ' Selamat anda berhasil melakukan registrasi!!';
             return redirect()->route('registrasi')->with('registerNotif', $msg);
+        }
+    }
+
+    public function forgetUser()
+    {
+        return view('general.forget');
+    }
+
+    public function resetUser(REQSTCAMP $reqData)
+    {
+        $validated = $reqData->validated();
+        if ($validated) {
+            // DBU::update([
+            //     'siswa_id' => $reqData->siswa_id,
+            //     'name' => $reqData->name,
+            //     'email' => $reqData->email,
+            //     'password' => bcrypt($reqData->cpassword)
+            // ]);
+
+            $msg = ' Selamat anda berhasil mereset password!!';
+            return redirect()->route('forgetUser')->with('forgetNotif', $msg);
         }
     }
 }
