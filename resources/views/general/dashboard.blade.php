@@ -2,11 +2,12 @@
 
 @section('container')
     <h1><i class="bi bi-person-rolodex me-1"></i> Dashboard</h1><hr>
-    @if (session('status'))
-        <div class="alert alert-primary alert-dismissible fade show" role="alert">
-            <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i> Hai <strong> 
-                {{-- {{ Auth::user()->name }} --}}
-                </strong> selamat datang di menu utama website STCAMP404.</small>
+    <!-- Session Alert Login -->
+    @if ($msgLogin = Session::get('LoginNotif'))
+        <div class="alert alert-info alert-dismissible fade show mt-4" role="alert">
+            <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
+                {{ $msgLogin }}
+            </small>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif

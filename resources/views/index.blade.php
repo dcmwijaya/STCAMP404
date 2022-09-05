@@ -1,11 +1,19 @@
 @extends('layout.main')
 
 @section('container')
-    <!-- Alert Logout -->
-    <div class="alert alert-info alert-dismissible fade show" role="alert">
-        <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i> Anda berhasil <strong>keluar</strong>!! dari segala akses menu utama</small>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div><br>
+    <!-- Session Alert Logout -->
+    @if ($msgLogout = Session::get('LogoutNotif'))
+        <div class="alert alert-info alert-dismissible fade show mt-4" role="alert">
+            <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
+                {{ $msgLogout }}
+            </small>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    <br>    
+    <!-- Akhir Session Alert Admin -->
+
+
     <!-- Jumbotron -->
     <div class="jumbotron text-center">
         <h1 class="card-title">STCAMP404 (Sekolah Tinggi CAMP404)</h5>
