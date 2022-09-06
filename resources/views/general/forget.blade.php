@@ -20,8 +20,8 @@
         <div class="col-xl-12">
             <div class="col-md-6 mt-4 input-sm">
                 <label for="email"><i class="bi bi-envelope me-1"></i> Email</label>
-                <input id="email" type="email" class="form-control mt-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Masukan email anda..." autofocus>
-                @error('email')
+                <input id="email" type="email" class="form-control mt-3 @error('femail') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Masukan email anda..." autofocus>
+                @error('femail')
                     <span class="text-danger invalid-feedback" role="alert">
                         <i class="bi bi-exclamation-triangle-fill me-2"></i>
                         <strong> Kesalahan penulisan email !</strong>
@@ -33,11 +33,11 @@
             <div class="col-md-3 mt-5 input-sm me-4">
                 <label for="password"><i class="bi bi-key me-1"></i> Kata Sandi</label>
                 <div class="input-group mb-3 mt-2">
-                    <button onclick="ShowPassRegister()" class="btn btn-outline-secondary" type="button">
+                    <button onclick="ShowPassForget()" class="btn btn-outline-secondary" type="button">
                     <i class="bi bi-eye-fill"></i>
                     </button>
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Masukan kata sandi baru...">
-                    @error('password')
+                    <input id="fpassword" type="password" class="form-control @error('fpassword') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Masukan kata sandi baru...">
+                    @error('fpassword')
                         <span class="text-danger invalid-feedback" role="alert">
                             <i class="bi bi-exclamation-triangle-fill me-2"></i>
                             <strong> Password salah: gagal konfirmasi!</strong>
@@ -48,10 +48,10 @@
             <div class="col-md-3 mt-5 input-sm">
                 <label for="password-confirm"><i class="bi bi-key me-1"></i> Konfirmasi Sandi</label>
                 <div class="input-group mb-3 mt-2">
-                    <button onclick="ShowPassConfirmRegister()" class="btn btn-outline-secondary" type="button">
+                    <button onclick="ShowPassConfirmForget()" class="btn btn-outline-secondary" type="button">
                     <i class="bi bi-eye-fill"></i>
                     </button>
-                    <input id="password-confirm" type="password" class="form-control @error('password') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password" placeholder="Konfirmasi kata sandi baru...">
+                    <input id="fpassword-confirm" type="password" class="form-control @error('fpassword') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password" placeholder="Konfirmasi kata sandi baru...">
                 </div>
             </div>
         </div>
@@ -65,8 +65,8 @@
 
     <!-- Show Password-->
     <script>
-    function ShowPassRegister() {
-        var x = document.getElementById("password");
+    function ShowPassForget() {
+        var x = document.getElementById("fpassword");
         if (x.type === "password") {
             x.type = "text";
         } else {
@@ -74,8 +74,8 @@
         }
     }
 
-    function ShowPassConfirmRegister() {
-        var x = document.getElementById("password-confirm");
+    function ShowPassConfirmForget() {
+        var x = document.getElementById("fpassword-confirm");
         if (x.type === "password") {
             x.type = "text";
         } else {

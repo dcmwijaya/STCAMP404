@@ -1,12 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\DBU;
+use App\Models\DBU as DB;
 use App\Http\Requests\REQSTCAMP;
 use Illuminate\Support\Facades\Auth;
 
+
 class GeneralController extends Controller
 {
+    public function __construct(DB $db)
+    {
+        $this->db = $db;
+    }
+
     public function home()
     {
         return view('index');
@@ -19,7 +25,7 @@ class GeneralController extends Controller
 
     public function register()
     {
-        $count = DBU::all()->count();
+        $count = $this->db->count();
         $IDS = array(
             'defid' => '20220100',
             'jumlah' => $count + 1
@@ -33,12 +39,17 @@ class GeneralController extends Controller
     }
 
     public function logress(REQSTCAMP $reqData){
-        if(Auth::attempt($reqData->only('email','password'))){
-            $msg = ' Haii !! Selamat datang di menu dashboard STCAMP404';
-            return redirect()->route('dashboard')->with('LoginNotif', $msg);
-        }else{
-            return redirect()->route('home');
-        }   
+        // if(Auth::attempt($reqData->only('email','password'))){
+        //     $msg = ' Haii !! Selamat datang di menu dashboard STCAMP404';
+        //     return redirect()->route('dashboard')->with('LoginNotif', $msg);
+        // }else{
+        //     return redirect()->route('home');
+        // }   
+        $cemail = $reqData->email;
+        $cpass = $reqData->password;
+
+        $session = $this->db->where('email', $cemail)->where('password', $cpass)->get();
+
     }
 
     public function logout(){
@@ -50,7 +61,7 @@ class GeneralController extends Controller
     {   
         $validated = $reqData->validated();
         if($validated){
-            DBU::create([
+            $this->db->create([
                 'siswa_id' => $reqData->siswa_id,
                 'name' => $reqData->name,
                 'email' => $reqData->email,

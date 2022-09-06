@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DBS;
+use App\Models\DBS as DB;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
 {
+    public function __construct(DB $db)
+    {
+        $this->db = $db;
+    }
+
     public function index()
     {
-        $rDB = DBS::all();
+        $rDB = $this->db->all();
         $data = [
             'data' => $rDB
         ];
@@ -19,7 +24,7 @@ class SiswaController extends Controller
     public function create(Request $reqdata)
     {
         $insertdata = $reqdata->all();
-        DBS::create($insertdata);
+        $this->db->create($insertdata);
         $msg = 'Anda berhasil menambahkan data pelatihan!!';
         return redirect()->route('data-siswa')->with('addSiswaNotif', $msg);
     }

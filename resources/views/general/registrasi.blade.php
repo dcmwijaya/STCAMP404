@@ -21,8 +21,8 @@
         <div class="col-xl-12">
             <div class="col-md-6 mt-4 input-sm">
                 <label for="name"><i class="bi bi-envelope me-1"></i> Nama</label>
-                <input id="name" type="text" class="form-control mt-3 @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Masukan nama lengkap anda...">
-                @error('name')
+                <input id="name" type="text" class="form-control mt-3 @error('rname') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Masukan nama lengkap anda...">
+                @error('rname')
                     <span class="text-danger invalid-feedback" role="alert">
                         <i class="bi bi-exclamation-triangle-fill me-2"></i>
                         <strong> Kesalahan penulisan nama !</strong>
@@ -33,8 +33,8 @@
         <div class="col-xl-12">
             <div class="col-md-6 mt-4 input-sm">
                 <label for="email"><i class="bi bi-envelope me-1"></i> Email</label>
-                <input id="email" type="email" class="form-control mt-3 @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Masukan email anda...">
-                @error('email')
+                <input id="email" type="email" class="form-control mt-3 @error('remail') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Masukan email anda...">
+                @error('remail')
                     <span class="text-danger invalid-feedback" role="alert">
                         <i class="bi bi-exclamation-triangle-fill me-2"></i>
                         <strong> Kesalahan penulisan email !</strong>
@@ -49,8 +49,8 @@
                     <button onclick="ShowPassRegister()" class="btn btn-outline-secondary" type="button">
                     <i class="bi bi-eye-fill"></i>
                     </button>
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Masukan kata sandi anda...">
-                    @error('password')
+                    <input id="rpassword" type="password" class="form-control @error('rpassword') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Masukan kata sandi anda...">
+                    @error('rpassword')
                         <span class="text-danger invalid-feedback" role="alert">
                             <i class="bi bi-exclamation-triangle-fill me-2"></i>
                             <strong> Password salah: gagal konfirmasi!</strong>
@@ -69,7 +69,7 @@
                     <button onclick="ShowPassConfirmRegister()" class="btn btn-outline-secondary" type="button">
                     <i class="bi bi-eye-fill"></i>
                     </button>
-                    <input id="password-confirm" type="password" class="form-control @error('password') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password" placeholder="Konfirmasi kata sandi anda...">
+                    <input id="rpassword-confirm" type="password" class="form-control @error('rpassword') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password" placeholder="Konfirmasi kata sandi anda...">
                 </div>
             </div>
         </div>
@@ -84,7 +84,7 @@
     <!-- Show Password-->
     <script>
     function ShowPassRegister() {
-        var x = document.getElementById("password");
+        var x = document.getElementById("rpassword");
         if (x.type === "password") {
             x.type = "text";
         } else {
@@ -93,7 +93,7 @@
     }
 
     function ShowPassConfirmRegister() {
-        var x = document.getElementById("password-confirm");
+        var x = document.getElementById("rpassword-confirm");
         if (x.type === "password") {
             x.type = "text";
         } else {
