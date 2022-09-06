@@ -6,6 +6,7 @@
     @if ($msgLogin = Session::get('LoginNotif'))
         <div class="alert alert-info alert-dismissible fade show mt-4" role="alert">
             <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
+                {{-- <strong>{{  $username !! }}</strong> --}}
                 {{ $msgLogin }}
             </small>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -24,13 +25,16 @@
                             <h5 class="card-title">Profil Pengguna</h5><hr>
                             <p class="card-text mt-2">
                                 <strong><i class="bi bi-building me-1"></i> Nomor Induk Siswa :</strong><br>
-                                <?= Auth::users()->siswa_id ?></p>
+                                {{-- {{ $siswaID }} --}}
+                            </p>
                             <p class="card-text mt-2">
                                 <strong><i class="bi bi-person me-1"></i> Nama :</strong><br>
-                                <?= {{ Auth::users()->name }} ?></p>
+                                {{-- {{ $username }} --}}
+                            </p>
                             <p class="card-text mt-2">
                                 <strong><i class="bi bi-envelope me-1"></i> Email :</strong><br>
-                                <?= {{ Auth::users()->email }} ?></p>
+                                {{-- {{ $email }} --}}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -127,11 +131,11 @@
                                         <a class="btn btn-sm btn-outline-success" href="{{ url('/data-pelatihan') }}">
                                     <i class="bi bi-bar-chart-steps"></i></a></small></p>
                                 </div>
-                                {{-- <div class="col">
+                                <div class="col">
                                     <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Data Siswa 
-                                        <a class="btn btn-sm btn-outline-success" href="{{ url('/data-pelatihan') }}">
+                                        <a class="btn btn-sm btn-outline-success" href="{{ url('/data-siswa') }}">
                                     <i class="bi bi-bar-chart-steps"></i></a></small></p>
-                                </div> --}}
+                                </div>
                                 <div class="col">
                                     <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Info Pelatihan 
                                         <a class="btn btn-sm btn-outline-success" href="{{ url('/info-kegiatan') }}">

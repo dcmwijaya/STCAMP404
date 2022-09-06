@@ -28,7 +28,7 @@ class GeneralController extends Controller
         $count = $this->db->count();
         $IDS = array(
             'defid' => '20220100',
-            'jumlah' => $count + 1
+            'jumlah' => $count
         );
         return view('general.registrasi', $IDS);
     }
@@ -38,23 +38,44 @@ class GeneralController extends Controller
         return view('general.dashboard');
     }
 
-    public function logress(REQSTCAMP $reqData){
-        // if(Auth::attempt($reqData->only('email','password'))){
-        //     $msg = ' Haii !! Selamat datang di menu dashboard STCAMP404';
-        //     return redirect()->route('dashboard')->with('LoginNotif', $msg);
-        // }else{
-        //     return redirect()->route('home');
-        // }   
+    public function logress(REQSTCAMP $reqData){   
         $cemail = $reqData->email;
         $cpass = $reqData->password;
-
         $session = $this->db->where('email', $cemail)->where('password', $cpass)->get();
 
+        if(count($session)>0){
+            $reqData->session->put('uid', $session[0]->id);
+            $reqData->session->put('usid', $session[0]->siswa_id);
+            $reqData->session->put('uname', $session[0]->name);
+            $reqData->session->put('uemail', $session[0]->email);
+            $msg = ' Selamat anda berhasil masuk di menu dashboard STCAMP404';
+            return redirect()->route('dashboardaccount')->with('LoginNotif', $msg);
+        } else{
+            return redirect()->route('home');
+        }
     }
 
-    public function logout(){
-        Auth::logout();
-        return redirect()->route('home');
+    public function login(REQSTCAMP $reqData){
+        if($reqData->session()->get('uid')==""){
+            return redirect()->route('home');
+        } else {
+            $username = $reqData->session()->get('uname');
+            $siswaID = $reqData->session()->get('usid');
+            $email = $reqData->session()->get('uemail');
+            $capsule = [
+                'username' => $username,
+                'siswaID' => $siswaID,
+                'email' => $email
+            ];
+            return redirect()->route('dashboardaccount')->with($capsule);
+        }
+    }
+
+    public function logout(REQSTCAMP $reqData){
+        $reqData->session()->forget('uid');
+        $reqData->session()->forget('uname');
+        $msg=" Anda telah berhasil keluar dari keseluruhan aktivitas menu utama STCAMP404!!";
+        return redirect()->route('home')->with('LogoutNotif', $msg);
     }
 
     public function regUser(REQSTCAMP $reqData)
