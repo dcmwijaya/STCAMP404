@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 // Route Menu
-Route::get('/', [GeneralController::class, 'home'])->name('home');
+Route::get('/', [GeneralController::class, 'home'])->name('index');
 Route::get('/home', [GeneralController::class, 'home'])->name('home');
 Route::get('/info-kegiatan', [GeneralController::class, 'infokegiatan'])->name('infokegiatan');
 Route::get('/registrasi', [GeneralController::class, 'register'])->name('registrasi');
@@ -30,14 +30,14 @@ Route::post('/resetUser', [GeneralController::class, 'resetUser'])->name('resetU
 Route::post('/logress', [GeneralController::class, 'logress'])->name('logress');
 Route::get('/logout', [GeneralController::class, 'logout'])->name('logout');
 Route::get('/login', [GeneralController::class, 'login'])->name('login');
-Route::get('/dashboard', [GeneralController::class, 'dashboardaccount'])->name('dashboardaccount');
+Route::get('/dashboard', [GeneralController::class, 'dashboardaccount'])->name('dashboardaccount')->middleware('auth');
 
 // Route Admin Accessbility
-Route::get('/data-pelatihan', [AdminController::class, 'index'])->name('data-pelatihan');
+Route::get('/data-pelatihan', [AdminController::class, 'index'])->name('data-pelatihan')->middleware('auth');
 Route::post('/data-pelatihan/add', [AdminController::class, 'create'])->name('create');
 Route::post('/data-pelatihan/update/{id}', [AdminController::class, 'update'])->name('update');
 Route::get('/data-pelatihan/delete/{id}', [AdminController::class, 'delete'])->name('delete');
 
 // Route Siswa Accessbility
-Route::get('/data-siswa', [SiswaController::class, 'index'])->name('data-siswa');
+Route::get('/data-siswa', [SiswaController::class, 'index'])->name('data-siswa')->middleware('auth');
 Route::post('/data-siswa/add', [SiswaController::class, 'create'])->name('create');

@@ -51,13 +51,13 @@ class GeneralController extends Controller
             $msg = ' Selamat anda berhasil masuk di menu dashboard STCAMP404';
             return redirect()->route('dashboardaccount')->with('LoginNotif', $msg);
         } else{
-            return redirect()->route('home');
+            return redirect()->route('index');
         }
     }
 
     public function login(REQSTCAMP $reqData){
         if($reqData->session()->get('uid')==""){
-            return redirect()->route('home');
+            return redirect()->route('index');
         } else {
             $username = $reqData->session()->get('uname');
             $siswaID = $reqData->session()->get('usid');
@@ -71,11 +71,10 @@ class GeneralController extends Controller
         }
     }
 
-    public function logout(REQSTCAMP $reqData){
-        $reqData->session()->forget('uid');
-        $reqData->session()->forget('uname');
+    public function logout(){
+        Auth::logout();
         $msg=" Anda telah berhasil keluar dari keseluruhan aktivitas menu utama STCAMP404!!";
-        return redirect()->route('home')->with('LogoutNotif', $msg);
+        return redirect()->route('index')->with('LogoutNotif', $msg);
     }
 
     public function regUser(REQSTCAMP $reqData)
