@@ -37,11 +37,12 @@ class GeneralController extends Controller
     }
 
     public function login(Request $reqData){   
-        $user = $this->db->where('email', '==', $reqData->email)->first();
+        $user = $this->db->where('email', '=', $reqData->email)->first();
         if($user){
             if(Hash::check($reqData->password, $user->password)){
                 $reqData->session()->put('loginId', $user->id);
-                return redirect()->route('dashboardaccount');
+                $msg = " Anda berhasil masuk, selamat datang di menu utama STCAMP404!!";
+                return redirect()->route('dashboardaccount')->with('LoginNotif', $msg);
             } else{
                 return redirect()->route('index');
             }
@@ -52,18 +53,17 @@ class GeneralController extends Controller
 
     public function dashboardaccount()
     {
-        $data = array();
         if (Session::has('loginId')) {
-            $data = $this->db->where('email', '==', Session::get('loginId'))->first();
+            $data = array($this->db->where('email', '=', Session::get('loginId'))->first());
         }
-        return view('general.dashboard', compact('data'));
+        return view('general.dashboard', $data);
     }
 
     public function logout(){
-        if ($this->db::has('loginId')) {
+        if (Session::has('loginId')) {
             Session::pull('loginId');
-            $msg = " Anda telah berhasil keluar dari keseluruhan aktivitas menu utama STCAMP404!!";
-            return redirect()->route('index')->with('LogoutNotif', $msg);
+            $msg = " Anda telah berhasil keluar dari segala bentuk aktivitas!!";
+            return redirect()->route('index')->with('LogoutNotif', $msg);   
         }
     }
 
