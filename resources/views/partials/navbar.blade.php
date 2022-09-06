@@ -32,7 +32,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form class="row g-2" method="POST" action="{{ url('/logress') }}">
+        <form class="row g-2" method="POST" action="{{ url('/login') }}">
           @csrf
           <div class="col-md-12">
             <label for="email" class="col-form-label text-md-end"><i class="bi bi-envelope me-1"></i> Email</label>

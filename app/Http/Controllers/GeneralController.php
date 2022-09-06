@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 use App\Models\DBU as DB;
 use App\Http\Requests\REQSTCAMP;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
+// use Illuminate\Foundation\Auth\User;
 
 class GeneralController extends Controller
 {
@@ -33,48 +36,35 @@ class GeneralController extends Controller
         return view('general.registrasi', $IDS);
     }
 
-    public function dashboardaccount()
-    {
-        return view('general.dashboard');
-    }
-
-    public function logress(REQSTCAMP $reqData){   
-        $cemail = $reqData->email;
-        $cpass = $reqData->password;
-        $session = $this->db->where('email', $cemail)->where('password', $cpass)->get();
-
-        if(count($session)>0){
-            $reqData->session->put('uid', $session[0]->id);
-            $reqData->session->put('usid', $session[0]->siswa_id);
-            $reqData->session->put('uname', $session[0]->name);
-            $reqData->session->put('uemail', $session[0]->email);
-            $msg = ' Selamat anda berhasil masuk di menu dashboard STCAMP404';
-            return redirect()->route('dashboardaccount')->with('LoginNotif', $msg);
+    public function login(Request $reqData){   
+        $user = $this->db->where('email', '==', $reqData->email)->first();
+        if($user){
+            if(Hash::check($reqData->password, $user->password)){
+                $reqData->session()->put('loginId', $user->id);
+                return redirect()->route('dashboardaccount');
+            } else{
+                return redirect()->route('index');
+            }
         } else{
             return redirect()->route('index');
         }
     }
 
-    public function login(REQSTCAMP $reqData){
-        if($reqData->session()->get('uid')==""){
-            return redirect()->route('index');
-        } else {
-            $username = $reqData->session()->get('uname');
-            $siswaID = $reqData->session()->get('usid');
-            $email = $reqData->session()->get('uemail');
-            $capsule = [
-                'username' => $username,
-                'siswaID' => $siswaID,
-                'email' => $email
-            ];
-            return redirect()->route('dashboardaccount')->with($capsule);
+    public function dashboardaccount()
+    {
+        $data = array();
+        if (Session::has('loginId')) {
+            $data = $this->db->where('email', '==', Session::get('loginId'))->first();
         }
+        return view('general.dashboard', compact('data'));
     }
 
     public function logout(){
-        Auth::logout();
-        $msg=" Anda telah berhasil keluar dari keseluruhan aktivitas menu utama STCAMP404!!";
-        return redirect()->route('index')->with('LogoutNotif', $msg);
+        if ($this->db::has('loginId')) {
+            Session::pull('loginId');
+            $msg = " Anda telah berhasil keluar dari keseluruhan aktivitas menu utama STCAMP404!!";
+            return redirect()->route('index')->with('LogoutNotif', $msg);
+        }
     }
 
     public function regUser(REQSTCAMP $reqData)
