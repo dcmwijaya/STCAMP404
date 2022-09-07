@@ -192,31 +192,50 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-2">
-                      <div class="col-md-12 mt-2">
-                        <label for="exampleUpdateName"><i class="bi bi-person me-1"></i> Nama Pengguna</label>
-                        <input type="text" class="form-control" name="name" id="exampleUpdateName" placeholder="Ubah nama anda..." required>
-                      </div>
-                      <div class="col-md-12 mt-4">
-                        <label for="exampleUpdateEmail"><i class="bi bi-envelope me-1"></i> Email Pengguna</label>
-                        <input type="email" class="form-control" name="email" id="exampleUpdateEmail" aria-describedby="emailHelp" placeholder="Ubah email anda..." required>
-                      </div>
-                      <div class="col-md-12 mt-4">
-                        <label for="exampleUpdatePassword"><i class="bi bi-key me-1"></i> Kata Sandi</label>
-                        <input type="password" class="form-control" name="password" id="exampleUpdatePassword" placeholder="Ubah kata sandi anda..." required>
-                      </div>
+                    <form class="row g-2" action="" method="POST">
+                        <div class="col-md-12 mt-2">
+                            <label for="prfname"><i class="bi bi-person me-1"></i> Ubah Nama Pengguna</label>
+                            <input type="text" class="form-control mt-2" name="name" id="prfname" value="{{ $LogUser->name }}" placeholder="Ubah nama anda..." required>
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <label for="prfemail"><i class="bi bi-envelope me-1"></i> Ubah Email Pengguna</label>
+                            <input type="email" class="form-control mt-2" name="email" id="prfemail" value="{{ $LogUser->email }}" placeholder="Ubah email anda..." required>
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <label for="prfpassword"><i class="bi bi-key me-1"></i> Ubah Kata Sandi</label>
+                            <div class="input-group mb-3 mt-2">
+                                <button onclick="ShowPassProfile()" class="btn btn-outline-secondary mt-2" type="button">
+                                    <i class="bi bi-eye-fill"></i>
+                                </button>
+                                <input type="password" class="form-control mt-2" name="password" id="prfpassword" value="{{ null }}" placeholder="Ubah kata sandi anda..." required>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="modal-footer bg-success mt-2">
+                            <a type="button" class="btn btn-secondary btn-sm btncancel text-light" data-bs-dismiss="modal">
+                            <i class="bi bi-person-x me-1"></i> Batal</a>
+                            <a type="submit" class="btn btn-primary btn-sm btnacc text-light" id="ToastDefault6">
+                            <i class="bi bi-person-check me-1"></i> Setuju</a>
+                        </div>
                     </form>
-                </div>
-                <div class="modal-footer bg-success mt-2">
-                    <a type="button" class="btn btn-secondary btn-sm btncancel text-light" data-bs-dismiss="modal">
-                    <i class="bi bi-person-x me-1"></i> Batal</a>
-                    <a type="submit" class="btn btn-primary btn-sm btnacc text-light" id="ToastDefault6">
-                    <i class="bi bi-person-check me-1"></i> Setuju</a>
                 </div>
             </div>
         </div>
     </div>
     <!-- Akhir Pop Up Modal 2-->
+
+    <!-- Show Password-->
+    <script>
+        function ShowPassProfile() {
+            var x = document.getElementById("prfpassword");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+    <!-- Akhir Show Password-->
 
     <!-- Toast 6 -->
     <div class="toast-container position-fixed bottom-0 end-0 p-3">

@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DBS as DB;
+use App\Models\DBS as DBS;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
 {
-    public function __construct(DB $db)
+    public function __construct(DBS $db)
     {
         $this->db = $db;
     }

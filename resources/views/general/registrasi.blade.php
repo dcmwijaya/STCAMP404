@@ -47,7 +47,7 @@
                 <label for="password"><i class="bi bi-key me-1"></i> Kata Sandi</label>
                 <div class="input-group mb-3 mt-2">
                     <button onclick="ShowPassRegister()" class="btn btn-outline-secondary" type="button">
-                    <i class="bi bi-eye-fill"></i>
+                        <i class="bi bi-eye-fill"></i>
                     </button>
                     <input id="rpassword" type="password" class="form-control @error('rpassword') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Masukan kata sandi anda...">
                     @error('rpassword')
@@ -67,7 +67,7 @@
                 <label for="password-confirm"><i class="bi bi-key me-1"></i> Konfirmasi Sandi</label>
                 <div class="input-group mb-3 mt-2">
                     <button onclick="ShowPassConfirmRegister()" class="btn btn-outline-secondary" type="button">
-                    <i class="bi bi-eye-fill"></i>
+                        <i class="bi bi-eye-fill"></i>
                     </button>
                     <input id="rpassword-confirm" type="password" class="form-control @error('rpassword') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password" placeholder="Konfirmasi kata sandi anda...">
                 </div>

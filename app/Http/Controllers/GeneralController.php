@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\DBU as DB;
+use App\Models\DBU as DBU;
 use App\Http\Requests\REQSTCAMP;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 
 class GeneralController extends Controller
 {
-    public function __construct(DB $db)
+    public function __construct(DBU $db)
     {
         $this->db = $db;
     }
@@ -53,12 +53,15 @@ class GeneralController extends Controller
 
     public function dashboardaccount()
     {
-        $LogUser = array();
         if (Session::has('loginId')) {
             $LogUser = $this->db->where('id', '=', Session::get('loginId'))->first();
         }
 
-        return view('general.dashboard', compact('LogUser'));
+        $Data = [
+            'LogUser' => $LogUser
+        ];
+
+        return view('general.dashboard', $Data);
     }
 
     public function logout(){
