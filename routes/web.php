@@ -20,11 +20,12 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 // Route Menu
-Route::get('/', [GeneralController::class, 'home'])->name('index');
-Route::get('/home', [GeneralController::class, 'home'])->name('home');
+Route::get('/', [GeneralController::class, 'index'])->name('index');
+Route::get('/home', [GeneralController::class, 'home'])->name('home')->middleware('isLoggedIn');
 Route::get('/info-kegiatan', [GeneralController::class, 'infokegiatan'])->name('infokegiatan');
 Route::get('/registrasi', [GeneralController::class, 'register'])->name('registrasi');
 Route::post('/registrasiUser', [GeneralController::class, 'regUser'])->name('regUser');
+Route::post('/updateprofile', [GeneralController::class, 'updprofile'])->name('updprofile');
 Route::get('/forgetUser', [GeneralController::class, 'forgetUser'])->name('forgetUser');
 Route::post('/resetUser', [GeneralController::class, 'resetUser'])->name('resetUser');
 Route::get('/dashboard', [GeneralController::class, 'dashboardaccount'])->name('dashboardaccount')->middleware('isLoggedIn');

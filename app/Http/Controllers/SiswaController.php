@@ -12,12 +12,20 @@ class SiswaController extends Controller
         $this->db = $db;
     }
 
-    public function index()
+    public function index(Request $reqdata)
     {
-        $rDB = $this->db->all();
-        $data = [
-            'data' => $rDB
-        ];
+        if ($reqdata->has('search')) {
+            $search = $this->db->where('nis', 'LIKE', '%' . $reqdata->search . '%')->orWhere('nama_siswa', 'LIKE', '%' . $reqdata->search . '%')->orWhere('pelatihan', 'LIKE', '%' . $reqdata->search . '%')->orWhere('created_at', 'LIKE', '%' . $reqdata->search . '%');
+            $searchData = $search->paginate(5);
+            $data = [
+                'data' => $searchData
+            ];
+        } else {
+            $readDB = $this->db->paginate(5);
+            $data = [
+                'data' => $readDB
+            ];
+        }
         return view('siswa.datasiswa', $data);
     }
 

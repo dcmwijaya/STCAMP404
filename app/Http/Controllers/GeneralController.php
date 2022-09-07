@@ -16,6 +16,11 @@ class GeneralController extends Controller
         $this->db = $db;
     }
 
+    public function index()
+    {
+        return view('index');
+    }
+
     public function home()
     {
         return view('index');
@@ -59,9 +64,22 @@ class GeneralController extends Controller
 
         $Data = [
             'LogUser' => $LogUser
+            // 'decryptpassword' => decrypt($LogUser->password)
         ];
 
         return view('general.dashboard', $Data);
+    }
+
+    public function updprofile(Request $reqdata)
+    {
+        $findID = $this->db->where('id', '=', Session::get('loginId'))->first();
+        $findID->update([
+            'name' => $reqdata->name,
+            'email' => $reqdata->email,
+            'password' => bcrypt($reqdata->password)
+        ]);
+        $msg = ' Selamat anda berhasil mengubah data profil!!';
+        return redirect()->route('dashboardaccount')->with('updateProfileNotif', $msg);
     }
 
     public function logout(){

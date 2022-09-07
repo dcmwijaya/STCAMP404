@@ -11,6 +11,15 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+    <!-- Session Alert Update Profile -->
+    @if ($msgUpdProf = Session::get('updateProfileNotif'))
+        <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+            <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
+                {{ $msgUpdProf }}
+            </small>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <br>    
     <div class="row row-cols-1 row-cols-md-2 g-4">
         <div class="col">
@@ -192,7 +201,8 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-2" action="" method="POST">
+                    <form class="row g-2" action="{{ url('/updateprofile') }}" method="POST">
+                        @csrf
                         <div class="col-md-12 mt-2">
                             <label for="prfname"><i class="bi bi-person me-1"></i> Ubah Nama Pengguna</label>
                             <input type="text" class="form-control mt-2" name="name" id="prfname" value="{{ $LogUser->name }}" placeholder="Ubah nama anda..." required>
@@ -207,15 +217,17 @@
                                 <button onclick="ShowPassProfile()" class="btn btn-outline-secondary mt-2" type="button">
                                     <i class="bi bi-eye-fill"></i>
                                 </button>
-                                <input type="password" class="form-control mt-2" name="password" id="prfpassword" value="{{ null }}" placeholder="Ubah kata sandi anda..." required>
+                                <input type="password" class="form-control mt-2" name="password" id="prfpassword" 
+                                    {{-- value="{{ $decryptpassword }}" --}}
+                                placeholder="Ubah kata sandi anda..." required>
                             </div>
                         </div>
                     </div>
                         <div class="modal-footer bg-success mt-2">
                             <a type="button" class="btn btn-secondary btn-sm btncancel text-light" data-bs-dismiss="modal">
                             <i class="bi bi-person-x me-1"></i> Batal</a>
-                            <a type="submit" class="btn btn-primary btn-sm btnacc text-light" id="ToastDefault6">
-                            <i class="bi bi-person-check me-1"></i> Setuju</a>
+                            <button type="submit" class="btn btn-primary btn-sm btnacc text-light">
+                            <i class="bi bi-person-check me-1"></i> Setuju</button>
                         </div>
                     </form>
                 </div>
@@ -236,30 +248,4 @@
         }
     </script>
     <!-- Akhir Show Password-->
-
-    <!-- Toast 6 -->
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="DefToast6" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header bg-success">
-                <strong class="me-auto text-light"><i class="bi bi-exclamation-octagon"></i> STCAMP404</strong>
-                <small class="text-light">informasi</small>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-                <i class="bi bi-caret-right-fill"></i> Fungsi belum ditambahkan oleh admin!
-            </div>
-        </div>
-    </div>
-    <!-- Akhir Toast 6 -->
-
-    <script>
-        const toastTrigger6 = document.getElementById('ToastDefault6')
-        const toastLiveExample6 = document.getElementById('DefToast6')
-        if (toastTrigger6) {
-            toastTrigger6.addEventListener('click', () => {
-                const toast6 = new bootstrap.Toast(toastLiveExample6)
-                toast6.show()
-            })
-        }
-    </script>
 @endsection

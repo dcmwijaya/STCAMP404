@@ -8,11 +8,13 @@
             <div class="col-sm-12 mt-4">
                 <form class="d-flex">
                     <div class="col-sm-8">
-                        <a class="btn btn-outline-info text-dark me-4" role="group" data-bs-toggle="modal" data-bs-target="#Modal6">
-                            <i class="bi bi-person-plus-fill me-1"></i> Tambah</a>
+                        <a class="btn btn-outline-info text-dark me-2" role="group" data-bs-toggle="modal" data-bs-target="#ModalAdd"><i class="bi bi-person-plus-fill me-1"></i> Tambah</a>
+                        <a class="btn btn-outline-info text-dark" role="group" href="{{ url('/data-siswa') }}"><i class="bi bi-arrow-clockwise me-1"></i> Refresh</a>
                     </div>
-                    <input class="form-control me-2" type="search" placeholder="Cari Data Siswa...." aria-label="Search">
-                    <button class="btn btn-outline-success btn-group" role="group" id="ToastDefault10"><i class="bi bi-search me-1"></i> Cari</button>
+                    <form action="{{ url('/data-siswa') }}" method="GET">
+                        <input class="form-control me-2" type="search" name="search" placeholder="Cari Data Siswa...." aria-label="Search">
+                        <button type="submit" class="btn btn-outline-success btn-group" role="group"><i class="bi bi-search me-1"></i> Cari</button>
+                    </form>
                 </form>
             </div>
         </div>
@@ -46,20 +48,13 @@
             @endforeach
         </tbody>
     </table>
+    {{ $data->links() }}
 
-    <nav aria-label="Page navigation example">
-        <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#"><<</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">>></a></li>
-        </ul>
-    </nav>
+
 
     <!-- Bagian Siswa Modal -->
-     <!-- Pop Up Modal 6-->
-    <div class="modal fade modalmenu" id="Modal6" tabindex="-1" aria-labelledby="Modal6Label" aria-hidden="true">
+     <!-- Pop Up Modal Add-->
+    <div class="modal fade modalmenu" id="ModalAdd" tabindex="-1" aria-labelledby="ModalAddLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-success text-light">
@@ -67,63 +62,39 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-2">
+                    <form class="row g-2" action="{{ url('/data-siswa/add') }}" method="POST">
+                      @csrf
+                      <input name="nis" type="hidden" 
+                        {{-- value="{{ $LogUser->siswa_id}}" --}}
+                      id="AddNis">
                       <div class="col-md-12 mt-2">
-                        <label for="exampleCreateName"><i class="bi bi-person me-1"></i> Nama Pengguna</label>
-                        <input type="name" class="form-control mt-2" id="exampleCreateName" placeholder="Masukan nama lengkap anda...">
+                        <label for="AddName"><i class="bi bi-person me-1"></i> Nama Pengguna</label>
+                        <input type="name" class="form-control mt-2" name="nama_siswa" id="AddName" placeholder="Masukan nama lengkap anda...">
                       </div>
                       <div class="col-md-12 mt-4">
-                        <label for="exampleCreateCamp"><i class="bi bi-award me-1"></i> Pelatihan</label>
+                        <label for="AddExercise"><i class="bi bi-award me-1"></i> Pelatihan</label>
                         <div class="input-group mb-3 mt-2">
-                            <label class="input-group-text" for="inputGroupSelect01">
+                            <label class="input-group-text" for="AddExercise">
                                 <small class="text-sm">Opsi:</small>
                             </label>
-                            <select class="form-select text-sm" id="inputGroupSelect01">
-                                <option value="1" selected class="text-sm">Bootstrap 5</option>
-                                <option value="2" class="text-sm">Git</option>
-                                <option value="3" class="text-sm">Laravel 8</option>
-                                <option value="4" class="text-sm">Codeigniter 4</option>
+                            <select class="form-select text-sm" name="pelatihan" id="AddExercise">
+                                <option value="Bootstrap 5" selected class="text-sm">Bootstrap 5</option>
+                                <option value="Git" class="text-sm">Git</option>
+                                <option value="Laravel 8" class="text-sm">Laravel 8</option>
+                                <option value="Codeigniter 4" class="text-sm">Codeigniter 4</option>
                             </select>
                         </div>
                       </div>
-                    </form>
-                </div>
-                <div class="modal-footer bg-success mt-2">
-                    <a type="button" class="btn btn-secondary btn-sm btncancel text-light" data-bs-dismiss="modal">
-                    <i class="bi bi-person-x me-1"></i> Batal</a>
-                    <a type="submit" class="btn btn-primary btn-sm btnacc text-light" id="ToastDefault11">
-                    <i class="bi bi-person-check me-1"></i> Setuju</a>
-                </div>
+                    </div>
+                    <div class="modal-footer bg-success mt-2">
+                        <a type="button" class="btn btn-secondary btn-sm btncancel text-light" data-bs-dismiss="modal">
+                        <i class="bi bi-person-x me-1"></i> Batal</a>
+                        <button type="submit" class="btn btn-primary btn-sm btnacc text-light">
+                        <i class="bi bi-person-check me-1"></i> Setuju</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-    <!-- Akhir Pop Up Modal 3-->
-
-    <!-- Bagian Siswa Toast -->
-    <!-- Toast 11 -->
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="DefToast11" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header bg-success">
-                <strong class="me-auto text-light"><i class="bi bi-exclamation-octagon"></i> STCAMP404</strong>
-                <small class="text-light">informasi</small>
-                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-                <i class="bi bi-caret-right-fill"></i> Fungsi belum ditambahkan oleh admin!
-            </div>
-        </div>
-    </div>
-    <!-- Akhir Toast 11 -->
-
-    <script>
-        // Bagian Siswa
-        const toastTrigger11 = document.getElementById('ToastDefault11')
-        const toastLiveExample11 = document.getElementById('DefToast11')
-        if (toastTrigger11) {
-            toastTrigger11.addEventListener('click', () => {
-                const toast11 = new bootstrap.Toast(toastLiveExample11)
-                toast11.show()
-            })
-        }
-    </script>
+    <!-- Akhir Pop Up Modal Add-->
 @endsection
