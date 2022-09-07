@@ -22,13 +22,16 @@
             Pembelajaran akan slalu kami update menyesuaikan kebutuhan industri saat ini.
             Jadi tunggu apa lagi ??
         </p>
-        @if($LogUser->role=='admin')
+        {{-- @if($LogUser->role=='admin')
             <a href="{{ url('/data-pelatihan') }}" class="btn btn-outline-success btn-ds me-3"><i class="bi bi-bar-chart-steps me-1"></i> Data Pelatihan</a>
             <a href="{{ url('/info-kegiatan') }}" class="btn btn-outline-success btn-ik"><i class="bi bi-megaphone-fill me-1"></i> Info Kegiatan</a>
         @elseif($LogUser->role=='siswa')
             <a href="{{ url('/data-siswa') }}" class="btn btn-outline-success btn-ds me-3"><i class="bi bi-bar-chart-steps me-1"></i> Data Siswa</a>
             <a href="{{ url('/info-kegiatan') }}" class="btn btn-outline-success btn-ik"><i class="bi bi-megaphone-fill me-1"></i> Info Kegiatan</a>
-        @endif
+        @endif --}}
+        <a href="{{ url('/data-pelatihan') }}" class="btn btn-outline-success btn-ds me-3"><i class="bi bi-bar-chart-steps me-1"></i> Data Pelatihan</a>
+        <a href="{{ url('/data-siswa') }}" class="btn btn-outline-success btn-ds me-3"><i class="bi bi-bar-chart-steps me-1"></i> Data Siswa</a>
+        <a href="{{ url('/info-kegiatan') }}" class="btn btn-outline-success btn-ik"><i class="bi bi-megaphone-fill me-1"></i> Info Kegiatan</a>
     </div>
     <!-- Jumbotron Akhir -->
 
