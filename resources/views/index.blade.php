@@ -23,12 +23,12 @@
             Jadi tunggu apa lagi ??
         </p>
         {{-- @if($LogUser->role=='admin')
-            <a href="{{ url('/data-pelatihan') }}" class="btn btn-md btn-outline-success btn-ik col-md-2"><i class="bi bi-bar-chart-steps me-1"></i> Data Pelatihan</a>
+            <a href="{{ url('/data-pelatihan') }}" class="btn btn-md btn-outline-success btn-ik col-md-2"><i class="bi bi-clipboard-data-fill me-1"></i> Manajemen Data Pelatihan</a>
         @endif
         @if($LogUser->role=='siswa')
             <a href="{{ url('/data-siswa') }}" class="btn btn-md btn-outline-success btn-ik col-md-2"><i class="bi bi-bar-chart-steps me-1"></i> Data Siswa</a>
         @endif --}}
-        <a href="{{ url('/data-pelatihan') }}" class="btn btn-md btn-outline-success btn-ik col-md-2"><i class="bi bi-bar-chart-steps me-1"></i> Data Pelatihan</a>
+        <a href="{{ url('/data-pelatihan') }}" class="btn btn-md btn-outline-success btn-ik col-md-3"><i class="bi bi-clipboard-data-fill me-1"></i> Manajemen Data Pelatihan</a>
         <a href="{{ url('/data-siswa') }}" class="btn btn-md btn-outline-success btn-ik col-md-2"><i class="bi bi-bar-chart-steps me-1"></i> Data Siswa</a>
         <a href="{{ url('/info-kegiatan') }}" class="btn btn-md btn-outline-success btn-ik col-md-2"><i class="bi bi-megaphone-fill me-1"></i> Info Kegiatan</a>
     </div>

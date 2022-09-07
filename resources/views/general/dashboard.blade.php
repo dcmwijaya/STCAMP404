@@ -152,9 +152,9 @@
                                 </div>
                                 @if($LogUser->role=='admin')
                                     <div class="col">
-                                        <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Data Pelatihan 
+                                        <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Manajemen Data Pelatihan 
                                             <a class="btn btn-sm btn-outline-success" href="{{ url('/data-pelatihan') }}">
-                                        <i class="bi bi-bar-chart-steps"></i></a></small></p>
+                                        <i class="bi bi-clipboard-data-fill"></i></a></small></p>
                                     </div>
                                 @endif
                                 @if($LogUser->role=='siswa')

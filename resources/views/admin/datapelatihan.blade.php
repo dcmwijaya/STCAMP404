@@ -2,7 +2,7 @@
 
 @section('container')
     <!-- Bagian Admin -->
-    <h1><i class="bi bi-bar-chart-steps me-1"></i> Data Siswa</h1><hr><br>
+    <h1><i class="bi bi-clipboard-data-fill me-1"></i> Manajemen Data Pelatihan</h1><hr><br>
     <div class="table-title">
         <div class="row">
             <div class="col"><caption> Data Pelatihan Siswa STCAMP404 :</caption></div>
