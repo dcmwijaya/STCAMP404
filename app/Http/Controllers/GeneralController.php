@@ -44,19 +44,21 @@ class GeneralController extends Controller
                 $msg = " Anda berhasil masuk, selamat datang di menu utama STCAMP404!!";
                 return redirect()->route('dashboardaccount')->with('LoginNotif', $msg);
             } else{
-                return redirect()->route('index');
+                return redirect()->route('registrasi');
             }
         } else{
-            return redirect()->route('index');
+            return redirect()->route('registrasi');
         }
     }
 
     public function dashboardaccount()
     {
+        $LogUser = array();
         if (Session::has('loginId')) {
-            $data = array($this->db->where('email', '=', Session::get('loginId'))->first());
+            $LogUser = $this->db->where('id', '=', Session::get('loginId'))->first();
         }
-        return view('general.dashboard', $data);
+
+        return view('general.dashboard', compact('LogUser'));
     }
 
     public function logout(){

@@ -15,8 +15,11 @@
         </li>
       </ul>
       <form class="d-flex">
-        <a class="btn btn-outline-success masuk" data-bs-toggle="modal" data-bs-target="#ModalLogin"><i class="bi bi-door-open me-1"></i> Masuk</a>
-        <a class="btn btn-outline-success keluar" href="{{ url('/logout') }}"><i class="bi bi-door-closed me-1"></i> Keluar</a>
+        @if($LogUser->role=='admin' && $LogUser->role=='siswa')
+          <a class="btn btn-outline-success keluar" href="{{ url('/logout') }}"><i class="bi bi-door-closed me-1"></i> Keluar</a>
+        @else
+          <a class="btn btn-outline-success masuk" data-bs-toggle="modal" data-bs-target="#ModalLogin"><i class="bi bi-door-open me-1"></i> Masuk</a>
+        @endif
       </form>
     </div>
   </div>

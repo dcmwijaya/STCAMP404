@@ -10,7 +10,7 @@ class AuthCheck
     public function handle(Request $reqData, Closure $next)
     {
         if(!Session()->has('loginId')){
-            return redirect()->route('index');
+            return redirect()->route('registrasi');
         }
         return $next($reqData);
     }

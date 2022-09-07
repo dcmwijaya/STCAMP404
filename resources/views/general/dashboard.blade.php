@@ -6,7 +6,6 @@
     @if ($msgLogin = Session::get('LoginNotif'))
         <div class="alert alert-info alert-dismissible fade show mt-4" role="alert">
             <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
-                {{-- <strong>{{  $username !! }}</strong> --}}
                 {{ $msgLogin }}
             </small>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -23,18 +22,34 @@
                     <div class="col">
                         <div class="card-body">
                             <h5 class="card-title">Profil Pengguna</h5><hr>
-                            <p class="card-text mt-2">
-                                <strong><i class="bi bi-building me-1"></i> Nomor Induk Siswa :</strong><br>
-                                {{-- {{ $siswaID }} --}}
-                            </p>
-                            <p class="card-text mt-2">
-                                <strong><i class="bi bi-person me-1"></i> Nama :</strong><br>
-                                {{-- {{ $username }} --}}
-                            </p>
-                            <p class="card-text mt-2">
-                                <strong><i class="bi bi-envelope me-1"></i> Email :</strong><br>
-                                {{-- {{ $email }} --}}
-                            </p>
+                            @if($LogUser->role=='admin')
+                                <p class="card-text mt-2">
+                                    <strong><i class="bi bi-building me-1"></i> Status :</strong><br>
+                                    <span class="text-uppercase">{{ $LogUser->role }}</span>
+                                </p>
+                                <p class="card-text mt-2">
+                                    <strong><i class="bi bi-person me-1"></i> Nama Admin :</strong><br>
+                                    <span class="text-capitalize">{{ $LogUser->name }}</span>
+                                </p>
+                                <p class="card-text mt-2">
+                                    <strong><i class="bi bi-envelope me-1"></i> Email :</strong><br>
+                                    <span class="text-lowercase">{{ $LogUser->email }}</span>
+                                </p>
+                            @endif
+                            @if($LogUser->role=='siswa')
+                                <p class="card-text mt-2">
+                                    <strong><i class="bi bi-building me-1"></i> Nomor Induk Siswa :</strong><br>
+                                    <span class="text-lowercase">{{ $LogUser->siswa_id }}</span>
+                                </p>
+                                <p class="card-text mt-2">
+                                    <strong><i class="bi bi-person me-1"></i> Nama Siswa :</strong><br>
+                                    <span class="text-capitalize">{{ $LogUser->name }}</span>
+                                </p>
+                                <p class="card-text mt-2">
+                                    <strong><i class="bi bi-envelope me-1"></i> Email :</strong><br>
+                                    <span class="text-lowercase">{{ $LogUser->email }}</span>
+                                </p>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -110,7 +125,7 @@
     </div>
     <div class="row">
         <div class="col-md-12 mt-5">
-            <h5><i class="bi bi-grid-1x2-fill me-1"></i> Pengaturan</h5><hr><br>
+            <h5><i class="bi bi-grid-1x2-fill me-1"></i> Menu Utama</h5><hr><br>
             <div class="accordion" id="accordionExample">
                 <div class="accordion-item">
                     <h3 class="accordion-header" id="headingOne">
@@ -126,16 +141,20 @@
                                         <a class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#Modal2">
                                     <i class="bi bi-person-bounding-box"></i></a></small></p>
                                 </div>
-                                <div class="col">
-                                    <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Data Pelatihan 
-                                        <a class="btn btn-sm btn-outline-success" href="{{ url('/data-pelatihan') }}">
-                                    <i class="bi bi-bar-chart-steps"></i></a></small></p>
-                                </div>
-                                <div class="col">
-                                    <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Data Siswa 
-                                        <a class="btn btn-sm btn-outline-success" href="{{ url('/data-siswa') }}">
-                                    <i class="bi bi-bar-chart-steps"></i></a></small></p>
-                                </div>
+                                @if($LogUser->role=='admin')
+                                    <div class="col">
+                                        <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Data Pelatihan 
+                                            <a class="btn btn-sm btn-outline-success" href="{{ url('/data-pelatihan') }}">
+                                        <i class="bi bi-bar-chart-steps"></i></a></small></p>
+                                    </div>
+                                @endif
+                                @if($LogUser->role=='siswa')
+                                    <div class="col">
+                                        <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Data Siswa 
+                                            <a class="btn btn-sm btn-outline-success" href="{{ url('/data-siswa') }}">
+                                        <i class="bi bi-bar-chart-steps"></i></a></small></p>
+                                    </div>
+                                @endif
                                 <div class="col">
                                     <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Info Pelatihan 
                                         <a class="btn btn-sm btn-outline-success" href="{{ url('/info-kegiatan') }}">
@@ -145,19 +164,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="accordion-item">
-                    <h3 class="accordion-header" id="headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        <i class="bi bi-caret-right-fill me-1"></i> Pelatihan yang diikuti
-                    </button>
-                    </h3>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                        <div class="accordion-body mt-2">
-                            <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Pelatihan_Dummy_1</small></p>
-                            <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Pelatihan_Dummy_2</small></p>
+                @if($LogUser->role=='siswa')
+                    <div class="accordion-item">
+                        <h3 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <i class="bi bi-caret-right-fill me-1"></i> Pelatihan yang diikuti
+                        </button>
+                        </h3>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body mt-2">
+                                <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Pelatihan_Dummy_1</small></p>
+                                <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Pelatihan_Dummy_2</small></p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>
