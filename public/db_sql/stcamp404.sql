@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Sep 2022 pada 22.14
+-- Waktu pembuatan: 09 Sep 2022 pada 02.52
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.4.15
 
@@ -75,27 +75,6 @@ CREATE TABLE `password_resets` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `pelatihan`
---
-
-CREATE TABLE `pelatihan` (
-  `id` int(11) NOT NULL,
-  `nama_pelatihan` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `pelatihan`
---
-
-INSERT INTO `pelatihan` (`id`, `nama_pelatihan`) VALUES
-(1, 'Bootstrap 5'),
-(2, 'Git'),
-(3, 'Laravel 8'),
-(4, 'Codeigniter 4');
-
--- --------------------------------------------------------
-
---
 -- Struktur dari tabel `personal_access_tokens`
 --
 
@@ -118,7 +97,7 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 CREATE TABLE `siswa` (
-  `id` bigint(20) UNSIGNED NOT NULL,
+  `id_pelatihan` bigint(20) UNSIGNED NOT NULL,
   `nis` int(11) DEFAULT NULL,
   `nama_siswa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pelatihan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -130,7 +109,7 @@ CREATE TABLE `siswa` (
 -- Dumping data untuk tabel `siswa`
 --
 
-INSERT INTO `siswa` (`id`, `nis`, `nama_siswa`, `pelatihan`, `created_at`, `updated_at`) VALUES
+INSERT INTO `siswa` (`id_pelatihan`, `nis`, `nama_siswa`, `pelatihan`, `created_at`, `updated_at`) VALUES
 (1, 20220101, 'Jadiyan Marto', 'Codeigniter 4', '2022-09-04 12:02:25', '2022-09-04 12:02:25'),
 (2, 20220102, 'Chondro Aminoto', 'Git', '2022-09-04 12:04:25', '2022-09-04 12:04:25'),
 (3, 20220103, 'Gatot Subroto', 'Laravel 8', '2022-09-04 12:06:25', '2022-09-04 12:06:25'),
@@ -138,7 +117,9 @@ INSERT INTO `siswa` (`id`, `nis`, `nama_siswa`, `pelatihan`, `created_at`, `upda
 (5, 20220106, 'Adinda Putri', 'Git', '2022-09-04 12:50:56', '2022-09-05 05:26:11'),
 (6, 20220107, 'Rezkya Aninda Putri', 'Bootstrap 5', '2022-09-04 13:06:00', '2022-09-04 13:06:00'),
 (7, 20220108, 'Tasya Ardhian Nisaa', 'Git', '2022-09-04 19:51:41', '2022-09-04 19:51:41'),
-(8, 20220109, 'Ayulia Mangunagara', 'Laravel 8', '2022-09-05 05:26:52', '2022-09-05 14:24:34');
+(8, 20220109, 'Ayulia Mangunagara', 'Laravel 8', '2022-09-05 05:26:52', '2022-09-05 14:24:34'),
+(9, 20220101, 'Jadiyan Marto', 'Laravel 8', '2022-09-08 18:17:48', '2022-09-08 18:17:48'),
+(10, 20220101, 'Jadiyan Marto', 'Git', '2022-09-08 19:47:57', '2022-09-08 19:47:57');
 
 -- --------------------------------------------------------
 
@@ -195,12 +176,6 @@ ALTER TABLE `password_resets`
   ADD KEY `password_resets_email_index` (`email`);
 
 --
--- Indeks untuk tabel `pelatihan`
---
-ALTER TABLE `pelatihan`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indeks untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
@@ -212,7 +187,7 @@ ALTER TABLE `personal_access_tokens`
 -- Indeks untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_pelatihan`);
 
 --
 -- Indeks untuk tabel `users`
@@ -238,12 +213,6 @@ ALTER TABLE `migrations`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `pelatihan`
---
-ALTER TABLE `pelatihan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
 -- AUTO_INCREMENT untuk tabel `personal_access_tokens`
 --
 ALTER TABLE `personal_access_tokens`
@@ -253,7 +222,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_pelatihan` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
