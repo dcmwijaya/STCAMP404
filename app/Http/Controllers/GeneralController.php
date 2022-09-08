@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\DBU as DBU;
+use App\Models\DBS as DBS;
 use App\Http\Requests\REQSTCAMP;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -9,9 +10,10 @@ use Illuminate\Support\Facades\Session;
 
 class GeneralController extends Controller
 {
-    public function __construct(DBU $db)
+    public function __construct(DBU $dbu, DBS $dbs)
     {
-        $this->db = $db;
+        $this->db = $dbu;
+        $this->dbs = $dbs;
     }
 
     public function index()
@@ -69,10 +71,23 @@ class GeneralController extends Controller
     {
         if (Session::has('LogSession')) {
             $LogUser = $this->db->where('id', '=', Session::get('LogSession'))->first();
-        }   
+            $IdPelUser = $this->dbs->where('id_pelatihan', '=', Session::get('LogSession'))->get();
+            $PelUser = $this->dbs->select('pelatihan')->where('nis', '=', $LogUser->siswa_id)->distinct()->get();
+        }
+
+        $CountBootstrap8 = $this->dbs->where('pelatihan', 'Bootstrap 5')->count();
+        $CountGit = $this->dbs->where('pelatihan', 'Git')->count();
+        $CountLaravel8 = $this->dbs->where('pelatihan', 'Laravel 8')->count();
+        $CountCodeigniter4 = $this->dbs->where('pelatihan', 'Codeigniter 4')->count();
+
         $Data = [
-            'LogUser' => $LogUser
-            // 'decryptpassword' => decrypt($LogUser->password)
+            'Cbt' => $CountBootstrap8,
+            'Cgt' => $CountGit,
+            'Clr' => $CountLaravel8,
+            'Cci' => $CountCodeigniter4,
+            'LogUser' => $LogUser,
+            'IdPelUser' => $IdPelUser,
+            'PelUser' => $PelUser
         ];
 
         return view('general.dashboard', $Data);

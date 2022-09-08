@@ -9,13 +9,9 @@
             <div class="col-sm-12 mt-4">
                 <form class="d-flex">
                     <div class="col-sm-8">
-                        <a class="btn btn-outline-info text-dark me-2" role="group" data-bs-toggle="modal" data-bs-target="#ModalAdd"><i class="bi bi-person-plus-fill me-1"></i> Tambah</a>
+                        <a class="btn btn-outline-info text-dark me-2" role="group" data-bs-toggle="modal" data-bs-target="#ModalAdd"><i class="bi bi-person-plus-fill me-1"></i> Daftar</a>
                         <a class="btn btn-outline-info text-dark" role="group" href="{{ url('/data-siswa') }}"><i class="bi bi-arrow-clockwise me-1"></i> Refresh</a>
                     </div>
-                    <form action="{{ url('/data-siswa') }}" method="GET">
-                        <input class="form-control me-2" type="search" name="search" placeholder="Cari Data Siswa...." aria-label="Search">
-                        <button type="submit" class="btn btn-outline-success btn-group" role="group"><i class="bi bi-search me-1"></i> Cari</button>
-                    </form>
                 </form>
             </div>
         </div>
@@ -28,20 +24,17 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    <table class="table table-striped table-hover table-bordered caption-top mt-3 col-sm-12 table-responsive">
+    <table class="table table-striped table-hover table-bordered caption-top mt-5 col-sm-12 table-responsive">
         <thead class="table-success">
             <tr>
-                <th scope="col">No</th>
                 <th scope="col">Nomor Induk Siswa</th>
                 <th scope="col">Pelatihan yang diikuti</th>
                 <th scope="col">Waktu Daftar</th>
             </tr>
         </thead>
         <tbody>
-            <?php $i=1; ?>
-            @foreach($data as $v)
+            @foreach($value as $v)
             <tr>
-                <td scope="row">{{ $i++ }}</td>
                 <td>{{ $v->nis }}</td>
                 <td>{{ $v->pelatihan }}</td>
                 <td>{{ $v->created_at }}</td>
@@ -49,28 +42,32 @@
             @endforeach
         </tbody>
     </table>
-    {{ $data->links() }}
+    {{ $value->links() }}
 
 
 
     <!-- Bagian Siswa Modal -->
-     <!-- Pop Up Modal Add-->
+    <!-- Pop Up Modal Add-->
+    @foreach($value as $v)
     <div class="modal fade modalmenu" id="ModalAdd" tabindex="-1" aria-labelledby="ModalAddLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-success text-light">
-                    <h5 class="modal-title"><i class="bi bi-person-plus-fill me-1"></i> Tambah Data</h5>
+                    <h5 class="modal-title"><i class="bi bi-person-plus-fill me-1"></i> Daftar Pelatihan</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form class="row g-2" action="{{ url('/data-siswa/add') }}" method="POST">
                       @csrf
-                      <input name="nis" type="hidden" 
-                        {{-- value="{{ $LogUser->siswa_id}}" --}}
-                      id="AddNis">
-                      <div class="col-md-12 mt-2">
+                      <div class="col-md-12 mt-3">
+                        <label for="AddName"><i class="bi bi-building me-1"></i> Nomor Induk Siswa</label>
+                        <input type="text" class="form-control mt-2" value="{{ $v->nis }}" disabled>
+                        <input type="hidden" class="form-control mt-2" name="nis" value="{{ $v->nis }}">
+                      </div>
+                      <div class="col-md-12 mt-4">
                         <label for="AddName"><i class="bi bi-person me-1"></i> Nama Pengguna</label>
-                        <input type="name" class="form-control mt-2" name="nama_siswa" id="AddName" placeholder="Masukan nama lengkap anda...">
+                        <input type="text" class="form-control mt-2" value="{{ $v->nama_siswa }}" disabled>
+                        <input type="hidden" class="form-control mt-2" name="nama_siswa" value="{{ $v->nama_siswa }}">
                       </div>
                       <div class="col-md-12 mt-4">
                         <label for="AddExercise"><i class="bi bi-award me-1"></i> Pelatihan</label>
@@ -97,5 +94,6 @@
             </div>
         </div>
     </div>
+    @endforeach
     <!-- Akhir Pop Up Modal Add-->
 @endsection

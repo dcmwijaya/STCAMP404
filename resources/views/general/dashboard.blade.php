@@ -109,10 +109,10 @@
                         series: [{
                             name: 'Pelatihan',
                             data: [
-                                ['<b>Bootstrap 5</b>', 37],
-                                ['<b>Git</b>', 31],
-                                ['<b>Laravel 8</b>', 27],
-                                ['<b>Codeigniter</b>', 13]
+                                ['<b>Bootstrap 5</b>', {{ $Cbt }}],
+                                ['<b>Git</b>', {{ $Cgt }}],
+                                ['<b>Laravel 8</b>', {{ $Clr }}],
+                                ['<b>Codeigniter 4</b>', {{ $Cci }}]
                             ],
                             dataLabels: {
                                 enabled: true,
@@ -182,8 +182,16 @@
                         </h3>
                         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                             <div class="accordion-body mt-2">
-                                <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Pelatihan_Dummy_1</small></p>
-                                <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Pelatihan_Dummy_2</small></p>
+                                @foreach($PelUser as $UP)
+                                    <p><small class="text-muted"><i class="bi bi-dot me-1"></i> 
+                                        {{ $UP->pelatihan }}
+                                    </small></p>
+                                @endforeach
+                                @if($PelUser == null)
+                                    <p><small class="text-muted"><i class="bi bi-dot me-1"></i> 
+                                        Belum ada pelatihan
+                                    </small></p>
+                                @endif
                             </div>
                         </div>
                     </div>

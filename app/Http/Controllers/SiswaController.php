@@ -2,37 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DBU as DBU;
 use App\Models\DBS as DBS;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SiswaController extends Controller
 {
-    public function __construct(DBS $db)
+    public function __construct(DBU $dbu, DBS $dbs)
     {
-        $this->db = $db;
+        $this->db = $dbu;
+        $this->dbs = $dbs;
     }
 
-    public function index(Request $reqdata)
+    public function index()
     {
-        if ($reqdata->has('search')) {
-            $search = $this->db->where('nis', 'LIKE', '%' . $reqdata->search . '%')->orWhere('nama_siswa', 'LIKE', '%' . $reqdata->search . '%')->orWhere('pelatihan', 'LIKE', '%' . $reqdata->search . '%')->orWhere('created_at', 'LIKE', '%' . $reqdata->search . '%');
-            $searchData = $search->paginate(5);
-            $data = [
-                'data' => $searchData
-            ];
-        } else {
-            $readDB = $this->db->paginate(5);
-            $data = [
-                'data' => $readDB
+        if (Session::has('LogSession')) {
+            $LogUser = $this->db->where('id', '=', Session::get('LogSession'))->first();
+            $value = $this->dbs->select('nis','nama_siswa','pelatihan','created_at')->where('nis', '=', $LogUser->siswa_id)->distinct()->get();
+            $readDB = $this->dbs->select('nis','nama_siswa','pelatihan','created_at')->where('nis', '=', $LogUser->siswa_id)->distinct()->paginate(5);
+            $value = [
+                'value' => $readDB
             ];
         }
-        return view('siswa.datasiswa', $data);
+        
+        return view('siswa.datasiswa', $value);
     }
 
     public function create(Request $reqdata)
     {
         $insertdata = $reqdata->all();
-        $this->db->create($insertdata);
+        $this->dbs->create($insertdata);
         $msg = 'Anda berhasil menambahkan data pelatihan!!';
         return redirect()->route('data-siswa')->with('addSiswaNotif', $msg);
     }
