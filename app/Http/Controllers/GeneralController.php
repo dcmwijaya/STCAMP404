@@ -6,8 +6,7 @@ use App\Http\Requests\REQSTCAMP;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-
-// use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Auth;
 
 class GeneralController extends Controller
 {
@@ -39,6 +38,19 @@ class GeneralController extends Controller
             'jumlah' => $count
         );
         return view('general.registrasi', $IDS);
+    }
+
+    public function redirectTo(){
+        if(Auth::user()->role == 'admin'){
+            $this->redirectTo = route('dashboardaccount');
+            return $this->redirectTo;
+        } else if(Auth::user()->role == 'siswa'){
+            $this->redirectTo = route('dashboardaccount', Auth::user()->siswa_id);
+            return $this->redirectTo;
+        } else if (Auth::user()->role == 'general') {
+            $this->redirectTo = route('index', Auth::user()->siswa_id);
+            return $this->redirectTo;
+        }
     }
 
     public function login(Request $reqData){   
