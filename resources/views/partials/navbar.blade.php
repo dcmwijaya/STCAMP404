@@ -1,31 +1,31 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light mainnavcolor">
   <div class="container-fluid">
-    @can('isAdminSiswa')
+    @if(Session()->has('LogSession'))
       <a class="navbar-brand nav-link fw-bold" href="{{ url('/home') }}"><i class="bi bi-book-half me-2"></i> {{ config('app.name', 'STCAMP404') }}</a>
-    @endcan
-    <a class="navbar-brand nav-link fw-bold" href="{{ url('/') }}"><i class="bi bi-book-half me-2"></i> {{ config('app.name', 'STCAMP404') }}</a>
+    @else
+      <a class="navbar-brand nav-link fw-bold" href="{{ url('/') }}"><i class="bi bi-book-half me-2"></i> {{ config('app.name', 'STCAMP404') }}</a>
+    @endif
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        @can('isAdminSiswa')
+        @if(Session()->has('LogSession'))
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/home') }}"><i class="bi bi-house-fill me-1"></i> Beranda</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url('/dashboard') }}"><i class="bi bi-person-rolodex me-1"></i> Dashboard</a>
           </li>
-        @endcan
+        @endif
       </ul>
       <form class="d-flex">
-        @can('isAdminSiswa')
+        @if(Session()->has('LogSession'))
           <a class="btn btn-outline-success keluar" href="{{ url('/logout') }}"><i class="bi bi-door-closed me-1"></i> Keluar</a>
-        @endcan
-        @can('isGeneral')
+        @else
           <a class="btn btn-outline-success masuk" data-bs-toggle="modal" data-bs-target="#ModalLogin"><i class="bi bi-door-open me-1"></i> Masuk</a>
-        @endcan
+        @endif
       </form>
     </div>
   </div>

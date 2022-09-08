@@ -31,7 +31,7 @@
                     <div class="col">
                         <div class="card-body">
                             <h5 class="card-title">Profil Pengguna</h5><hr>
-                            @can('isAdmin')
+                            @if($LogUser->role == 'admin')
                                 <p class="card-text mt-2">
                                     <strong><i class="bi bi-building me-1"></i> Status :</strong><br>
                                     <span class="text-uppercase">{{ $LogUser->role }}</span>
@@ -44,8 +44,8 @@
                                     <strong><i class="bi bi-envelope me-1"></i> Email :</strong><br>
                                     <span class="text-lowercase">{{ $LogUser->email }}</span>
                                 </p>
-                            @endcan
-                            @can('isSiswa')
+                            @endif
+                            @if($LogUser->role == 'siswa')
                                 <p class="card-text mt-2">
                                     <strong><i class="bi bi-building me-1"></i> Nomor Induk Siswa :</strong><br>
                                     <span class="text-lowercase">{{ $LogUser->siswa_id }}</span>
@@ -58,7 +58,7 @@
                                     <strong><i class="bi bi-envelope me-1"></i> Email :</strong><br>
                                     <span class="text-lowercase">{{ $LogUser->email }}</span>
                                 </p>
-                            @endcan
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -150,20 +150,20 @@
                                         <a class="btn btn-sm btn-outline-success" data-bs-toggle="modal" data-bs-target="#Modal2">
                                     <i class="bi bi-person-bounding-box"></i></a></small></p>
                                 </div>
-                                @can('isAdmin')
+                                @if($LogUser->role == 'admin')
                                     <div class="col">
                                         <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Manajemen Data Pelatihan 
                                             <a class="btn btn-sm btn-outline-success" href="{{ url('/data-pelatihan') }}">
                                         <i class="bi bi-clipboard-data-fill"></i></a></small></p>
                                     </div>
-                                @endcan
-                                @can('isSiswa')
+                                @endif
+                                @if($LogUser->role == 'siswa')
                                     <div class="col">
                                         <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Data Siswa 
                                             <a class="btn btn-sm btn-outline-success" href="{{ url('/data-siswa') }}">
                                         <i class="bi bi-bar-chart-steps"></i></a></small></p>
                                     </div>
-                                @endcan
+                                @endif
                                 <div class="col">
                                     <p><small class="text-muted"><i class="bi bi-dot me-1"></i> Info Pelatihan 
                                         <a class="btn btn-sm btn-outline-success" href="{{ url('/info-kegiatan') }}">
@@ -173,7 +173,7 @@
                         </div>
                     </div>
                 </div>
-                @can('isSiswa')
+                @if($LogUser->role == 'siswa')
                     <div class="accordion-item">
                         <h3 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
@@ -187,7 +187,7 @@
                             </div>
                         </div>
                     </div>
-                @endcan
+                @endif
             </div>
         </div>
     </div>

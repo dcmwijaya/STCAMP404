@@ -6,7 +6,6 @@ use App\Http\Requests\REQSTCAMP;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Auth;
 
 class GeneralController extends Controller
 {
@@ -32,7 +31,12 @@ class GeneralController extends Controller
 
     public function register()
     {
-        $count = $this->db->count();
+        $Usercount = $this->db->count();
+        if ($Usercount == null){
+            $count = '1';
+        } else {
+            $count = $Usercount;
+        }
         $IDS = array(
             'defid' => '20220100',
             'jumlah' => $count
@@ -40,24 +44,12 @@ class GeneralController extends Controller
         return view('general.registrasi', $IDS);
     }
 
-    public function redirectTo(){
-        if(Auth::user()->role == 'admin'){
-            $this->redirectTo = route('dashboardaccount');
-            return $this->redirectTo;
-        } else if(Auth::user()->role == 'siswa'){
-            $this->redirectTo = route('dashboardaccount', Auth::user()->siswa_id);
-            return $this->redirectTo;
-        } else if (Auth::user()->role == 'general') {
-            $this->redirectTo = route('index', Auth::user()->siswa_id);
-            return $this->redirectTo;
-        }
-    }
-
     public function login(Request $reqData){   
         $user = $this->db->where('email', '=', $reqData->email)->first();
         if($user){
             if(Hash::check($reqData->password, $user->password)){
-                $reqData->session()->put('loginId', $user->id);
+                $reqData->session()->put('LogSession', $user->id);
+                $reqData->session()->put('LogRole', $user->role);
                 $msg = " Anda berhasil masuk, selamat datang di menu utama STCAMP404!!";
                 return redirect()->route('dashboardaccount')->with('LoginNotif', $msg);
             } else{
@@ -70,10 +62,9 @@ class GeneralController extends Controller
 
     public function dashboardaccount()
     {
-        if (Session::has('loginId')) {
-            $LogUser = $this->db->where('id', '=', Session::get('loginId'))->first();
-        }
-
+        if (Session::has('LogSession')) {
+            $LogUser = $this->db->where('id', '=', Session::get('LogSession'))->first();
+        }   
         $Data = [
             'LogUser' => $LogUser
             // 'decryptpassword' => decrypt($LogUser->password)

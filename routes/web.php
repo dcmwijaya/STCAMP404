@@ -19,25 +19,28 @@ use Illuminate\Support\Facades\Route;
 // Main Route
 Auth::routes();
 
-// Route Menu
-Route::get('/', [GeneralController::class, 'index'])->name('index')->middleware('can: isGeneral');
-Route::get('/home', [GeneralController::class, 'home'])->name('home')->middleware('can: isAdminSiswa');
-Route::get('/info-kegiatan', [GeneralController::class, 'infokegiatan'])->middleware('can: isGeneral');
-Route::get('/registrasi', [GeneralController::class, 'register'])->name('registrasi')->middleware('can: isGeneral');
+// General Route : Menu
+Route::get('/', [GeneralController::class, 'index'])->name('index');
+Route::get('/info-kegiatan', [GeneralController::class, 'infokegiatan'])->name('infokegiatan');
+Route::get('/registrasi', [GeneralController::class, 'register'])->name('registrasi');
+Route::get('/forgetUser', [GeneralController::class, 'forgetUser'])->name('forgetUser');
+
+// Route : Action Login, Logout, CRUD ++
 Route::post('/registrasiUser', [GeneralController::class, 'regUser'])->name('regUser');
 Route::post('/updateprofile', [GeneralController::class, 'updprofile'])->name('updprofile');
-Route::get('/forgetUser', [GeneralController::class, 'forgetUser'])->name('forgetUser')->middleware('can: isGeneral');
 Route::post('/resetUser', [GeneralController::class, 'resetUser'])->name('resetUser');
-Route::get('/dashboard', [GeneralController::class, 'dashboardaccount'])->name('dashboardaccount')->middleware('can: isAdminSiswa');
-Route::get('/logout', [GeneralController::class, 'logout'])->name('logout')->middleware('can: isAdminSiswa');
-Route::post('/login', [GeneralController::class, 'login'])->name('login')->middleware('can: isGeneral');
-
-// Route Admin Accessbility
-Route::get('data-pelatihan', [AdminController::class, 'index'])->name('data-pelatihan')->middleware('can: isAdmin');
-Route::post('data-pelatihan/add', [AdminController::class, 'create'])->name('create');
-Route::post('data-pelatihan/update/{id}', [AdminController::class, 'update'])->name('update');
-Route::get('data-pelatihan/delete/{id}', [AdminController::class, 'delete'])->name('delete');
-
-// Route Siswa Accessbility
-Route::get('/data-siswa', [SiswaController::class, 'index'])->name('data-siswa')->middleware('can: isSiswa');
+Route::post('/login', [GeneralController::class, 'login'])->name('login');
+Route::get('/logout', [GeneralController::class, 'logout'])->name('logout');
+Route::post('/data-pelatihan/add', [AdminController::class, 'create'])->name('create');
+Route::post('/data-pelatihan/update/{id}', [AdminController::class, 'update'])->name('update');
+Route::get('/data-pelatihan/delete/{id}', [AdminController::class, 'delete'])->name('delete');
 Route::post('/data-siswa/add', [SiswaController::class, 'create'])->name('create');
+Route::get('/dashboard', [GeneralController::class, 'dashboardaccount'])->name('dashboardaccount');
+
+// Route Policies : All Access Rights
+Route::group(['middleware' => ['AccessRights']], function () {
+    Route::get('/dashboard', [GeneralController::class, 'dashboardaccount'])->name('dashboardaccount');
+    Route::get('/home', [GeneralController::class, 'home'])->name('home');
+    Route::get('/data-pelatihan', [AdminController::class, 'index'])->name('data-pelatihan');
+    Route::get('/data-siswa', [SiswaController::class, 'index'])->name('data-siswa');
+});

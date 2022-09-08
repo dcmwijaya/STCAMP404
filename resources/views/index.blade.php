@@ -22,15 +22,17 @@
             Pembelajaran akan slalu kami update menyesuaikan kebutuhan industri saat ini.
             Jadi tunggu apa lagi ??
         </p>
-        @can('isAdmin')
-            <a href="{{ url('/data-pelatihan') }}" class="btn btn-md btn-outline-success btn-ik col-md-2"><i class="bi bi-clipboard-data-fill me-1"></i> Manajemen Data Pelatihan</a>
-        @endcan
-        @can('isSiswa')
-            <a href="{{ url('/data-siswa') }}" class="btn btn-md btn-outline-success btn-ik col-md-2"><i class="bi bi-bar-chart-steps me-1"></i> Data Siswa</a>
-        @endcan
-        @can('isGeneral')
+        @if(Session()->has('LogRole'==='admin'))
+            <a href="{{ url('/data-pelatihan') }}" class="btn btn-md btn-outline-success btn-ik col-md-3"><i class="bi bi-clipboard-data-fill me-1"></i> Manajemen Data Pelatihan</a>
             <a href="{{ url('/info-kegiatan') }}" class="btn btn-md btn-outline-success btn-ik col-md-2"><i class="bi bi-megaphone-fill me-1"></i> Info Kegiatan</a>
-        @endcan
+        @endif
+        @if(Session()->has('LogRole')==='siswa')
+            <a href="{{ url('/data-siswa') }}" class="btn btn-md btn-outline-success btn-ik col-md-2"><i class="bi bi-bar-chart-steps me-1"></i> Data Siswa</a>
+            <a href="{{ url('/info-kegiatan') }}" class="btn btn-md btn-outline-success btn-ik col-md-2"><i class="bi bi-megaphone-fill me-1"></i> Info Kegiatan</a>
+        @else
+            <a href="{{ url('/data-siswa') }}" class="btn btn-md btn-outline-success btn-ik col-md-2"><i class="bi bi-bar-chart-steps me-1"></i> Data Siswa</a>
+            <a href="{{ url('/info-kegiatan') }}" class="btn btn-md btn-outline-success btn-ik col-md-2"><i class="bi bi-megaphone-fill me-1"></i> Info Kegiatan</a>
+        @endif
     </div>
     <!-- Jumbotron Akhir -->
 
