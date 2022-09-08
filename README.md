@@ -75,7 +75,7 @@ $php artisan serve
 
 ## Cara Menjalankan Web Secara Local
 <p>1. Download repository ini</p>
-<p>2. Extract file yang di download tadi -> Copy & Paste isi folder yang di download tadi ke -> XAMP (htdocs) -> masuk kedalam folder STCAMP404 / jika belum ada buat dulu foldernya</p>
+<p>2. Extract file yang di download tadi -> Copy & Paste isi folder yang di download tadi ke -> XAMP (htdocs) -> masuk kedalam folder STCAMP404 atau jika belum ada buat dulu foldernya</p>
 <p>3. Run Server</p>
 <p>4. Login akun</p>
 <p>5. Selesai, selamat menikmati</p>
@@ -98,6 +98,8 @@ composer update
 ```bash
 $php artisan key:generate
 ```
+
+<br>
 
 ## Reminder
 <p>Anda dapat memberikan star pada project ini jika dirasa bermanfaat, terima kasih</p>
