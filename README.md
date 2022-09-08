@@ -3,12 +3,20 @@
 ![PHP](https://img.shields.io/badge/-PHP-grey.svg?&logo=PHP&logoColor=white)
 ![MySQL](https://img.shields.io/badge/-MySQL-blue.svg?style=flat&logo=mysql&logoColor=white)
 
-## STCAMP404
+# STCAMP404
 <p>STCAMP404 merupakan hasil dari pelatihan CAMP404 Batch 15 yang saya kerjakan secara custom.</p>
 
 <br>
 
-## Tools / Framework / Other
+### Fitur Yang Sedang Dalam Proses Pengerjaan
+<p>1. Lupa password & reset (ket: belum ditambahkan)</p>
+<p>2. Penguatan hak akses pada akun admin maupun siswa (ket: terdeteksi masih tembus ketika sudah login)</p>
+<p>3. Update gambar profil (ket: belum ditambahkan)</p>
+<p>4. Pembatasan siswa dalam mengambil jenis pelatihan (ket: belum ditambahkan)</p>
+
+<br>
+
+### Tools / Framework / Other
 | Bagian | Keterangan |
 | --- | --- |
 | Fitur | Login, Create, Read, Update, Delete, Validation, Pagination, Search, Access Rights by Session/Middleware, ETC |
@@ -18,7 +26,7 @@
 
 <br>
 
-## Environment
+### Environment
 <p>1. Download XAMPP</p>
 
 ```bash
@@ -53,7 +61,7 @@ localhost/phpmyadmin/
 
 <br>
 
-## Run Server
+### Run Server
 <p>1. Pastikan masih berada di dalam folder STCAMP404 -> Klik kanan pilih gitbash lalu ketikkan :</p>
 
 ```bash
@@ -65,7 +73,7 @@ $php artisan serve
 
 <br>
 
-## Akun untuk login
+### Akun untuk login
 | Role | Email | Password |
 | --- | --- | --- |
 | Admin | admin@stcamp404.ac.id | 123456 |
@@ -82,7 +90,7 @@ $php artisan serve
 
 <br>
 
-## Error Notification
+### Error Notification
 <strong>Jika anda mengalami : Server error 500</strong>
 
 <p>Maka yang harus anda ketikan pada CMD satu per satu sebagai berikut :</p>
@@ -101,5 +109,5 @@ $php artisan key:generate
 
 <br>
 
-## Reminder
+### Reminder
 <p>Anda dapat memberikan star pada project ini jika dirasa bermanfaat, terima kasih</p>
