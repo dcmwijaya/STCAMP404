@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ![FinalProject-Camp404](https://img.shields.io/badge/FinalProject-Camp404-blue?logo=github&color=%23F7DF1E)
 ![Laravel8](https://img.shields.io/badge/-Laravel8-blue?style=flat&logo=Codeigniter)
 ![PHP](https://img.shields.io/badge/-PHP-grey.svg?&logo=PHP&logoColor=white)
@@ -84,8 +83,3 @@ composer update
 ```bash
 $php artisan key:generate
 ```
-=======
-## STCAMP404
-
-Dalam proses pengembangan...
->>>>>>> b8a653e5d57caeba5e3ccc47f0ed7bc87675a3f4
