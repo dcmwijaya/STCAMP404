@@ -11,11 +11,7 @@ class AuthCheck
     {
         if(Session()->has('LogSession')){
             return $next($reqData);
-        }
-        else if (Session()->has('LogRole')) {
-            return $next($reqData);
-        }
-        else {
+        } else {
             return redirect()->route('registrasi');
         }
     }

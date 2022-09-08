@@ -21,7 +21,13 @@ class GeneralController extends Controller
 
     public function home()
     {
-        return view('index');
+        if (Session::has('LogSession')) {
+            $LogUser = $this->db->where('id', '=', Session::get('LogSession'))->first();
+        }
+        $Data = [
+            'LogUser' => $LogUser
+        ];
+        return view('index', $Data);
     }
 
     public function infokegiatan()
@@ -49,7 +55,6 @@ class GeneralController extends Controller
         if($user){
             if(Hash::check($reqData->password, $user->password)){
                 $reqData->session()->put('LogSession', $user->id);
-                $reqData->session()->put('LogRole', $user->role);
                 $msg = " Anda berhasil masuk, selamat datang di menu utama STCAMP404!!";
                 return redirect()->route('dashboardaccount')->with('LoginNotif', $msg);
             } else{
@@ -75,7 +80,7 @@ class GeneralController extends Controller
 
     public function updprofile(Request $reqdata)
     {
-        $findID = $this->db->where('id', '=', Session::get('loginId'))->first();
+        $findID = $this->db->where('id', '=', Session::get('LogSession'))->first();
         $findID->update([
             'name' => $reqdata->name,
             'email' => $reqdata->email,
@@ -86,8 +91,8 @@ class GeneralController extends Controller
     }
 
     public function logout(){
-        if (Session::has('loginId')) {
-            Session::pull('loginId');
+        if (Session::has('LogSession')) {
+            Session::pull('LogSession');
             $msg = " Anda telah berhasil keluar dari segala bentuk aktivitas!!";
             return redirect()->route('index')->with('LogoutNotif', $msg);   
         }
