@@ -20,34 +20,46 @@
 
 ## Environment
 <p>1. Download XAMPP</p>
+
 ```bash
 https://www.apachefriends.org/index.html
 ```
+
 <p>2. Download Visual Studio Code</p>
+
 ```bash
 https://code.visualstudio.com/
 ```
+
 <p>3. Download Composer</p>
+
 ```bash
 https://getcomposer.org/
 ```
+
 <p>4. Download Git</p>
+
 ```bash
 http://git-scm.com/
 ```
+
 <p>5. Buat database dengan nama stcamp404 di local, ketikkan pada browser :</p>
+
 ```bash
 localhost/phpmyadmin/
 ```
+
 <p>6. Import database dengan nama stcamp404.sql</p>
 
 <br>
 
 ## Run Server
 <p>1. Pastikan masih berada di dalam folder STCAMP404 -> Klik kanan pilih gitbash lalu ketikkan :</p>
+
 ```bash
 $php artisan serve
 ```
+
 <p>2. Buka XAMPP lalu start apache dan mysql</p>
 <p>3. Buka browser anda (Tab baru) lalu ketikkan -> localhost:8080 atau sesuaikan yang ada pada gitbash</p>
 
@@ -75,11 +87,17 @@ $php artisan serve
 
 <p>Maka yang harus anda ketikan pada CMD satu per satu sebagai berikut :</p>
 <p>1. Perbarui composer</p>
+
 ```bash
 composer update
 ```
+
 <p>2. Buat file .env dari file .env.example lalu sesuaikan juga database dan app name</p>
 <p>3. Generate key</p>
+
 ```bash
 $php artisan key:generate
 ```
+
+## Reminder
+<p>Anda dapat memberikan star pada project ini jika dirasa bermanfaat, terima kasih</p>
