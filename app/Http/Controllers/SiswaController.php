@@ -33,25 +33,25 @@ class SiswaController extends Controller
     {
         if (Session::has('LogSession')) {
             $LogUser = $this->db->where('id', '=', Session::get('LogSession'))->first();
-            $BT5 = $this->dbs->select('nis', 'nama_siswa', 'pelatihan', 'created_at')->where('nis', '=', $LogUser->siswa_id)->where('pelatihan', '=', 'Bootstrap 5')->distinct()->get();
-            $GT = $this->dbs->select('nis', 'nama_siswa', 'pelatihan', 'created_at')->where('nis', '=', $LogUser->siswa_id)->where('pelatihan', '=', 'Git')->distinct()->get();
-            $LR8 = $this->dbs->select('nis', 'nama_siswa', 'pelatihan', 'created_at')->where('nis', '=', $LogUser->siswa_id)->where('pelatihan', '=', 'Laravel 8')->distinct()->get();
-            $CI4 = $this->dbs->select('nis', 'nama_siswa', 'pelatihan', 'created_at')->where('nis', '=', $LogUser->siswa_id)->where('pelatihan', '=', 'Codeigniter 4')->distinct()->get();
+            $BT5_NULL = $this->dbs->select('nis', 'nama_siswa', 'pelatihan', 'created_at')->where('nis', '=', $LogUser->siswa_id)->where('pelatihan', '=', NULL)->distinct()->get();
+            $GT_NULL = $this->dbs->select('nis', 'nama_siswa', 'pelatihan', 'created_at')->where('nis', '=', $LogUser->siswa_id)->where('pelatihan', '=', NULL)->distinct()->get();
+            $LR8_NULL = $this->dbs->select('nis', 'nama_siswa', 'pelatihan', 'created_at')->where('nis', '=', $LogUser->siswa_id)->where('pelatihan', '=', NULL)->distinct()->get();
+            $CI4_NULL = $this->dbs->select('nis', 'nama_siswa', 'pelatihan', 'created_at')->where('nis', '=', $LogUser->siswa_id)->where('pelatihan', '=', NULL)->distinct()->get();
         }
 
-        if ($BT5 != null) {
+        if ($reqData->pelatihan != $BT5_NULL) {
             return redirect()->route('data-siswa');
         } 
-        else if ($GT != null) {
-            return redirect()->route('data-siswa');
-        }
-        else if ($LR8 != null) {
-            return redirect()->route('data-siswa');
-        } 
-        else if ($CI4 != null) {
+        else if ($reqData->pelatihan != $GT_NULL) {
             return redirect()->route('data-siswa');
         }
-        else if ($BT5 == null){
+        else if ($reqData->pelatihan != $LR8_NULL) {
+            return redirect()->route('data-siswa');
+        } 
+        else if ($reqData->pelatihan != $CI4_NULL) {
+            return redirect()->route('data-siswa');
+        }
+        else if ($reqData->pelatihan == $BT5_NULL){
             $this->dbs->create([
                 'nis' => $reqData->nis,
                 'nama_siswa' => $reqData->nama_siswa,
@@ -60,7 +60,7 @@ class SiswaController extends Controller
             $msg = 'Anda berhasil menambahkan data pelatihan!!';
             return redirect()->route('data-siswa')->with('addSiswaNotif', $msg);
         } 
-        else if ($GT == null) {
+        else if ($reqData->pelatihan == $GT_NULL) {
             $this->dbs->create([
                 'nis' => $reqData->nis,
                 'nama_siswa' => $reqData->nama_siswa,
@@ -69,7 +69,7 @@ class SiswaController extends Controller
             $msg = 'Anda berhasil menambahkan data pelatihan!!';
             return redirect()->route('data-siswa')->with('addSiswaNotif', $msg);
         } 
-        else if ($LR8 == null) {
+        else if ($reqData->pelatihan == $LR8_NULL) {
             $this->dbs->create([
                 'nis' => $reqData->nis,
                 'nama_siswa' => $reqData->nama_siswa,
@@ -78,7 +78,7 @@ class SiswaController extends Controller
             $msg = 'Anda berhasil menambahkan data pelatihan!!';
             return redirect()->route('data-siswa')->with('addSiswaNotif', $msg);
         } 
-        else if ($CI4 == null) {
+        else if ($reqData->pelatihan == $CI4_NULL) {
             $this->dbs->create([
                 'nis' => $reqData->nis,
                 'nama_siswa' => $reqData->nama_siswa,
