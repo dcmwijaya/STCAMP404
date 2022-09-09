@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Sep 2022 pada 02.52
+-- Waktu pembuatan: 09 Sep 2022 pada 20.32
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.4.15
 
@@ -110,16 +110,10 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id_pelatihan`, `nis`, `nama_siswa`, `pelatihan`, `created_at`, `updated_at`) VALUES
-(1, 20220101, 'Jadiyan Marto', 'Codeigniter 4', '2022-09-04 12:02:25', '2022-09-04 12:02:25'),
-(2, 20220102, 'Chondro Aminoto', 'Git', '2022-09-04 12:04:25', '2022-09-04 12:04:25'),
-(3, 20220103, 'Gatot Subroto', 'Laravel 8', '2022-09-04 12:06:25', '2022-09-04 12:06:25'),
-(4, 20220104, 'Jihan Minarti', 'Codeigniter 4', '2022-09-04 12:19:48', '2022-09-04 12:19:40'),
-(5, 20220106, 'Adinda Putri', 'Git', '2022-09-04 12:50:56', '2022-09-05 05:26:11'),
-(6, 20220107, 'Rezkya Aninda Putri', 'Bootstrap 5', '2022-09-04 13:06:00', '2022-09-04 13:06:00'),
-(7, 20220108, 'Tasya Ardhian Nisaa', 'Git', '2022-09-04 19:51:41', '2022-09-04 19:51:41'),
-(8, 20220109, 'Ayulia Mangunagara', 'Laravel 8', '2022-09-05 05:26:52', '2022-09-05 14:24:34'),
-(9, 20220101, 'Jadiyan Marto', 'Laravel 8', '2022-09-08 18:17:48', '2022-09-08 18:17:48'),
-(10, 20220101, 'Jadiyan Marto', 'Git', '2022-09-08 19:47:57', '2022-09-08 19:47:57');
+(1, 20220101, 'Jaya Kuntoro Mangunati', 'Codeigniter 4', '2022-09-04 12:02:25', '2022-09-04 12:02:25'),
+(2, 20220102, 'Jaya Kuntoro Mangunati', 'Git', '2022-09-04 12:04:25', '2022-09-04 12:04:25'),
+(3, 20220103, 'Jaya Kuntoro Mangunati', 'Laravel 8', '2022-09-04 12:06:25', '2022-09-04 12:06:25'),
+(4, 20220107, 'Jaya Kuntoro Mangunati', 'Bootstrap 5', '2022-09-04 13:06:00', '2022-09-04 13:06:00');
 
 -- --------------------------------------------------------
 
@@ -133,7 +127,7 @@ CREATE TABLE `users` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role` enum('admin','siswa') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'siswa',
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -144,13 +138,9 @@ CREATE TABLE `users` (
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `siswa_id`, `name`, `role`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Admin STCamp404', 'admin', 'admin@stcamp404.ac.id', NULL, '$2y$10$i1YkM.RUnIYHJTl8QDO6.uRoPQs0lae81mbnXBqtvL0hXJz4Ei3Zq', NULL, NULL, NULL),
-(2, 20220101, 'Jaya Mangunati', 'siswa', '20220101@stcamp404.ac.id', NULL, '$2y$10$ae8TwT27qQgqvmm5UG2c3OhkI.qQ7W2oAWWyBMhGN9Ku3J.2qK1ym', NULL, NULL, NULL),
-(3, 20220102, 'Jadiyan Marto', 'siswa', '20220102@stcamp404.ac.id', NULL, '$2y$10$d3Uk3YVYLxrhB.F7x4PQDuJFZeHXGSfeI4adpDClU2V8GnbzXeEiu', NULL, NULL, NULL),
-(4, 20220103, 'Chondro Aminoto', 'siswa', '20220103@stcamp404.ac.id', NULL, '$2y$10$dT6sLBlJkNq.nO6BKKQrzu60Qj7cVmxEFtXfRS7rDqcu./fOTe3AC', NULL, NULL, NULL),
-(5, 20220104, 'Gatot Subroto', 'siswa', '20220104@stcamp404.ac.id', NULL, '$2y$10$9nuWmCsG/VhpqpzR6iocy.6NeuFgEWzh3cLz/tnIgjGsjzao9ihxK', NULL, NULL, NULL),
-(6, 20220105, 'Jihan Minarti', 'siswa', '20220105@stcamp404.ac.id', NULL, '$2y$10$.dH4WqhLXQAgzWpP/Oekd.1d3F3qRpWiLmJosC2BWA2HnWZy1jkii', NULL, NULL, NULL);
+INSERT INTO `users` (`id`, `siswa_id`, `name`, `role`, `email`, `image`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, NULL, 'Rissha Anastasya Gabriellya', 'admin', 'admin@stcamp404.ac.id', 'asset\\img\\profile\\admin.jpg', '$2y$10$0H/lg2JVk2fi9nYN/nfAFeIs9OiVvJpyiSccpsH8r8tlemuSI/5wy', NULL, NULL, '2022-09-09 13:29:42'),
+(2, 20220101, 'Jaya Kuntoro Mangunati', 'siswa', '20220101@stcamp404.ac.id', 'asset\\img\\profile\\siswa.jpg', '$2y$10$YT4HRAurrZhdcr4u9dL1ZOx1oxzBjC58s7jl9FMlDXXNHB0bMIbg2', NULL, NULL, '2022-09-09 13:29:02');
 
 --
 -- Indexes for dumped tables
@@ -222,13 +212,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id_pelatihan` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_pelatihan` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

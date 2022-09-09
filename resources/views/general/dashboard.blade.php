@@ -211,6 +211,7 @@
                 <div class="modal-body">
                     <form class="row g-2" action="{{ url('/updateprofile') }}" method="POST" enctype="multipart/form-data">
                         @csrf
+                        <input type="hidden" name="siswa_id" id="prfsiswaID" value="{{ $LogUser->siswa_id }}">
                         <div class="row col-md-12">
                             <div class="col-md-12 mt-2">
                                 <label for="prfname"><i class="bi bi-person me-1"></i> Ubah Nama Pengguna</label>
