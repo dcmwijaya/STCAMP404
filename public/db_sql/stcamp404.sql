@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Sep 2022 pada 20.32
+-- Waktu pembuatan: 09 Sep 2022 pada 20.40
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.4.15
 
@@ -111,9 +111,9 @@ CREATE TABLE `siswa` (
 
 INSERT INTO `siswa` (`id_pelatihan`, `nis`, `nama_siswa`, `pelatihan`, `created_at`, `updated_at`) VALUES
 (1, 20220101, 'Jaya Kuntoro Mangunati', 'Codeigniter 4', '2022-09-04 12:02:25', '2022-09-04 12:02:25'),
-(2, 20220102, 'Jaya Kuntoro Mangunati', 'Git', '2022-09-04 12:04:25', '2022-09-04 12:04:25'),
-(3, 20220103, 'Jaya Kuntoro Mangunati', 'Laravel 8', '2022-09-04 12:06:25', '2022-09-04 12:06:25'),
-(4, 20220107, 'Jaya Kuntoro Mangunati', 'Bootstrap 5', '2022-09-04 13:06:00', '2022-09-04 13:06:00');
+(2, 20220101, 'Jaya Kuntoro Mangunati', 'Git', '2022-09-04 12:04:25', '2022-09-04 12:04:25'),
+(3, 20220101, 'Jaya Kuntoro Mangunati', 'Laravel 8', '2022-09-04 12:06:25', '2022-09-04 12:06:25'),
+(4, 20220101, 'Jaya Kuntoro Mangunati', 'Bootstrap 5', '2022-09-04 13:06:00', '2022-09-04 13:06:00');
 
 -- --------------------------------------------------------
 
