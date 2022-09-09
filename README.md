@@ -69,8 +69,8 @@ localhost/phpmyadmin/
 $php artisan serve
 ```
 
-<li>2. Buka XAMPP lalu start apache dan mysql</li>
-<li>3. Buka browser anda (Tab baru) lalu ketikkan -> localhost:8080 atau sesuaikan yang ada pada gitbash</li>
+<li>Buka XAMPP lalu start apache dan mysql</li>
+<li>Buka browser anda (Tab baru) lalu ketikkan -> localhost:8080 atau sesuaikan yang ada pada gitbash</li>
 </ul><br>
 
 ### 5. Akun untuk login
@@ -102,7 +102,7 @@ composer update
 ```
 
 <li>Buat file .env dari file .env.example lalu sesuaikan juga database dan app name</li>
-<li>3. Generate key</li>
+<li>Generate key</li>
 
 ```bash
 $php artisan key:generate
