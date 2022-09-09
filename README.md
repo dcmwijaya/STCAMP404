@@ -11,9 +11,7 @@
 ### 1. Fitur Yang Sedang Dalam Proses Pengerjaan
 <ul style="line-height:180%" style="list-style-type:square;">
   <li>Lupa password & reset (ket: belum ditambahkan)</li>
-  <li>Penguatan hak akses pada akun admin maupun siswa (ket: terdeteksi masih tembus ketika sudah login)</li>
   <li>Update gambar profil (ket: belum ditambahkan)</li>
-  <li>Pembatasan siswa dalam mengambil jenis pelatihan (ket: belum ditambahkan)</li>
 </ul>
 
 <br>
