@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Sep 2022 pada 02.40
+-- Waktu pembuatan: 10 Sep 2022 pada 02.57
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.4.15
 
@@ -122,7 +122,7 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 CREATE TABLE `siswa` (
-  `id_pelatihan` int(10) UNSIGNED NOT NULL,
+  `id` int(10) UNSIGNED NOT NULL,
   `nis` int(11) DEFAULT NULL,
   `nama_siswa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pelatihan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -134,12 +134,13 @@ CREATE TABLE `siswa` (
 -- Dumping data untuk tabel `siswa`
 --
 
-INSERT INTO `siswa` (`id_pelatihan`, `nis`, `nama_siswa`, `pelatihan`, `created_at`, `updated_at`) VALUES
+INSERT INTO `siswa` (`id`, `nis`, `nama_siswa`, `pelatihan`, `created_at`, `updated_at`) VALUES
 (1, 20220101, 'Jaya Mangunati', 'Bootstrap 5', NULL, NULL),
 (2, 20220102, 'Jadiyan Marto', 'Codeigniter 4', NULL, NULL),
 (3, 20220103, 'Chondro Aminoto', 'Git', NULL, NULL),
 (4, 20220104, 'Gatot Subroto', 'Laravel 8', NULL, NULL),
-(5, 20220105, 'Jihan Minarti', 'Codeigniter 4', NULL, NULL);
+(5, 20220105, 'Jihan Minarti', 'Codeigniter 4', NULL, NULL),
+(6, NULL, 'Anastasya Geralda', 'Codeigniter 4', '2022-09-09 19:47:34', '2022-09-09 19:47:34');
 
 -- --------------------------------------------------------
 
@@ -213,7 +214,7 @@ ALTER TABLE `personal_access_tokens`
 -- Indeks untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  ADD PRIMARY KEY (`id_pelatihan`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `users`
@@ -254,7 +255,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id_pelatihan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`

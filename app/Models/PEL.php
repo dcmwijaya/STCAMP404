@@ -8,4 +8,5 @@ class PEL extends Model
 {
     protected $table = "pelatihan";
     protected $guarded = [];
+    protected $dates = ['updated_at'];
 }

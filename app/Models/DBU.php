@@ -8,4 +8,5 @@ class DBU extends Model
 {
     protected $table = "users";
     protected $guarded = [];
+    protected $dates = ['updated_at'];
 }

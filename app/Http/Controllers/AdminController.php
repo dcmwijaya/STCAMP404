@@ -53,7 +53,7 @@ class AdminController extends Controller
             $LogUser = $this->dbu->where('id', '=', Session::get('adminAccess'))->first();
             $DB_NULL = $this->db->select('pelatihan')->where('nis', '=', $LogUser->siswa_id)->where('pelatihan', '=', NULL)->distinct()->get();
             $DB_Search = $this->db->select('pelatihan')->where('nis', '=', $LogUser->siswa_id)->where('pelatihan', '=', $reqdata->pelatihan)->distinct()->get();
-            if ($DB_Search != $DB_NULL) {
+            if ($DB_Search == $DB_NULL) {
                 $this->db->create([
                     'nis' => $LogUser->siswa_id,
                     'nama_siswa' => $LogUser->name,
@@ -68,22 +68,20 @@ class AdminController extends Controller
         }
     }
 
-    //BAGIAN BERMASALAH : MAINTENANCE
-    public function update(Request $reqdata, $id_pelatihan)
+    public function update(Request $reqdata, $id)
     {
-        $findID = $this->db->find($id_pelatihan);
+        $findID = $this->db->find($id);
         $findID->update($reqdata->all());
         $msg = ' Selamat anda berhasil mengubah data siswa!!';
         return redirect()->route('data-pelatihan')->with('updateAdminNotif', $msg);
     }
 
-    public function delete($id_pelatihan)
+    public function delete($id)
     {
-        $findID = $this->db->find($id_pelatihan);
+        $findID = $this->db->find($id);
         $findID->delete();
         $this->db->reset();
         $msg = ' Selamat anda berhasil menghapus data siswa!!';
         return redirect()->route('data-pelatihan')->with('deleteAdminNotif', $msg);
     }
-    //END BAGIAN BERMASALAH : MAINTENANCE
 }
