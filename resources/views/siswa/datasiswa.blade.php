@@ -57,7 +57,7 @@
 
     <!-- Bagian Siswa Modal -->
     <!-- Pop Up Modal Add-->
-    @foreach($value as $v)
+    @foreach($LogUser as $LU)
     <div class="modal fade modalmenu" id="ModalAdd" tabindex="-1" aria-labelledby="ModalAddLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -71,12 +71,12 @@
                       <div class="col-md-12 mt-3">
                         <label for="AddName"><i class="bi bi-building me-1"></i> Nomor Induk Siswa</label>
                         <input type="text" class="form-control mt-2" value="{{ $v->nis }}" disabled>
-                        <input type="hidden" class="form-control mt-2" name="nis" value="{{ $v->nis }}">
+                        <input type="hidden" name="siswa_id" required>
                       </div>
                       <div class="col-md-12 mt-4">
                         <label for="AddName"><i class="bi bi-person me-1"></i> Nama Pengguna</label>
-                        <input type="text" class="form-control mt-2" value="{{ $v->nama_siswa }}" disabled>
-                        <input type="hidden" class="form-control mt-2" name="nama_siswa" value="{{ $v->nama_siswa }}">
+                        <input type="text" class="form-control mt-2" name="name" value="{{ $v->nama_siswa }}" disabled>
+                        <input type="hidden" name="name" required>
                       </div>
                       <div class="col-md-12 mt-4">
                         <label for="AddExercise"><i class="bi bi-award me-1"></i> Pelatihan</label>

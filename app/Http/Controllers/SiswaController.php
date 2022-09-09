@@ -21,10 +21,10 @@ class SiswaController extends Controller
             // Session::pull('LogSession');
             Session::pull('adminAccess');
             $LogUser = $this->db->where('id', '=', Session::get('siswaAccess'))->first();
-            $value = $this->dbs->select('nis','nama_siswa','pelatihan','created_at')->where('nis', '=', $LogUser->siswa_id)->distinct()->get();
             $readDB = $this->dbs->select('nis','nama_siswa','pelatihan','created_at')->where('nis', '=', $LogUser->siswa_id)->distinct()->paginate(2);
             $value = [
-                'value' => $readDB
+                'value' => $readDB,
+                'LogUser' => $LogUser
             ];
 
             return view('siswa.datasiswa', $value);
@@ -40,8 +40,8 @@ class SiswaController extends Controller
 
             if ($DB_Search == $DB_NULL){
                 $this->dbs->create([
-                    'nis' => $reqData->nis,
-                    'nama_siswa' => $reqData->nama_siswa,
+                    'nis' => $LogUser->siswa_id,
+                    'nama_siswa' => $LogUser->name,
                     'pelatihan' => $reqData->pelatihan
                 ]);
                 $msg = 'Anda berhasil menambahkan data pelatihan!!';
