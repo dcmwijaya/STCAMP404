@@ -47,6 +47,14 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+    @if ($msgerrAdmin = Session::get('errorAdminNotif'))
+        <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+            <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
+                {{ $msgerrAdmin }}
+            </small>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
     <br>    
     <!-- Akhir Session Alert Admin -->
 
@@ -85,7 +93,6 @@
 
     
     <!-- Bagian Admin Modal -->
-    @foreach($data as $v)
     <!-- Pop Up Modal Create-->
     <div class="modal fade modalmenu" id="ModalCreate" tabindex="-1" aria-labelledby="ModalCreateLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -98,12 +105,24 @@
                     <form class="row g-2" action="{{ url('/data-pelatihan/add') }}" method="POST">
                     @csrf                
                         <div class="col-md-12 mt-2">
-                            <label for="exampleCreateNIS"><i class="bi bi-building me-1"></i> Nomor Induk Siswa</label>
-                            <input type="number" name="nis" class="form-control mt-2" id="exampleCreateNIS" value="{{ $nis }}" autofocus>
+                            <label for="CreateNIS"><i class="bi bi-building me-1"></i> Nomor Induk Siswa</label>
+                            <div class="input-group mb-3 mt-2">
+                                <select type="number" class="form-select text-sm" name="nis" id="CreateNIS">
+                                    @foreach($NIS as $val)
+                                        <option value="{{ $val->nis }}" selected class="text-sm">{{ $val->nis }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                         <div class="col-md-12 mt-4">
                             <label for="exampleCreateName"><i class="bi bi-person me-1"></i> Nama Pengguna</label>
-                            <input type="text" name="nama_siswa" class="form-control mt-2" id="exampleCreateName" placeholder="Tulis nama lengkap..." required/>
+                            <div class="input-group mb-3 mt-2">
+                                <select type="text" class="form-select text-sm" name="nama_siswa" id="CreateNama">
+                                    @foreach($NAMA as $val)
+                                        <option value="{{ $val->nama_siswa }}" selected class="text-sm">{{ $val->nama_siswa }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                         <div class="col-md-12 mt-4">
                             <label for="exampleCreateCamp"><i class="bi bi-award me-1"></i> Pelatihan</label>
@@ -112,10 +131,9 @@
                                     <small class="text-sm">Opsi:</small>
                                 </label>
                                 <select class="form-select text-sm" name="pelatihan" id="inputGroupSelect01">
-                                    <option value="Bootstrap 5" selected class="text-sm">Bootstrap 5</option>
-                                    <option value="Git" class="text-sm">Git</option>
-                                    <option value="Laravel 8" class="text-sm">Laravel 8</option>
-                                    <option value="Codeigniter 4" class="text-sm">Codeigniter 4</option>
+                                    @foreach($PEL as $val)
+                                        <option value="{{ $val->nama_pelatihan }}" selected class="text-sm">{{ $val->nama_pelatihan }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -131,6 +149,7 @@
     <!-- Akhir Pop Up Modal Create-->
 
     <!-- Pop Up Modal Update-->
+    @foreach($data as $v)
     <div class="modal fade modalmenu" id="ModalUpdate-{{ $v->id }}" tabindex="-1" aria-labelledby="ModalUpdateLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -148,14 +167,13 @@
                         <div class="col-md-12 mt-4">
                             <label for="exampleCreateCamp"><i class="bi bi-award me-1"></i> Pelatihan</label>
                             <div class="input-group mb-3 mt-2">
-                                <label class="input-group-text" for="inputGroupSelect02">
+                                <label class="input-group-text" for="UpdateDataPel">
                                     <small class="text-sm">Opsi Ubah:</small>
                                 </label>
-                                <select class="form-select text-sm" name="pelatihan" id="inputGroupSelect02">
-                                    <option value="Bootstrap 5" {{ $v->pelatihan=="Bootstrap 5" ? 'selected' : '' }} class="text-sm">Bootstrap 5</option>
-                                    <option value="Git" {{ $v->pelatihan=="Git" ? 'selected' : '' }} class="text-sm">Git</option>
-                                    <option value="Laravel 8" {{ $v->pelatihan=="Laravel 8" ? 'selected' : '' }} class="text-sm">Laravel 8</option>
-                                    <option value="Codeigniter 4" {{ $v->pelatihan=="Codeigniter 4" ? 'selected' : '' }} class="text-sm">Codeigniter 4</option>
+                                <select class="form-select text-sm" name="pelatihan" id="UpdateDataPel">
+                                    @foreach($PEL as $val)
+                                        <option value="{{ $val->nama_pelatihan }}" selected class="text-sm">{{ $val->nama_pelatihan }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
