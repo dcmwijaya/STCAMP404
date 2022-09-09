@@ -8,15 +8,17 @@
 
 <br>
 
-### Fitur Yang Sedang Dalam Proses Pengerjaan
-<p>1. Lupa password & reset (ket: belum ditambahkan)</p>
-<p>2. Penguatan hak akses pada akun admin maupun siswa (ket: terdeteksi masih tembus ketika sudah login)</p>
-<p>3. Update gambar profil (ket: belum ditambahkan)</p>
-<p>4. Pembatasan siswa dalam mengambil jenis pelatihan (ket: belum ditambahkan)</p>
+### 1. Fitur Yang Sedang Dalam Proses Pengerjaan
+<ul style="line-height:180%" style="list-style-type:square;">
+  <li>Lupa password & reset (ket: belum ditambahkan)</li>
+  <li>Penguatan hak akses pada akun admin maupun siswa (ket: terdeteksi masih tembus ketika sudah login)</li>
+  <li>Update gambar profil (ket: belum ditambahkan)</li>
+  <li>Pembatasan siswa dalam mengambil jenis pelatihan (ket: belum ditambahkan)</li>
+</ul>
 
 <br>
 
-### Tools / Framework / Other
+### 2. Tools / Framework / Other
 | Bagian | Keterangan |
 | --- | --- |
 | Fitur | Login, Create, Read, Update, Delete, Validation, Pagination, Search, Access Rights by Session/Middleware, ETC |
@@ -26,54 +28,54 @@
 
 <br>
 
-### Environment
-<p>1. Download XAMPP</p>
+### 3. Environment
+<ul style="line-height:180%" style="list-style-type:square;">
+<li>Download XAMPP</li>
 
-```bash
-https://www.apachefriends.org/index.html
-```
+    ```bash
+    https://www.apachefriends.org/index.html
+    ```
 
-<p>2. Download Visual Studio Code</p>
+<li>Download Visual Studio Code</li>
 
-```bash
-https://code.visualstudio.com/
-```
+    ```bash
+    https://code.visualstudio.com/
+    ```
 
-<p>3. Download Composer</p>
+<li>Download Composer</li>
 
-```bash
-https://getcomposer.org/
-```
+    ```bash
+    https://getcomposer.org/
+    ```
 
-<p>4. Download Git</p>
+<li>Download Git</li>
 
-```bash
-http://git-scm.com/
-```
+    ```bash
+    http://git-scm.com/
+    ```
 
-<p>5. Buat database dengan nama stcamp404 di local, ketikkan pada browser :</p>
+<li>Buat database dengan nama stcamp404 di local, ketikkan pada browser :</li>
 
-```bash
-localhost/phpmyadmin/
-```
+    ```bash
+    localhost/phpmyadmin/
+    ```
 
-<p>6. Import database dengan nama stcamp404.sql</p>
+<li>Import database dengan nama stcamp404.sql</li>
+</ul><br>
 
-<br>
-
-### Run Server
-<p>1. Pastikan masih berada di dalam folder STCAMP404 -> Klik kanan pilih gitbash lalu ketikkan :</p>
+### 4. Run Server
+<ul style="line-height:180%" style="list-style-type:square;">
+<li>Pastikan masih berada di dalam folder STCAMP404 -> Klik kanan pilih gitbash lalu ketikkan :</li>
 
 ```bash
 $php artisan serve
 ```
 
-<p>2. Buka XAMPP lalu start apache dan mysql</p>
-<p>3. Buka browser anda (Tab baru) lalu ketikkan -> localhost:8080 atau sesuaikan yang ada pada gitbash</p>
+<li>2. Buka XAMPP lalu start apache dan mysql</li>
+<li>3. Buka browser anda (Tab baru) lalu ketikkan -> localhost:8080 atau sesuaikan yang ada pada gitbash</li>
+</ul><br>
 
-<br>
-
-### Akun untuk login
+### 5. Akun untuk login
 | Role | Email | Password |
 | --- | --- | --- |
 | Admin | admin@stcamp404.ac.id | 123456 |
@@ -81,33 +83,34 @@ $php artisan serve
 
 <br>
 
-## Cara Menjalankan Web Secara Local
-<p>1. Download repository ini</p>
-<p>2. Extract file yang di download tadi -> Copy & Paste isi folder yang di download tadi ke -> XAMP (htdocs) -> masuk kedalam folder STCAMP404 atau jika belum ada buat dulu foldernya</p>
-<p>3. Run Server</p>
-<p>4. Login akun</p>
-<p>5. Selesai, selamat menikmati</p>
+### 6. Cara Menjalankan Web Secara Local
+<ul style="line-height:180%" style="list-style-type:square;">
+<li>Download repository ini</li>
+<li>Extract file yang di download tadi -> Copy & Paste isi folder yang di download tadi ke -> XAMP (htdocs) -> masuk kedalam folder STCAMP404 atau jika belum ada buat dulu foldernya</li>
+<li>Run Server</li>
+<li>Login akun</li>
+<li>Selesai, selamat menikmati</li>
+</ul><br>
 
-<br>
-
-### Error Notification
+### 7. Error Notification
 <strong>Jika anda mengalami : Server error 500</strong>
 
 <p>Maka yang harus anda ketikan pada CMD satu per satu sebagai berikut :</p>
-<p>1. Perbarui composer</p>
+<ul style="line-height:180%" style="list-style-type:square;">
+<li>Perbarui composer</li>
 
-```bash
-composer update
-```
+    ```bash
+    composer update
+    ```
 
-<p>2. Buat file .env dari file .env.example lalu sesuaikan juga database dan app name</p>
-<p>3. Generate key</p>
+<li>Buat file .env dari file .env.example lalu sesuaikan juga database dan app name</li>
+<li>3. Generate key</li>
 
 ```bash
 $php artisan key:generate
 ```
 
-<br>
+</ul><br>
 
-### Reminder
+### 8. Reminder
 <p>Anda dapat memberikan star pada project ini jika dirasa bermanfaat, terima kasih</p>

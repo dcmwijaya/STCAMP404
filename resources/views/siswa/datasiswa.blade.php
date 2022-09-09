@@ -75,7 +75,7 @@
                             <label class="input-group-text" for="AddExercise">
                                 <small class="text-sm">Opsi:</small>
                             </label>
-                            <select class="form-select text-sm" name="pelatihan" id="AddExercise">
+                            <select class="form-select text-sm @error('pelatihan') is-invalid @enderror" name="pelatihan" id="AddExercise">
                                 <option value="Bootstrap 5" selected class="text-sm">Bootstrap 5</option>
                                 <option value="Git" class="text-sm">Git</option>
                                 <option value="Laravel 8" class="text-sm">Laravel 8</option>

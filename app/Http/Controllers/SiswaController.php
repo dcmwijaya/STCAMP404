@@ -29,11 +29,50 @@ class SiswaController extends Controller
         return view('siswa.datasiswa', $value);
     }
 
-    public function create(Request $reqdata)
+    public function create(Request $reqData)
     {
-        $insertdata = $reqdata->all();
-        $this->dbs->create($insertdata);
-        $msg = 'Anda berhasil menambahkan data pelatihan!!';
-        return redirect()->route('data-siswa')->with('addSiswaNotif', $msg);
+        if (Session::has('LogSession')) {
+            $LogUser = $this->db->where('id', '=', Session::get('LogSession'))->first();
+            $PelatihanSiswaSTCAMP404 = $this->dbs->select('pelatihan')->where('nis', $LogUser->siswa_id)->distinct()->get();
+        }
+        if ($PelatihanSiswaSTCAMP404->where('pelatihan', 'Bootstrap 5')) {
+            if($PelatihanSiswaSTCAMP404 != $reqData->pelatihan){
+                return redirect()->route('data-siswa');
+            } else{
+                $this->dbs->create([
+                    'nis' => $reqData->nis,
+                    'nama_siswa' => $reqData->nama_siswa,
+                    'pelatihan' => $reqData->pelatihan
+                ]);
+                $msg = 'Anda berhasil menambahkan data pelatihan!!';
+                return redirect()->route('data-siswa')->with('addSiswaNotif', $msg);
+            }
+        } else if ($reqData->pelatihan == 'Git' && $PelatihanSiswaSTCAMP404 == 'Git') {
+            $this->dbs->create([
+                'nis' => $reqData->nis,
+                'nama_siswa' => $reqData->nama_siswa,
+                'pelatihan' => $reqData->pelatihan
+            ]);
+            $msg = 'Anda berhasil menambahkan data pelatihan!!';
+            return redirect()->route('data-siswa')->with('addSiswaNotif', $msg);
+        } else if ($reqData->pelatihan == 'Laravel 8' && $PelatihanSiswaSTCAMP404 == 'Laravel 8') {
+            $this->dbs->create([
+                'nis' => $reqData->nis,
+                'nama_siswa' => $reqData->nama_siswa,
+                'pelatihan' => $reqData->pelatihan
+            ]);
+            $msg = 'Anda berhasil menambahkan data pelatihan!!';
+            return redirect()->route('data-siswa')->with('addSiswaNotif', $msg);
+        } else if ($reqData->pelatihan == 'Codeigniter 4' && $PelatihanSiswaSTCAMP404 == 'Codeigniter 4') {
+            $this->dbs->create([
+                'nis' => $reqData->nis,
+                'nama_siswa' => $reqData->nama_siswa,
+                'pelatihan' => $reqData->pelatihan
+            ]);
+            $msg = 'Anda berhasil menambahkan data pelatihan!!';
+            return redirect()->route('data-siswa')->with('addSiswaNotif', $msg);
+        } else {
+            return redirect()->route('data-siswa');
+        }
     }
 }
