@@ -32,33 +32,33 @@
 <ul style="line-height:180%" style="list-style-type:square;">
 <li>Download XAMPP</li>
 
-    ```bash
-    https://www.apachefriends.org/index.html
-    ```
+```bash
+https://www.apachefriends.org/index.html
+```
 
 <li>Download Visual Studio Code</li>
 
-    ```bash
-    https://code.visualstudio.com/
-    ```
+```bash
+https://code.visualstudio.com/
+```
 
 <li>Download Composer</li>
 
-    ```bash
-    https://getcomposer.org/
-    ```
+```bash
+https://getcomposer.org/
+```
 
 <li>Download Git</li>
 
-    ```bash
-    http://git-scm.com/
-    ```
+```bash
+http://git-scm.com/
+```
 
 <li>Buat database dengan nama stcamp404 di local, ketikkan pada browser :</li>
 
-    ```bash
-    localhost/phpmyadmin/
-    ```
+```bash
+localhost/phpmyadmin/
+```
 
 <li>Import database dengan nama stcamp404.sql</li>
 </ul><br>
@@ -99,9 +99,9 @@ $php artisan serve
 <ul style="line-height:180%" style="list-style-type:square;">
 <li>Perbarui composer</li>
 
-    ```bash
-    composer update
-    ```
+```bash
+composer update
+```
 
 <li>Buat file .env dari file .env.example lalu sesuaikan juga database dan app name</li>
 <li>3. Generate key</li>
