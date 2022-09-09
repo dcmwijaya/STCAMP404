@@ -110,4 +110,12 @@ $php artisan key:generate
 </ul><br>
 
 ### 8. Reminder
+<p>Jika auto-increment database yang ada masih belum urut, maka anda dapat melakukan hal berikut pada phpMyAdmin :</p>
+
+```bash
+SET  @num := 0;
+UPDATE your_table SET id = @num := (@num+1);
+ALTER TABLE your_table AUTO_INCREMENT =1;
+```
+
 <p>Anda dapat memberikan star pada project ini jika dirasa bermanfaat, terima kasih</p>
