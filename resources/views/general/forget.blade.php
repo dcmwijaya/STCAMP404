@@ -17,10 +17,11 @@
 
     <form class="form-group row" action="{{ url('/resetUser') }}" method="POST">
         @csrf
+        <input type="hidden" name="siswa_id" id="fsiswa_id" required>
         <div class="col-xl-12">
             <div class="col-md-6 mt-4 input-sm">
                 <label for="email"><i class="bi bi-envelope me-1"></i> Email</label>
-                <input id="email" type="email" class="form-control mt-3 @error('femail') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Masukan email anda..." autofocus>
+                <input id="femail" type="email" class="form-control mt-3 @error('femail') is-invalid @enderror" name="email" placeholder="Masukan email anda..." autofocus required>
                 @error('femail')
                     <span class="text-danger invalid-feedback" role="alert">
                         <i class="bi bi-exclamation-triangle-fill me-2"></i>
@@ -36,7 +37,7 @@
                     <button onclick="ShowPassForget()" class="btn btn-outline-secondary" type="button">
                     <i class="bi bi-eye-fill"></i>
                     </button>
-                    <input id="fpassword" type="password" class="form-control @error('fpassword') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Masukan kata sandi baru...">
+                    <input id="fpassword" type="password" class="form-control @error('fpassword') is-invalid @enderror" name="password" placeholder="Masukan kata sandi baru..." required>
                     @error('fpassword')
                         <span class="text-danger invalid-feedback" role="alert">
                             <i class="bi bi-exclamation-triangle-fill me-2"></i>
@@ -51,7 +52,7 @@
                     <button onclick="ShowPassConfirmForget()" class="btn btn-outline-secondary" type="button">
                     <i class="bi bi-eye-fill"></i>
                     </button>
-                    <input id="fpassword-confirm" type="password" class="form-control @error('fpassword') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password" placeholder="Konfirmasi kata sandi baru...">
+                    <input id="fpassword-confirm" type="password" class="form-control @error('fpassword') is-invalid @enderror" name="password_confirmation" placeholder="Konfirmasi kata sandi baru..." required>
                 </div>
             </div>
         </div>

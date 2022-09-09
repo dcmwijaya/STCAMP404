@@ -75,7 +75,7 @@ class GeneralController extends Controller
             $LogUser = $this->db->where('id', '=', Session::get('LogSession'))->first();
             $IdPelUser = $this->dbs->where('id_pelatihan', '=', Session::get('LogSession'))->get();
             $PelUser = $this->dbs->select('pelatihan')->where('nis', '=', $LogUser->siswa_id)->distinct()->get();
-
+            $PelUser_NULL = $this->dbs->select('pelatihan')->where('nis', '=', $LogUser->siswa_id)->where('pelatihan', '=', NULL)->distinct()->get();
             $CountBootstrap8 = $this->dbs->where('pelatihan', 'Bootstrap 5')->count();
             $CountGit = $this->dbs->where('pelatihan', 'Git')->count();
             $CountLaravel8 = $this->dbs->where('pelatihan', 'Laravel 8')->count();
@@ -88,7 +88,8 @@ class GeneralController extends Controller
                 'Cci' => $CountCodeigniter4,
                 'LogUser' => $LogUser,
                 'IdPelUser' => $IdPelUser,
-                'PelUser' => $PelUser
+                'PelUser' => $PelUser,
+                'PelUser_NULL' => $PelUser_NULL
             ];
 
             return view('general.dashboard', $Data);
@@ -102,6 +103,7 @@ class GeneralController extends Controller
             $UpData->update([
                 'siswa_id' => $reqdata->siswa_id,
                 'name' => $reqdata->name,
+                'email' => $reqdata->email,
                 'password' => bcrypt($reqdata->password),
                 'image' => $reqdata->file('image')->move('asset\img\profile', $reqdata->file('image')->getClientOriginalName())
             ]);
@@ -109,6 +111,7 @@ class GeneralController extends Controller
             $UpData->update([
                 'siswa_id' => $reqdata->siswa_id,
                 'name' => $reqdata->name,
+                'email' => $reqdata->email,
                 'password' => bcrypt($reqdata->password),
                 'image' => $UpData->image
             ]);
@@ -133,7 +136,8 @@ class GeneralController extends Controller
                 'siswa_id' => $reqData->siswa_id,
                 'name' => $reqData->name,
                 'email' => $reqData->email,
-                'password' => bcrypt($reqData->cpassword)
+                'password' => bcrypt($reqData->password),
+                'image' => $reqData->image
             ]);
 
             $msg = ' Selamat anda berhasil melakukan registrasi!!';
@@ -150,12 +154,10 @@ class GeneralController extends Controller
     {
         $validated = $reqData->validated();
         if ($validated) {
-            // DBU::update([
-            //     'siswa_id' => $reqData->siswa_id,
-            //     'name' => $reqData->name,
-            //     'email' => $reqData->email,
-            //     'password' => bcrypt($reqData->cpassword)
-            // ]);
+            $this->db->update([
+                'email' => $reqData->email,
+                'password' => bcrypt($reqData->password)
+            ]);
 
             $msg = ' Selamat anda berhasil mereset password!!';
             return redirect()->route('forgetUser')->with('forgetNotif', $msg);

@@ -18,6 +18,7 @@
     <form class="form-group row" action="{{ url('/registrasiUser') }}" method="POST">
         @csrf
         <input name="siswa_id" type="hidden" value="{{ $defid + $jumlah }}">
+        <input name="image" type="hidden" value="asset\img\profile\default.jpg">
         <div class="col-xl-12">
             <div class="col-md-6 mt-4 input-sm">
                 <label for="name"><i class="bi bi-envelope me-1"></i> Nama</label>

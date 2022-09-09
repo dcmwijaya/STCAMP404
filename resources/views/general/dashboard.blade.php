@@ -187,7 +187,7 @@
                                         {{ $UP->pelatihan }}
                                     </small></p>
                                 @endforeach
-                                @if($PelUser == null)
+                                @if($PelUser == $PelUser_NULL)
                                     <p><small class="text-muted"><i class="bi bi-dot me-1"></i> 
                                         Belum ada pelatihan
                                     </small></p>
