@@ -211,23 +211,33 @@
                 <div class="modal-body">
                     <form class="row g-2" action="{{ url('/updateprofile') }}" method="POST">
                         @csrf
-                        <div class="col-md-12 mt-2">
-                            <label for="prfname"><i class="bi bi-person me-1"></i> Ubah Nama Pengguna</label>
-                            <input type="text" class="form-control mt-2" name="name" id="prfname" value="{{ $LogUser->name }}" placeholder="Ubah nama anda..." required>
+                        <div class="row col-md-12">
+                            <div class="col-md-12 mt-2">
+                                <label for="prfname"><i class="bi bi-person me-1"></i> Ubah Nama Pengguna</label>
+                                <input type="text" class="form-control mt-2" name="name" id="prfname" value="{{ $LogUser->name }}" placeholder="Ubah nama anda..." required>
+                            </div>
                         </div>
-                        <div class="col-md-12 mt-4">
-                            <label for="prfemail"><i class="bi bi-envelope me-1"></i> Ubah Email Pengguna</label>
-                            <input type="email" class="form-control mt-2" name="email" id="prfemail" value="{{ $LogUser->email }}" placeholder="Ubah email anda..." required>
+                        <div class="row col-md-12">
+                            <div class="col-md-6 mt-4">
+                                <label for="prfemail"><i class="bi bi-envelope me-1"></i> Ubah Email Pengguna</label>
+                                <input type="email" class="form-control mt-2" name="email" id="prfemail" value="{{ $LogUser->email }}" placeholder="Ubah email anda..." required>
+                            </div>
+                            <div class="col-md-6 mt-4">
+                                <label for="prfpassword"><i class="bi bi-key me-1"></i> Ubah Kata Sandi</label>
+                                <div class="input-group mb-3">
+                                    <button onclick="ShowPassProfile()" class="btn btn-outline-secondary mt-2" type="button">
+                                        <i class="bi bi-eye-fill"></i>
+                                    </button>
+                                    <input type="password" class="form-control mt-2" name="password" id="prfpassword" placeholder="Ubah kata sandi anda..." required>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-12 mt-4">
-                            <label for="prfpassword"><i class="bi bi-key me-1"></i> Ubah Kata Sandi</label>
-                            <div class="input-group mb-3 mt-2">
-                                <button onclick="ShowPassProfile()" class="btn btn-outline-secondary mt-2" type="button">
-                                    <i class="bi bi-eye-fill"></i>
-                                </button>
-                                <input type="password" class="form-control mt-2" name="password" id="prfpassword" 
-                                    {{-- value="{{ $decryptpassword }}" --}}
-                                placeholder="Ubah kata sandi anda..." required>
+                        <div class="row col-md-12">
+                            <div class="col-md-12 mt-2">
+                                <label for="prfimg"><i class="bi bi-card-image me-1"></i> Ubah Foto Pengguna</label>
+                                <div class="input-group mb-3 mt-2">
+                                    <input type="file" class="form-control" id="prfimg">
+                                </div>
                             </div>
                         </div>
                     </div>
