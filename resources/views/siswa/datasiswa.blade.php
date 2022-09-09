@@ -57,7 +57,6 @@
 
     <!-- Bagian Siswa Modal -->
     <!-- Pop Up Modal Add-->
-    @foreach($LogUser as $LU)
     <div class="modal fade modalmenu" id="ModalAdd" tabindex="-1" aria-labelledby="ModalAddLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -68,16 +67,18 @@
                 <div class="modal-body">
                     <form class="row g-2" action="{{ url('/data-siswa/add') }}" method="POST">
                       @csrf
-                      <div class="col-md-12 mt-3">
-                        <label for="AddName"><i class="bi bi-building me-1"></i> Nomor Induk Siswa</label>
-                        <input type="text" class="form-control mt-2" value="{{ $v->nis }}" disabled>
-                        <input type="hidden" name="siswa_id" required>
-                      </div>
-                      <div class="col-md-12 mt-4">
-                        <label for="AddName"><i class="bi bi-person me-1"></i> Nama Pengguna</label>
-                        <input type="text" class="form-control mt-2" name="name" value="{{ $v->nama_siswa }}" disabled>
-                        <input type="hidden" name="name" required>
-                      </div>
+                      @foreach($value as $v)
+                        <div class="col-md-12 mt-3">
+                            <label for="AddName"><i class="bi bi-building me-1"></i> Nomor Induk Siswa</label>
+                            <input type="text" class="form-control mt-2" value="{{ $v->nis }}" disabled>
+                            <input type="hidden" name="siswa_id" required>
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <label for="AddName"><i class="bi bi-person me-1"></i> Nama Pengguna</label>
+                            <input type="text" class="form-control mt-2" name="name" value="{{ $v->nama_siswa }}" disabled>
+                            <input type="hidden" name="name" required>
+                        </div>  
+                      @endforeach
                       <div class="col-md-12 mt-4">
                         <label for="AddExercise"><i class="bi bi-award me-1"></i> Pelatihan</label>
                         <div class="input-group mb-3 mt-2">
@@ -85,10 +86,9 @@
                                 <small class="text-sm">Opsi:</small>
                             </label>
                             <select class="form-select text-sm @error('pelatihan') is-invalid @enderror" name="pelatihan" id="AddExercise">
-                                <option value="Bootstrap 5" selected class="text-sm">Bootstrap 5</option>
-                                <option value="Git" class="text-sm">Git</option>
-                                <option value="Laravel 8" class="text-sm">Laravel 8</option>
-                                <option value="Codeigniter 4" class="text-sm">Codeigniter 4</option>
+                                @foreach($PEL as $val)
+                                    <option value="{{ $val->nama_pelatihan }}" selected class="text-sm">{{ $val->nama_pelatihan }}</option>
+                                @endforeach
                             </select>
                         </div>
                       </div>
@@ -103,6 +103,5 @@
             </div>
         </div>
     </div>
-    @endforeach
     <!-- Akhir Pop Up Modal Add-->
 @endsection
