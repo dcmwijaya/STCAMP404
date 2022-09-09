@@ -20,7 +20,7 @@ class SiswaController extends Controller
         if (Session::has('LogSession')) {
             $LogUser = $this->db->where('id', '=', Session::get('LogSession'))->first();
             $value = $this->dbs->select('nis','nama_siswa','pelatihan','created_at')->where('nis', '=', $LogUser->siswa_id)->distinct()->get();
-            $readDB = $this->dbs->select('nis','nama_siswa','pelatihan','created_at')->where('nis', '=', $LogUser->siswa_id)->distinct()->paginate(5);
+            $readDB = $this->dbs->select('nis','nama_siswa','pelatihan','created_at')->where('nis', '=', $LogUser->siswa_id)->distinct()->paginate(2);
             $value = [
                 'value' => $readDB
             ];
@@ -46,7 +46,8 @@ class SiswaController extends Controller
             $msg = 'Anda berhasil menambahkan data pelatihan!!';
             return redirect()->route('data-siswa')->with('addSiswaNotif', $msg);
         } else {
-            return redirect()->route('data-siswa');
+            $msg = 'Data pelatihan anda sudah ada, harap selesaikan terlebih dahulu!!';
+            return redirect()->route('data-siswa')->with('erroraddSiswaNotif', $msg);
         } 
     }
 }

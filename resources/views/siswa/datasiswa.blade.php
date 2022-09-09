@@ -24,7 +24,16 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    <table class="table table-striped table-hover table-bordered caption-top mt-5 col-sm-12 table-responsive">
+    @if ($msgerrSiswa = Session::get('erroraddSiswaNotif'))
+        <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+            <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
+                {{ $msgerrSiswa }}
+            </small>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    <br>
+    <table class="table table-striped table-hover table-bordered caption-top mt-3 col-sm-12 table-responsive">
         <thead class="table-success">
             <tr>
                 <th scope="col">Nomor Induk Siswa</th>
