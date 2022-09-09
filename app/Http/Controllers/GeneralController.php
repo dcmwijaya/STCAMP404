@@ -25,11 +25,11 @@ class GeneralController extends Controller
     {
         if (Session::has('LogSession')) {
             $LogUser = $this->db->where('id', '=', Session::get('LogSession'))->first();
+            $Data = [
+                'LogUser' => $LogUser
+            ];
+            return view('index', $Data);
         }
-        $Data = [
-            'LogUser' => $LogUser
-        ];
-        return view('index', $Data);
     }
 
     public function infokegiatan()
@@ -57,6 +57,8 @@ class GeneralController extends Controller
         if($user){
             if(Hash::check($reqData->password, $user->password)){
                 $reqData->session()->put('LogSession', $user->id);
+                $reqData->session()->put('adminAccess', $user->id);
+                $reqData->session()->put('siswaAccess', $user->id);
                 $msg = " Anda berhasil masuk, selamat datang di menu utama STCAMP404!!";
                 return redirect()->route('dashboardaccount')->with('LoginNotif', $msg);
             } else{
@@ -73,24 +75,24 @@ class GeneralController extends Controller
             $LogUser = $this->db->where('id', '=', Session::get('LogSession'))->first();
             $IdPelUser = $this->dbs->where('id_pelatihan', '=', Session::get('LogSession'))->get();
             $PelUser = $this->dbs->select('pelatihan')->where('nis', '=', $LogUser->siswa_id)->distinct()->get();
+
+            $CountBootstrap8 = $this->dbs->where('pelatihan', 'Bootstrap 5')->count();
+            $CountGit = $this->dbs->where('pelatihan', 'Git')->count();
+            $CountLaravel8 = $this->dbs->where('pelatihan', 'Laravel 8')->count();
+            $CountCodeigniter4 = $this->dbs->where('pelatihan', 'Codeigniter 4')->count();
+
+            $Data = [
+                'Cbt' => $CountBootstrap8,
+                'Cgt' => $CountGit,
+                'Clr' => $CountLaravel8,
+                'Cci' => $CountCodeigniter4,
+                'LogUser' => $LogUser,
+                'IdPelUser' => $IdPelUser,
+                'PelUser' => $PelUser
+            ];
+
+            return view('general.dashboard', $Data);
         }
-
-        $CountBootstrap8 = $this->dbs->where('pelatihan', 'Bootstrap 5')->count();
-        $CountGit = $this->dbs->where('pelatihan', 'Git')->count();
-        $CountLaravel8 = $this->dbs->where('pelatihan', 'Laravel 8')->count();
-        $CountCodeigniter4 = $this->dbs->where('pelatihan', 'Codeigniter 4')->count();
-
-        $Data = [
-            'Cbt' => $CountBootstrap8,
-            'Cgt' => $CountGit,
-            'Clr' => $CountLaravel8,
-            'Cci' => $CountCodeigniter4,
-            'LogUser' => $LogUser,
-            'IdPelUser' => $IdPelUser,
-            'PelUser' => $PelUser
-        ];
-
-        return view('general.dashboard', $Data);
     }
 
     public function updprofile(Request $reqdata)

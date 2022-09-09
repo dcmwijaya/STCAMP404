@@ -38,9 +38,17 @@ Route::post('/data-siswa/add', [SiswaController::class, 'create'])->name('create
 Route::get('/dashboard', [GeneralController::class, 'dashboardaccount'])->name('dashboardaccount');
 
 // Route Policies : All Access Rights
-Route::group(['middleware' => ['AccessRights']], function () {
+Route::group(['middleware' => ['auth']], function () {
     Route::get('/dashboard', [GeneralController::class, 'dashboardaccount'])->name('dashboardaccount');
     Route::get('/home', [GeneralController::class, 'home'])->name('home');
+});
+
+// Route Policies : Admin Access Rights
+Route::group(['middleware' => ['admin']], function () {
     Route::get('/data-pelatihan', [AdminController::class, 'index'])->name('data-pelatihan');
+});
+
+// Route Policies : Siswa Access Rights
+Route::group(['middleware' => ['siswa']], function () {
     Route::get('/data-siswa', [SiswaController::class, 'index'])->name('data-siswa');
 });

@@ -9,7 +9,7 @@ class AuthCheck
 {
     public function handle(Request $reqData, Closure $next)
     {
-        if(Session()->has('LogSession')){
+        if ($reqData->session()->has('LogSession')) {
             return $next($reqData);
         } else {
             return redirect()->route('registrasi');
