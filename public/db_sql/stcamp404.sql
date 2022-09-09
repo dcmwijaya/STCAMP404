@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Sep 2022 pada 02.57
+-- Waktu pembuatan: 10 Sep 2022 pada 03.17
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.4.15
 
@@ -59,7 +59,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (3, '2019_08_19_000000_create_failed_jobs_table', 1),
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (5, '2022_09_01_103906_create_siswa_table', 1),
-(6, '2022_09_10_002925_create_pelatihan_table', 1);
+(6, '2022_09_10_002925_create_pelatihan_table', 1),
+(7, '2022_09_10_031445_create_siswa_table', 2);
 
 -- --------------------------------------------------------
 
@@ -122,7 +123,7 @@ CREATE TABLE `personal_access_tokens` (
 --
 
 CREATE TABLE `siswa` (
-  `id` int(10) UNSIGNED NOT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL,
   `nis` int(11) DEFAULT NULL,
   `nama_siswa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pelatihan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -139,8 +140,7 @@ INSERT INTO `siswa` (`id`, `nis`, `nama_siswa`, `pelatihan`, `created_at`, `upda
 (2, 20220102, 'Jadiyan Marto', 'Codeigniter 4', NULL, NULL),
 (3, 20220103, 'Chondro Aminoto', 'Git', NULL, NULL),
 (4, 20220104, 'Gatot Subroto', 'Laravel 8', NULL, NULL),
-(5, 20220105, 'Jihan Minarti', 'Codeigniter 4', NULL, NULL),
-(6, NULL, 'Anastasya Geralda', 'Codeigniter 4', '2022-09-09 19:47:34', '2022-09-09 19:47:34');
+(5, 20220105, 'Jihan Minarti', 'Codeigniter 4', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -237,7 +237,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `pelatihan`
@@ -255,7 +255,7 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`

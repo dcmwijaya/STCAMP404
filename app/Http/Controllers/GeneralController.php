@@ -73,7 +73,7 @@ class GeneralController extends Controller
     {
         if (Session::has('LogSession')) {
             $LogUser = $this->db->where('id', '=', Session::get('LogSession'))->first();
-            $IdPelUser = $this->dbs->where('id_pelatihan', '=', Session::get('LogSession'))->get();
+            $IdPelUser = $this->dbs->where('id', '=', Session::get('LogSession'))->get();
             $PelUser = $this->dbs->select('pelatihan')->where('nis', '=', $LogUser->siswa_id)->distinct()->get();
             $PelUser_NULL = $this->dbs->select('pelatihan')->where('nis', '=', $LogUser->siswa_id)->where('pelatihan', '=', NULL)->distinct()->get();
             $CountBootstrap8 = $this->dbs->where('pelatihan', 'Bootstrap 5')->count();
