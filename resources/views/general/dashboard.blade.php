@@ -26,7 +26,7 @@
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col">
-                        <img src="{{ url('asset/img/profile/cewek.jpg') }}" class="img-fluid rounded-start img-profile" alt="gambarpengguna">
+                        <img src="{{ $LogUser->image }}" class="img-fluid rounded-start img-profile" alt="gambarpengguna">
                     </div>
                     <div class="col">
                         <div class="card-body">
@@ -209,7 +209,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-2" action="{{ url('/updateprofile') }}" method="POST">
+                    <form class="row g-2" action="{{ url('/updateprofile') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="row col-md-12">
                             <div class="col-md-12 mt-2">
@@ -236,7 +236,7 @@
                             <div class="col-md-12 mt-2">
                                 <label for="prfimg"><i class="bi bi-card-image me-1"></i> Ubah Foto Pengguna</label>
                                 <div class="input-group mb-3 mt-2">
-                                    <input type="file" class="form-control" id="prfimg">
+                                    <input type="file" class="form-control" name="image" id="prfimg">
                                 </div>
                             </div>
                         </div>

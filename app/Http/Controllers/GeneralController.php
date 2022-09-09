@@ -97,11 +97,12 @@ class GeneralController extends Controller
 
     public function updprofile(Request $reqdata)
     {
-        $findID = $this->db->where('id', '=', Session::get('LogSession'))->first();
-        $findID->update([
+        $UpData = $this->db->where('id', '=', Session::get('LogSession'))->first();
+        $UpData->update([
+            'siswa_id' => $reqdata->siswa_id,
             'name' => $reqdata->name,
-            'email' => $reqdata->email,
-            'password' => bcrypt($reqdata->password)
+            'password' => bcrypt($reqdata->password),
+            'image' => $reqdata->file('image')->move('asset\img\profile', $reqdata->file('image')->getClientOriginalName())
         ]);
         $msg = ' Selamat anda berhasil mengubah data profil!!';
         return redirect()->route('dashboardaccount')->with('updateProfileNotif', $msg);
