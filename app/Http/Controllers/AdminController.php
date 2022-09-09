@@ -19,6 +19,7 @@ class AdminController extends Controller
     public function index(Request $reqdata)
     {
         if (Session::has('adminAccess')) {
+            // Session::pull('LogSession');
             Session::pull('siswaAccess');
             $nis = '202201';
             if($reqdata->has('search')){
