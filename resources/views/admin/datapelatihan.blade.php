@@ -94,6 +94,7 @@
     
     <!-- Bagian Admin Modal -->
     <!-- Pop Up Modal Create-->
+    <!-- MAINTENANCE : BUG CREATE ADMIN -->
     @foreach($data as $v)
     <div class="modal fade modalmenu" id="ModalCreate" tabindex="-1" aria-labelledby="ModalCreateLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -148,6 +149,7 @@
         </div>
     </div>
     <!-- Akhir Pop Up Modal Create-->
+    <!-- END MAINTENANCE : BUG CREATE ADMIN -->
 
     <!-- Pop Up Modal Update-->
     <div class="modal fade modalmenu" id="ModalUpdate-{{ $v->id }}" tabindex="-1" aria-labelledby="ModalUpdateLabel" aria-hidden="true">

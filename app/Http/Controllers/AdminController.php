@@ -47,16 +47,19 @@ class AdminController extends Controller
         }
     }
 
+
+    // MAINTENANCE : BUG CREATE ADMIN
     public function create(Request $reqdata)
     {
         if (Session::has('adminAccess')) {
             $LogUser = $this->dbu->where('id', '=', Session::get('adminAccess'))->first();
+            $PelUser = $this->db->select('pelatihan')->where('nis', '=', $LogUser->siswa_id)->distinct()->get();
             $DB_NULL = $this->db->select('pelatihan')->where('nis', '=', $LogUser->siswa_id)->where('pelatihan', '=', NULL)->distinct()->get();
             $DB_Search = $this->db->select('pelatihan')->where('nis', '=', $LogUser->siswa_id)->where('pelatihan', '=', $reqdata->pelatihan)->distinct()->get();
             if ($DB_Search == $DB_NULL) {
                 $this->db->create([
-                    'nis' => $LogUser->siswa_id,
-                    'nama_siswa' => $LogUser->name,
+                    'nis' => $PelUser->nis,
+                    'nama_siswa' => $PelUser->nama_siswa,
                     'pelatihan' => $reqdata->pelatihan
                 ]);
                 $msg = ' Selamat anda berhasil menambahkan data siswa!!';
@@ -67,6 +70,8 @@ class AdminController extends Controller
             }
         }
     }
+
+    // END MAINTENANCE : BUG CREATE ADMIN
 
     public function update(Request $reqdata, $id)
     {
