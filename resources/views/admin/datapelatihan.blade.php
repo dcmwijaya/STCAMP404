@@ -78,9 +78,9 @@
                 <td>{{ $v->updated_at }}</td>
                 <td>
                     <div class="d-grid gap-2">
-                        <a class="btn btn-outline-warning btn-sm text-dark" data-bs-toggle="modal" data-bs-target="#ModalUpdate-{{ $v->id }}">
+                        <a class="btn btn-outline-warning btn-sm text-dark" data-bs-toggle="modal" data-bs-target="#ModalUpdate-{{ $v->id_pelatihan }}">
                             <i class="bi bi-pencil-square me-1"></i> Ubah</a>
-                        <a class="btn btn-outline-danger btn-sm text-dark" data-bs-toggle="modal" data-bs-target="#ModalDelete-{{ $v->id }}">
+                        <a class="btn btn-outline-danger btn-sm text-dark" data-bs-toggle="modal" data-bs-target="#ModalDelete-{{ $v->id_pelatihan }}">
                             <i class="bi bi-trash3 me-1"></i> Hapus</a>
                     </div>
                 </td>
@@ -150,7 +150,7 @@
 
     <!-- Pop Up Modal Update-->
     @foreach($data as $v)
-    <div class="modal fade modalmenu" id="ModalUpdate-{{ $v->id }}" tabindex="-1" aria-labelledby="ModalUpdateLabel" aria-hidden="true">
+    <div class="modal fade modalmenu" id="ModalUpdate-{{ $v->id_pelatihan }}" tabindex="-1" aria-labelledby="ModalUpdateLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-success text-light">
@@ -158,7 +158,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form class="row g-2" action="{{ url('/data-pelatihan/update/'.$v->id) }}" method="POST">
+                    <form class="row g-2" action="{{ url('/data-pelatihan/update/'.$v->id_pelatihan) }}" method="POST">
                         @csrf
                         <div class="col-md-12 mt-2">
                             <label for="exampleUpdateName"><i class="bi bi-person me-1"></i> Nama Pengguna</label>
@@ -189,7 +189,7 @@
     <!-- Akhir Pop Up Modal Update-->
 
     <!-- Pop Up Modal Delete-->
-    <div class="modal fade modalmenu" id="ModalDelete-{{ $v->id }}" tabindex="-1" aria-labelledby="ModalDeleteLabel" aria-hidden="true">
+    <div class="modal fade modalmenu" id="ModalDelete-{{ $v->id_pelatihan }}" tabindex="-1" aria-labelledby="ModalDeleteLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header bg-success text-light">
@@ -197,12 +197,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <small class="text-muted">Anda yakin ingin menghapus data yang memiliki ID = "{{ $v->id }}" ini ?</small>
+                    <small class="text-muted">Anda yakin ingin menghapus data yang memiliki ID = "{{ $v->id_pelatihan }}" ini ?</small>
                 </div>
                 <div class="modal-footer bg-success mt-2">
                     <a type="button" class="btn btn-secondary btn-sm btncancel text-light" data-bs-dismiss="modal">
                     <i class="bi bi-person-x me-1"></i> Batal</a>
-                    <a type="submit" href="{{ url('/data-pelatihan/delete/'.$v->id) }}" class="btn btn-primary btn-sm btnacc text-light">
+                    <a type="submit" href="{{ url('/data-pelatihan/delete/'.$v->id_pelatihan) }}" class="btn btn-primary btn-sm btnacc text-light">
                     <i class="bi bi-person-check me-1"></i> Setuju</a>
                 </div>
             </div>

@@ -69,17 +69,17 @@ class AdminController extends Controller
     }
 
     //BAGIAN BERMASALAH : MAINTENANCE
-    public function update(Request $reqdata, $id)
+    public function update(Request $reqdata, $id_pelatihan)
     {
-        $findID = $this->db->find($id);
+        $findID = $this->db->find($id_pelatihan);
         $findID->update($reqdata->all());
         $msg = ' Selamat anda berhasil mengubah data siswa!!';
         return redirect()->route('data-pelatihan')->with('updateAdminNotif', $msg);
     }
 
-    public function delete($id)
+    public function delete($id_pelatihan)
     {
-        $findID = $this->db->find($id);
+        $findID = $this->db->find($id_pelatihan);
         $findID->delete();
         $this->db->reset();
         $msg = ' Selamat anda berhasil menghapus data siswa!!';

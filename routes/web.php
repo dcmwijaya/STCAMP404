@@ -32,8 +32,8 @@ Route::post('/resetUser', [GeneralController::class, 'resetUser'])->name('resetU
 Route::post('/login', [GeneralController::class, 'login'])->name('login');
 Route::get('/logout', [GeneralController::class, 'logout'])->name('logout');
 Route::post('/data-pelatihan/add', [AdminController::class, 'create'])->name('create');
-Route::post('/data-pelatihan/update/{id}', [AdminController::class, 'update'])->name('update');
-Route::get('/data-pelatihan/delete/{id}', [AdminController::class, 'delete'])->name('delete');
+Route::post('/data-pelatihan/update/{id_pelatihan}', [AdminController::class, 'update'])->name('update');
+Route::get('/data-pelatihan/delete/{id_pelatihan}', [AdminController::class, 'delete'])->name('delete');
 Route::post('/data-siswa/add', [SiswaController::class, 'create'])->name('create');
 Route::get('/dashboard', [GeneralController::class, 'dashboardaccount'])->name('dashboardaccount');
 

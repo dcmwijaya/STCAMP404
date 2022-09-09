@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Sep 2022 pada 01.06
+-- Waktu pembuatan: 10 Sep 2022 pada 02.40
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.4.15
 
@@ -20,6 +20,46 @@ SET time_zone = "+00:00";
 --
 -- Database: `stcamp404`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `failed_jobs`
+--
+
+CREATE TABLE `failed_jobs` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `migrations`
+--
+
+CREATE TABLE `migrations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data untuk tabel `migrations`
+--
+
+INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
+(1, '2014_10_12_000000_create_users_table', 1),
+(2, '2014_10_12_100000_create_password_resets_table', 1),
+(3, '2019_08_19_000000_create_failed_jobs_table', 1),
+(4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
+(5, '2022_09_01_103906_create_siswa_table', 1),
+(6, '2022_09_10_002925_create_pelatihan_table', 1);
 
 -- --------------------------------------------------------
 
@@ -42,18 +82,38 @@ CREATE TABLE `password_resets` (
 CREATE TABLE `pelatihan` (
   `id_item` int(10) UNSIGNED NOT NULL,
   `nama_pelatihan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `waktu_pelatihan` date NOT NULL
+  `waktu_pelatihan` date NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data untuk tabel `pelatihan`
 --
 
-INSERT INTO `pelatihan` (`id_item`, `nama_pelatihan`, `waktu_pelatihan`) VALUES
-(1, 'Bootstrap 5', '2022-10-02'),
-(2, 'Git', '2022-10-20'),
-(3, 'Laravel 8', '2022-11-12'),
-(4, 'Codeigniter 4', '2022-12-05');
+INSERT INTO `pelatihan` (`id_item`, `nama_pelatihan`, `waktu_pelatihan`, `created_at`, `updated_at`) VALUES
+(1, 'Bootstrap 5', '2022-10-02', NULL, NULL),
+(2, 'Git', '2022-10-20', NULL, NULL),
+(3, 'Laravel 8', '2022-11-12', NULL, NULL),
+(4, 'Codeigniter 4', '2022-12-05', NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `personal_access_tokens`
+--
+
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -62,7 +122,7 @@ INSERT INTO `pelatihan` (`id_item`, `nama_pelatihan`, `waktu_pelatihan`) VALUES
 --
 
 CREATE TABLE `siswa` (
-  `id_pelatihan` bigint(20) UNSIGNED NOT NULL,
+  `id_pelatihan` int(10) UNSIGNED NOT NULL,
   `nis` int(11) DEFAULT NULL,
   `nama_siswa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pelatihan` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -75,10 +135,11 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id_pelatihan`, `nis`, `nama_siswa`, `pelatihan`, `created_at`, `updated_at`) VALUES
-(1, 20220101, 'Jaya Kuntoro Mangunati', 'Codeigniter 4', '2022-09-04 12:02:25', '2022-09-04 12:02:25'),
-(2, 20220101, 'Jaya Kuntoro Mangunati', 'Git', '2022-09-04 12:04:25', '2022-09-04 12:04:25'),
-(3, 20220101, 'Jaya Kuntoro Mangunati', 'Laravel 8', '2022-09-04 12:06:25', '2022-09-04 12:06:25'),
-(4, 20220101, 'Jaya Kuntoro Mangunati', 'Bootstrap 5', '2022-09-04 13:06:00', '2022-09-04 13:06:00');
+(1, 20220101, 'Jaya Mangunati', 'Bootstrap 5', NULL, NULL),
+(2, 20220102, 'Jadiyan Marto', 'Codeigniter 4', NULL, NULL),
+(3, 20220103, 'Chondro Aminoto', 'Git', NULL, NULL),
+(4, 20220104, 'Gatot Subroto', 'Laravel 8', NULL, NULL),
+(5, 20220105, 'Jihan Minarti', 'Codeigniter 4', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -92,7 +153,7 @@ CREATE TABLE `users` (
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `role` enum('admin','siswa') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'siswa',
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -104,13 +165,29 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `siswa_id`, `name`, `role`, `email`, `image`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, NULL, 'Rissha Anastasya Gabriellya', 'admin', 'admin@stcamp404.ac.id', 'asset\\img\\profile\\admin.jpg', '$2y$10$0H/lg2JVk2fi9nYN/nfAFeIs9OiVvJpyiSccpsH8r8tlemuSI/5wy', NULL, NULL, '2022-09-09 13:29:42'),
-(2, 20220101, 'Jaya Kuntoro Mangunati', 'siswa', '20220101@stcamp404.ac.id', 'asset\\img\\profile\\siswa.jpg', '$2y$10$YT4HRAurrZhdcr4u9dL1ZOx1oxzBjC58s7jl9FMlDXXNHB0bMIbg2', NULL, NULL, '2022-09-09 13:29:02'),
-(3, 20220102, 'Ayunda Maulia Manda', 'siswa', '20220102@stcamp404.ac.id', 'asset\\img\\profile\\default.jpg', '$2y$10$klraYaI/VU4f3HyA7Kztb.iXkf7FKr7zD0cIn2fYaLg.k6JXFJnnK', NULL, '2022-09-09 18:01:05', '2022-09-09 18:01:05');
+(1, NULL, 'Anastasya Geralda', 'admin', 'admin@stcamp404.ac.id', 'asset\\img\\profile\\admin.jpg', '$2y$10$sTFrUMwJgFADRIhmbqHJBe5Mqog2KAGDYJB9hqLjmohcmg5tcr7tO', NULL, NULL, NULL),
+(2, 20220101, 'Jaya Mangunati', 'siswa', '20220101@stcamp404.ac.id', 'asset\\img\\profile\\siswa.jpg', '$2y$10$27FeEhw9YVfZa3QyFrtl6OGFcxiu/6bTdNn5DUYWA4TxULmJosNJa', NULL, NULL, NULL),
+(4, 20220102, 'Jadiyan Marto', 'siswa', '20220102@stcamp404.ac.id', 'asset\\img\\profile\\default.jpg', '$2y$10$JjMoe9xh6nwaAHU4RmyqUOZVzSoxJJAF622jTvZlKDlWHxoA7FLFa', NULL, NULL, NULL),
+(5, 20220103, 'Chondro Aminoto', 'siswa', '20220103@stcamp404.ac.id', 'asset\\img\\profile\\default.jpg', '$2y$10$CPySEc5iR6htOJoMQUCdL.MJ56OPXpWanH95AKjVuxk5DslH7aJi.', NULL, NULL, NULL),
+(6, 20220104, 'Gatot Subroto', 'siswa', '20220104@stcamp404.ac.id', 'asset\\img\\profile\\default.jpg', '$2y$10$bVgjoiU5Jl3afVjEBtDWtuA7a01jVTZQ4qT2cGKsRhtyPeFt80XlG', NULL, NULL, NULL),
+(7, 20220105, 'Jihan Minarti', 'siswa', '20220105@stcamp404.ac.id', 'asset\\img\\profile\\default.jpg', '$2y$10$Q2Twy2fd0gtl66MFg6icC.x1WPRnj5WwBXlIJCXRawxrZZ70hKOMO', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indeks untuk tabel `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`);
+
+--
+-- Indeks untuk tabel `migrations`
+--
+ALTER TABLE `migrations`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `password_resets`
@@ -123,6 +200,14 @@ ALTER TABLE `password_resets`
 --
 ALTER TABLE `pelatihan`
   ADD PRIMARY KEY (`id_item`);
+
+--
+-- Indeks untuk tabel `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  ADD KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`);
 
 --
 -- Indeks untuk tabel `siswa`
@@ -142,22 +227,40 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `failed_jobs`
+--
+ALTER TABLE `failed_jobs`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `migrations`
+--
+ALTER TABLE `migrations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT untuk tabel `pelatihan`
 --
 ALTER TABLE `pelatihan`
   MODIFY `id_item` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
+-- AUTO_INCREMENT untuk tabel `personal_access_tokens`
+--
+ALTER TABLE `personal_access_tokens`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id_pelatihan` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pelatihan` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
