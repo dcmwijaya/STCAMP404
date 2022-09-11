@@ -14,16 +14,14 @@
     @endif
     <!-- Session Alert Reset Failed -->
     
-
-    <form class="form-group row" action="{{ url('/resetProcess') }}" method="POST">
+@foreach ($data as $v)
+    <form class="form-group row" action="{{ url('/resetProcess/'.$v->id) }}" method="POST">
         @csrf
         <div class="col-xl-12">
             <div class="mt-5 col-md-6 input-sm">
                 <label for="password"><i class="bi bi-envelope me-1"></i> Email</label>
                 <div class="input-group mb-3 mt-2">
-                    @foreach ($data as $v)
-                        <input type="email" class="form-control" value="{{ $v->email }}" disabled>
-                    @endforeach
+                    <input type="email" class="form-control" value="{{ $v->email }}" disabled>
                 </div>
             </div>
         </div>
@@ -59,6 +57,7 @@
             </div>
         </div>
     </form>
+    @endforeach
 
 
     <!-- Show Password-->

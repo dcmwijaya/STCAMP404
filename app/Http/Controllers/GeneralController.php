@@ -180,14 +180,16 @@ class GeneralController extends Controller
         return view('general.reset', $dataReset);
     }
 
-    public function resetProcess(Request $reqData)
+    // Maintenance : RESET PROCRESS ERROR
+    public function resetProcess(Request $reqData, $id)
     {
-        $email = $this->db->select('email')->where('email', '=', $reqData->email)->distinct()->get();
+        $email = $this->db->select('email')->where('email', '=', $reqData->email)->where('id', '=', $id)->distinct()->get();
         $emailNULL = $this->db->select('email')->where('email', '=', NULL)->distinct()->get();
         if ($email != $emailNULL) {
+            $findData = $this->db->find($id);
             // $EMAIL = $reqData->email;
             $PASS = $reqData->password;
-            $uji = $this->db->update([
+            $uji = $findData->update([
                 'password' => bcrypt($PASS)
             ]);
 
@@ -203,4 +205,5 @@ class GeneralController extends Controller
             return redirect()->route('resetUser')->with('resetFailNotif', $msg);
         }
     }
+    // End Maintenance : RESET PROCRESS ERROR
 }
