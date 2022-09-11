@@ -21,8 +21,10 @@
             <div class="mt-5 col-md-6 input-sm">
                 <label for="password"><i class="bi bi-envelope me-1"></i> Email</label>
                 <div class="input-group mb-3 mt-2">
-                    <input type="email" class="form-control" name="email" disabled required>
-                    <input type="hidden" name="email" required>
+                    @foreach ($data as $v)
+                        <input type="email" class="form-control" value="{{ $v->email }}" disabled required>
+                        <input type="hidden" name="email" value="{{ $v->email }}" required>
+                    @endforeach
                 </div>
             </div>
         </div>

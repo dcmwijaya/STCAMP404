@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\DBU as DBU;
 use App\Models\DBS as DBS;
+use App\Models\DBRS as RS;
 use App\Http\Requests\REQSTCAMP;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -10,10 +11,11 @@ use Illuminate\Support\Facades\Session;
 
 class GeneralController extends Controller
 {
-    public function __construct(DBU $dbu, DBS $dbs)
+    public function __construct(DBU $dbu, DBS $dbs, RS $rs)
     {
         $this->db = $dbu;
         $this->dbs = $dbs;
+        $this->rs = $rs;
     }
 
     public function index()
@@ -45,10 +47,10 @@ class GeneralController extends Controller
         } else {
             $count = $Usercount;
         }
-        $IDS = array(
+        $IDS = [
             'defid' => '20220100',
             'jumlah' => $count
-        );
+        ];
         return view('general.registrasi', $IDS);
     }
 
@@ -152,9 +154,16 @@ class GeneralController extends Controller
 
     public function forgetProcess(Request $reqData)
     {
+        $count = $this->rs->count();
         $email = $this->db->select('email')->where('email', '=', $reqData->email)->distinct()->get();
         $emailNULL = $this->db->select('email')->where('email', '=', NULL)->distinct()->get();
         if($email != $emailNULL){
+            $this->rs->create([
+                'email' => $reqData->email,
+                'token' => bcrypt($count),
+                'created_at' => $reqData->created_at,
+                'updated_at' => $reqData->updated_at
+            ]);
             return redirect()->route('resetUser');
         } else {
             $msg = ' Email yang anda masukkan salah atau belum terdaftar!!';
@@ -164,7 +173,11 @@ class GeneralController extends Controller
 
     public function resetUser()
     {
-        return view('general.reset');
+        $EmailReset = $this->rs->select('email')->get();
+        $dataReset = ([
+            'data' => $EmailReset
+        ]);
+        return view('general.reset', $dataReset);
     }
 
     public function resetProcess(Request $reqData)
@@ -176,6 +189,9 @@ class GeneralController extends Controller
                 'email' => $reqData->email,
                 'password' => bcrypt($reqData->password)
             ]);
+            $findID = $this->rs->find($reqData->id);
+            $findID->delete();
+            $this->rs->reset();
 
             $msg = ' Selamat anda berhasil melakukan reset password!!';
             return redirect()->route('index')->with('ResetPassNotif', $msg);
