@@ -1,7 +1,6 @@
 @extends('layout.main')
 
 @section('container')
-    <!-- Bagian Siswa -->
     <h1><i class="bi bi-bar-chart-steps me-1"></i> Data Siswa</h1><hr><br>
     <div class="table-title">
         <div class="row">
@@ -16,6 +15,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Session Alert Siswa -->
     @if ($msgSiswa = Session::get('addSiswaNotif'))
         <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
             <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
@@ -32,7 +33,9 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+    <!-- Akhir Session Alert Siswa -->
     <br>
+
     <table class="table table-striped table-hover table-bordered caption-top mt-3 col-sm-12 table-responsive">
         <thead class="table-success">
             <tr>
@@ -54,8 +57,6 @@
     {{ $value->links() }}
 
 
-
-    <!-- Bagian Siswa Modal -->
     <!-- Pop Up Modal Add-->
     <div class="modal fade modalmenu" id="ModalAdd" tabindex="-1" aria-labelledby="ModalAddLabel" aria-hidden="true">
         <div class="modal-dialog">

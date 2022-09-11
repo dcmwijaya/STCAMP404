@@ -23,12 +23,13 @@ Auth::routes();
 Route::get('/', [GeneralController::class, 'index'])->name('index');
 Route::get('/info-kegiatan', [GeneralController::class, 'infokegiatan'])->name('infokegiatan');
 Route::get('/registrasi', [GeneralController::class, 'register'])->name('registrasi');
-Route::get('/forgetUser', [GeneralController::class, 'forgetUser'])->name('forgetUser');
+Route::get('/forgot-password', [GeneralController::class, 'forgetUser'])->name('forgetUser');
+Route::get('/reset-password', [GeneralController::class, 'resetUser'])->name('resetUser');
 
 // Route : Action Login, Logout, CRUD ++
 Route::post('/registrasiUser', [GeneralController::class, 'regUser'])->name('regUser');
 Route::post('/updateprofile', [GeneralController::class, 'updprofile'])->name('updprofile');
-Route::post('/resetUser', [GeneralController::class, 'resetUser'])->name('resetUser');
+Route::post('/reset', [GeneralController::class, 'reset'])->name('reset');
 Route::post('/login', [GeneralController::class, 'login'])->name('login');
 Route::get('/logout', [GeneralController::class, 'logout'])->name('logout');
 Route::post('/data-pelatihan/add', [AdminController::class, 'create'])->name('create');

@@ -9,9 +9,19 @@
             </small>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-    @endif
-    <br>    
-    <!-- Akhir Session Alert Admin -->
+    @endif    
+    <!-- Akhir Session Alert Logout -->
+    <!-- Session Alert Success Reset Password -->
+    @if ($msgReset = Session::get('ResetPassNotif'))
+        <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
+            <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
+                {{ $msgReset }}
+            </small>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif    
+    <!-- Akhir Session Alert Success Reset Password -->
+    <br>
 
 
     <!-- Jumbotron -->

@@ -69,7 +69,7 @@
               @enderror
             </div>
               <div class="col-md-12 mt-2">
-                <a class="lupas" href="{{ url('/forgetUser') }}">
+                <a class="lupas" href="{{ url('/forgot-password') }}">
                   Lupa Password <i class="bi bi-patch-question"></i>
                 </a>
               </div>

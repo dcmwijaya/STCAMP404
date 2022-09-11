@@ -1,7 +1,6 @@
 @extends('layout.main')
 
 @section('container')
-    <!-- Bagian Admin -->
     <h1><i class="bi bi-clipboard-data-fill me-1"></i> Manajemen Data Pelatihan</h1><hr><br>
     <div class="table-title">
         <div class="row">
@@ -98,11 +97,7 @@
     </table>
     {{ $data->links() }}
 
-
-    
-    <!-- Bagian Admin Modal -->
     <!-- Pop Up Modal Create-->
-    <!-- MAINTENANCE : BUG CREATE ADMIN -->
     <div class="modal fade modalmenu" id="ModalCreate" tabindex="-1" aria-labelledby="ModalCreateLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -149,7 +144,6 @@
         </div>
     </div>
     <!-- Akhir Pop Up Modal Create-->
-    <!-- END MAINTENANCE : BUG CREATE ADMIN -->
 
     <!-- Pop Up Modal Update-->
     @foreach($data as $v)

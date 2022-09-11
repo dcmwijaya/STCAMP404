@@ -11,6 +11,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+    <!-- Akhir Session Alert Login -->
     <!-- Session Alert Update Profile -->
     @if ($msgUpdProf = Session::get('updateProfileNotif'))
         <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
@@ -20,6 +21,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+    <!-- Akhir Session Alert Update Profile -->
     <br>    
     <div class="row row-cols-1 row-cols-md-2 g-4">
         <div class="col">

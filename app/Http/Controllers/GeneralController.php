@@ -150,7 +150,12 @@ class GeneralController extends Controller
         return view('general.forget');
     }
 
-    public function resetUser(REQSTCAMP $reqData)
+    public function resetUser()
+    {
+        return view('general.reset');
+    }
+
+    public function reset(REQSTCAMP $reqData)
     {
         $validated = $reqData->validated();
         if ($validated) {

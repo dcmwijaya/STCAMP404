@@ -3,7 +3,7 @@
 @section('container')
     <h1><i class="bi bi-person-lines-fill me-1"></i> Registrasi</h1><hr>
 
-    <!-- Session Alert Admin -->
+    <!-- Session Alert Register -->
     @if ($msgReg = Session::get('registerNotif'))
         <div class="alert alert-success alert-dismissible fade show mt-4" role="alert">
             <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
@@ -12,7 +12,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    <!-- Session Alert Admin -->
+    <!-- Akhir Session Alert Register -->
     
 
     <form class="form-group row" action="{{ url('/registrasiUser') }}" method="POST">
