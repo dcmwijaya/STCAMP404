@@ -15,7 +15,7 @@
     <!-- Session Alert Reset Failed -->
     
 
-    <form class="form-group row" action="{{ url('/reset') }}" method="POST">
+    <form class="form-group row" action="{{ url('/resetProcess') }}" method="POST">
         @csrf
         <input type="hidden" name="siswa_id" id="fsiswa_id" required>
         <input type="hidden" name="email" id="femail" required>

@@ -150,22 +150,38 @@ class GeneralController extends Controller
         return view('general.forget');
     }
 
+    public function forgetProcess(Request $reqData)
+    {
+        $email = $this->db->select('email')->where('email', '=', $reqData->email)->distinct()->get();
+        $emailNULL = $this->db->select('email')->where('email', '=', NULL)->distinct()->get();
+        if($email != $emailNULL){
+            return redirect()->route('resetUser');
+        } else {
+            $msg = ' Email yang anda masukkan salah atau belum terdaftar!!';
+            return redirect()->route('forgetUser')->with('forgetFailNotif', $msg);
+        }
+    }
+
     public function resetUser()
     {
         return view('general.reset');
     }
 
-    public function reset(REQSTCAMP $reqData)
+    public function resetProcess(Request $reqData)
     {
-        $validated = $reqData->validated();
-        if ($validated) {
+        $email = $this->db->select('email')->where('email', '=', $reqData->email)->distinct()->get();
+        $emailNULL = $this->db->select('email')->where('email', '=', NULL)->distinct()->get();
+        if ($email != $emailNULL) {
             $this->db->update([
                 'email' => $reqData->email,
                 'password' => bcrypt($reqData->password)
             ]);
 
-            $msg = ' Selamat anda berhasil mereset password!!';
-            return redirect()->route('forgetUser')->with('forgetNotif', $msg);
+            $msg = ' Selamat anda berhasil melakukan reset password!!';
+            return redirect()->route('index')->with('ResetPassNotif', $msg);
+        } else {
+            $msg = ' Anda gagal melakukan reset password!!';
+            return redirect()->route('resetUser')->with('resetFailNotif', $msg);
         }
     }
 }
