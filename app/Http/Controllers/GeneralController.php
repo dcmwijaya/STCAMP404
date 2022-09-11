@@ -180,7 +180,7 @@ class GeneralController extends Controller
             $msg = ' Selamat anda berhasil melakukan reset password!!';
             return redirect()->route('index')->with('ResetPassNotif', $msg);
         } else {
-            $msg = ' Anda gagal melakukan reset password!!';
+            $msg = ' Anda gagal melakukan reset password, harap coba lagi!!';
             return redirect()->route('resetUser')->with('resetFailNotif', $msg);
         }
     }

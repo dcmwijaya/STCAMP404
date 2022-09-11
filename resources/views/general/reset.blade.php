@@ -17,10 +17,17 @@
 
     <form class="form-group row" action="{{ url('/resetProcess') }}" method="POST">
         @csrf
-        <input type="hidden" name="siswa_id" id="fsiswa_id" required>
-        <input type="hidden" name="email" id="femail" required>
+        <div class="col-xl-12">
+            <div class="mt-5 col-md-6 input-sm">
+                <label for="password"><i class="bi bi-envelope me-1"></i> Email</label>
+                <div class="input-group mb-3 mt-2">
+                    <input type="email" class="form-control" name="email" disabled required>
+                    <input type="hidden" name="email" required>
+                </div>
+            </div>
+        </div>
         <div class="row">
-            <div class="col-md-3 mt-5 input-sm me-4">
+            <div class="col-md-3 mt-2 input-sm me-4">
                 <label for="password"><i class="bi bi-key me-1"></i> Kata Sandi</label>
                 <div class="input-group mb-3 mt-2">
                     <button onclick="ShowPassForget()" class="btn btn-outline-secondary" type="button">
@@ -35,7 +42,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="col-md-3 mt-5 input-sm">
+            <div class="col-md-3 mt-2 input-sm">
                 <label for="password-confirm"><i class="bi bi-key me-1"></i> Konfirmasi Sandi</label>
                 <div class="input-group mb-3 mt-2">
                     <button onclick="ShowPassConfirmForget()" class="btn btn-outline-secondary" type="button">
@@ -45,9 +52,9 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-3 mt-4 input-sm">
-                <button type="submit" class="btn btn-outline-success btn-md btnreg"><i class="bi bi-pencil-fill me-1"></i> Reset Password</button>
+        <div class="col-xl-12 mt-4">
+            <div class="input-sm">
+                <button type="submit" class="btn btn-outline-success btn-md btnreg col-xl-6 p-3"><i class="bi bi-pencil-fill me-1"></i> Reset Password</button>
             </div>
         </div>
     </form>
