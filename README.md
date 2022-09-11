@@ -66,7 +66,7 @@ localhost/phpmyadmin/
 <li>Pastikan masih berada di dalam folder STCAMP404 -> Klik kanan pilih gitbash lalu ketikkan :</li>
 
 ```bash
-$php artisan serve
+php artisan serve
 ```
 
 <li>Buka XAMPP lalu start apache dan mysql</li>
@@ -105,7 +105,7 @@ composer update
 <li>Generate key</li>
 
 ```bash
-$php artisan key:generate
+php artisan key:generate
 ```
 
 </ul><br>
