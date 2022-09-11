@@ -47,23 +47,23 @@ class AdminController extends Controller
         }
     }
 
-
-    // MAINTENANCE : BUG CREATE ADMIN
     public function create(Request $reqdata)
     {
         if (Session::has('adminAccess')) {
-            $LogUser = $this->dbu->where('id', '=', Session::get('adminAccess'))->first();
-            $PelUser = $this->db->select('pelatihan')->where('nis', '=', $LogUser->siswa_id)->distinct()->get();
-            $DB_NULL = $this->db->select('pelatihan')->where('nis', '=', $LogUser->siswa_id)->where('pelatihan', '=', NULL)->distinct()->get();
-            $DB_Search = $this->db->select('pelatihan')->where('nis', '=', $LogUser->siswa_id)->where('pelatihan', '=', $reqdata->pelatihan)->distinct()->get();
-            if ($DB_Search == $DB_NULL) {
-                $this->db->create([
-                    'nis' => $PelUser->nis,
-                    'nama_siswa' => $PelUser->nama_siswa,
-                    'pelatihan' => $reqdata->pelatihan
-                ]);
-                $msg = ' Selamat anda berhasil menambahkan data siswa!!';
-                return redirect()->route('data-pelatihan')->with('addAdminNotif', $msg);
+            $DB_NULLnis = $this->db->select('pelatihan')->where('nis', '=', $reqdata->nis)->where('pelatihan', '=', NULL)->distinct()->get();
+            $DB_NULLnama = $this->db->select('pelatihan')->where('nama_siswa', '=', $reqdata->nama_siswa)->where('pelatihan', '=', NULL)->distinct()->get();
+            $DB_SearchNIS = $this->db->select('pelatihan')->where('nis', '=', $reqdata->nis)->where('pelatihan', '=', $reqdata->pelatihan)->distinct()->get();
+            $DB_SearchNama = $this->db->select('pelatihan')->where('nama_siswa', '=', $reqdata->nama_siswa)->where('pelatihan', '=', $reqdata->pelatihan)->distinct()->get();
+            if ($DB_SearchNIS == $DB_NULLnis) {
+                if ($DB_SearchNama == $DB_NULLnama) {
+                    $this->db->create([
+                        'nis' => $reqdata->nis,
+                        'nama_siswa' => $reqdata->nama_siswa,
+                        'pelatihan' => $reqdata->pelatihan
+                    ]);
+                    $msg = ' Selamat anda berhasil menambahkan data siswa!!';
+                    return redirect()->route('data-pelatihan')->with('addAdminNotif', $msg);
+                }
             } else {
                 $msg = 'Data pelatihan anda sudah ada, harap selesaikan terlebih dahulu!!';
                 return redirect()->route('data-pelatihan')->with('errorAdminNotif', $msg);
@@ -71,8 +71,7 @@ class AdminController extends Controller
         }
     }
 
-    // END MAINTENANCE : BUG CREATE ADMIN
-
+    // MAINTENANCE : BUG FILTER UPDATE PELATIHAN ADMIN
     public function update(Request $reqdata, $id)
     {
         $findID = $this->db->find($id);
@@ -80,6 +79,7 @@ class AdminController extends Controller
         $msg = ' Selamat anda berhasil mengubah data siswa!!';
         return redirect()->route('data-pelatihan')->with('updateAdminNotif', $msg);
     }
+    // END MAINTENANCE : BUG FILTER UPDATE PELATIHAN ADMIN
 
     public function delete($id)
     {

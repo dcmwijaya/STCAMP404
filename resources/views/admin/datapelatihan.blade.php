@@ -95,7 +95,6 @@
     <!-- Bagian Admin Modal -->
     <!-- Pop Up Modal Create-->
     <!-- MAINTENANCE : BUG CREATE ADMIN -->
-    @foreach($data as $v)
     <div class="modal fade modalmenu" id="ModalCreate" tabindex="-1" aria-labelledby="ModalCreateLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -116,16 +115,9 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-md-12 mt-4">
-                            <label for="exampleCreateName"><i class="bi bi-person me-1"></i> Nama Pengguna</label>
-                            <div class="input-group mb-3 mt-2">
-                                <select type="text" class="form-select text-sm" name="nama_siswa" id="CreateNama">
-                                    @foreach($NAMA as $val)
-                                        <option value="{{ $val->nama_siswa }}" selected class="text-sm">{{ $val->nama_siswa }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
+                        @foreach($NAMA as $val)
+                            <input type="hidden" name="nama_siswa" value="{{ $val->nama_siswa }}">
+                        @endforeach
                         <div class="col-md-12 mt-4">
                             <label for="exampleCreateCamp"><i class="bi bi-award me-1"></i> Pelatihan</label>
                             <div class="input-group mb-3 mt-2">
@@ -152,6 +144,7 @@
     <!-- END MAINTENANCE : BUG CREATE ADMIN -->
 
     <!-- Pop Up Modal Update-->
+    @foreach($data as $v)
     <div class="modal fade modalmenu" id="ModalUpdate-{{ $v->id }}" tabindex="-1" aria-labelledby="ModalUpdateLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
