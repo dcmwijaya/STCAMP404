@@ -47,10 +47,18 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
-    @if ($msgerrAdmin = Session::get('errorAdminNotif'))
+    @if ($msgerrCreateAdmin = Session::get('errorCreateAdminNotif'))
         <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
             <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
-                {{ $msgerrAdmin }}
+                {{ $msgerrCreateAdmin }}
+            </small>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    @if ($msgerrUpdateAdmin = Session::get('errorUpdateAdminNotif'))
+        <div class="alert alert-danger alert-dismissible fade show mt-4" role="alert">
+            <small class="text-muted"><i class="bi bi-info-square-fill me-1"></i>
+                {{ $msgerrUpdateAdmin }}
             </small>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>

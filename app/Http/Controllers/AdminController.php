@@ -64,22 +64,35 @@ class AdminController extends Controller
                     $msg = ' Selamat anda berhasil menambahkan data siswa!!';
                     return redirect()->route('data-pelatihan')->with('addAdminNotif', $msg);
                 }
+                $msg = ' Selamat anda berhasil menambahkan data siswa!!';
+                return redirect()->route('data-pelatihan')->with('addAdminNotif', $msg);
             } else {
                 $msg = 'Data pelatihan anda sudah ada, harap selesaikan terlebih dahulu!!';
-                return redirect()->route('data-pelatihan')->with('errorAdminNotif', $msg);
+                return redirect()->route('data-pelatihan')->with('errorCreateAdminNotif', $msg);
             }
         }
     }
 
-    // MAINTENANCE : BUG FILTER UPDATE PELATIHAN ADMIN
     public function update(Request $reqdata, $id)
     {
-        $findID = $this->db->find($id);
-        $findID->update($reqdata->all());
-        $msg = ' Selamat anda berhasil mengubah data siswa!!';
-        return redirect()->route('data-pelatihan')->with('updateAdminNotif', $msg);
+        $DB_NULLnis = $this->db->select('pelatihan')->where('nis', '=', $reqdata->nis)->where('pelatihan', '=', NULL)->distinct()->get();
+        $DB_NULLnama = $this->db->select('pelatihan')->where('nama_siswa', '=', $reqdata->nama_siswa)->where('pelatihan', '=', NULL)->distinct()->get();
+        $DB_SearchNIS = $this->db->select('pelatihan')->where('nis', '=', $reqdata->nis)->where('pelatihan', '=', $reqdata->pelatihan)->distinct()->get();
+        $DB_SearchNama = $this->db->select('pelatihan')->where('nama_siswa', '=', $reqdata->nama_siswa)->where('pelatihan', '=', $reqdata->pelatihan)->distinct()->get();
+        if ($DB_SearchNIS == $DB_NULLnis) {
+            if ($DB_SearchNama == $DB_NULLnama) {
+                $findID = $this->db->find($id);
+                $findID->update($reqdata->all());
+                $msg = ' Selamat anda berhasil mengubah data siswa!!';
+                return redirect()->route('data-pelatihan')->with('updateAdminNotif', $msg);
+            }
+            $msg = 'Data pelatihan anda sudah ada, harap selesaikan terlebih dahulu!!';
+            return redirect()->route('data-pelatihan')->with('errorUpdateAdminNotif', $msg);
+        } else {
+            $msg = 'Data pelatihan anda sudah ada, harap selesaikan terlebih dahulu!!';
+            return redirect()->route('data-pelatihan')->with('errorUpdateAdminNotif', $msg);
+        }
     }
-    // END MAINTENANCE : BUG FILTER UPDATE PELATIHAN ADMIN
 
     public function delete($id)
     {
