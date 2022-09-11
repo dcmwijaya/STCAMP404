@@ -22,8 +22,7 @@
                 <label for="password"><i class="bi bi-envelope me-1"></i> Email</label>
                 <div class="input-group mb-3 mt-2">
                     @foreach ($data as $v)
-                        <input type="email" class="form-control" value="{{ $v->email }}" disabled required>
-                        <input type="hidden" name="email" value="{{ $v->email }}" required>
+                        <input type="email" class="form-control" value="{{ $v->email }}" disabled>
                     @endforeach
                 </div>
             </div>

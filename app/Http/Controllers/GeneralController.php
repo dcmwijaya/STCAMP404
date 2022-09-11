@@ -185,13 +185,16 @@ class GeneralController extends Controller
         $email = $this->db->select('email')->where('email', '=', $reqData->email)->distinct()->get();
         $emailNULL = $this->db->select('email')->where('email', '=', NULL)->distinct()->get();
         if ($email != $emailNULL) {
-            $this->db->update([
-                'email' => $reqData->email,
-                'password' => bcrypt($reqData->password)
+            // $EMAIL = $reqData->email;
+            $PASS = $reqData->password;
+            $uji = $this->db->update([
+                'password' => bcrypt($PASS)
             ]);
-            $findID = $this->rs->find($reqData->id);
-            $findID->delete();
-            $this->rs->reset();
+
+            dd($uji);
+            // $findID = $this->rs->find($reqData->id);
+            // $findID->delete();
+            // $this->rs->reset();
 
             $msg = ' Selamat anda berhasil melakukan reset password!!';
             return redirect()->route('index')->with('ResetPassNotif', $msg);
