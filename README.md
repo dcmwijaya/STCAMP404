@@ -8,14 +8,7 @@
 
 <br>
 
-### 1. Fitur Yang Sedang Dalam Proses Pengerjaan
-<ul style="line-height:180%" style="list-style-type:square;">
-  <li>Lupa password & reset (ket: belum ditambahkan)</li>
-</ul>
-
-<br>
-
-### 2. Tools / Framework / Other
+### 1. Tools / Framework / Other
 | Bagian | Keterangan |
 | --- | --- |
 | Fitur | Login, Create, Read, Update, Delete, Validation, Pagination, Search, Access Rights by Session/Middleware, ETC |
@@ -25,7 +18,7 @@
 
 <br>
 
-### 3. Environment
+### 2. Environment
 <ul style="line-height:180%" style="list-style-type:square;">
 <li>Download XAMPP</li>
 
@@ -60,7 +53,7 @@ localhost/phpmyadmin/
 <li>Import database dengan nama stcamp404.sql</li>
 </ul><br>
 
-### 4. Run Server
+### 3. Run Server
 <ul style="line-height:180%" style="list-style-type:square;">
 <li>Pastikan masih berada di dalam folder STCAMP404 -> Klik kanan pilih gitbash lalu ketikkan :</li>
 
@@ -72,7 +65,7 @@ php artisan serve
 <li>Buka browser anda (Tab baru) lalu ketikkan -> localhost:8080 atau sesuaikan yang ada pada gitbash</li>
 </ul><br>
 
-### 5. Akun untuk login
+### 4. Akun untuk login
 | Role | Email | Password |
 | --- | --- | --- |
 | Admin | admin@stcamp404.ac.id | 123456 |
@@ -80,7 +73,7 @@ php artisan serve
 
 <br>
 
-### 6. Cara Menjalankan Web Secara Local
+### 5. Cara Menjalankan Web Secara Local
 <ul style="line-height:180%" style="list-style-type:square;">
 <li>Download repository ini</li>
 <li>Extract file yang di download tadi -> Copy & Paste isi folder yang di download tadi ke -> XAMP (htdocs) -> masuk kedalam folder STCAMP404 atau jika belum ada buat dulu foldernya</li>
@@ -89,7 +82,7 @@ php artisan serve
 <li>Selesai, selamat menikmati</li>
 </ul><br>
 
-### 7. Error Notification
+### 6. Error Notification
 <strong>Jika anda mengalami : Server error 500</strong>
 
 <p>Maka yang harus anda ketikan pada CMD satu per satu sebagai berikut :</p>
@@ -99,17 +92,19 @@ php artisan serve
 ```bash
 composer update
 ```
-
-<li>Buat file .env dari file .env.example lalu sesuaikan juga database dan app name</li>
+    
 <li>Generate key</li>
 
 ```bash
 php artisan key:generate
 ```
 
-</ul><br>
+<strong>Langkah Selanjutnya :</strong>
+<ul style="line-height:180%" style="list-style-type:square;">
+<li>Buat file .env terlebih dahulu dari file .env.example -> copy lalu paste</li>
+<li>Buka file tersebut lalu sesuaikan isinya.</li></ul><br>
 
-### 8. Reminder
+### 7. Reminder
 <p>Jika auto-increment database yang ada masih belum urut, maka anda dapat melakukan hal berikut pada phpMyAdmin :</p>
 
 ```bash
