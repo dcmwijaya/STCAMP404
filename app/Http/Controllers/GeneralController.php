@@ -180,30 +180,21 @@ class GeneralController extends Controller
         return view('general.reset', $dataReset);
     }
 
-    // Maintenance : RESET PROCRESS ERROR
-    public function resetProcess(Request $reqData, $id)
+    public function resetProcess(Request $reqData)
     {
-        $email = $this->db->select('email')->where('email', '=', $reqData->email)->where('id', '=', $id)->distinct()->get();
+        $validated = $this->db->where('email', '=', $reqData->email)->first();
         $emailNULL = $this->db->select('email')->where('email', '=', NULL)->distinct()->get();
-        if ($email != $emailNULL) {
-            $findData = $this->db->find($id);
-            // $EMAIL = $reqData->email;
-            $PASS = $reqData->password;
-            $uji = $findData->update([
-                'password' => bcrypt($PASS)
-            ]);
-
-            dd($uji);
-            // $findID = $this->rs->find($reqData->id);
-            // $findID->delete();
-            // $this->rs->reset();
-
-            $msg = ' Selamat anda berhasil melakukan reset password!!';
-            return redirect()->route('index')->with('ResetPassNotif', $msg);
-        } else {
+        if ($validated == $emailNULL) {
             $msg = ' Anda gagal melakukan reset password, harap coba lagi!!';
             return redirect()->route('resetUser')->with('resetFailNotif', $msg);
-        }
+        } else {
+            $validated->update([
+                'password' => bcrypt($reqData->password)
+            ]);
+            $tempresetPassword = $this->rs->select('email')->where('email', '=', $reqData->email);
+            $tempresetPassword->delete();
+            $msg = ' Selamat anda berhasil melakukan reset password!!';
+            return redirect()->route('index')->with('ResetPassNotif', $msg);
+        }        
     }
-    // End Maintenance : RESET PROCRESS ERROR
 }

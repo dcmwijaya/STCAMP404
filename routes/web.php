@@ -30,7 +30,7 @@ Route::get('/reset-password', [GeneralController::class, 'resetUser'])->name('re
 Route::post('/registrasiUser', [GeneralController::class, 'regUser'])->name('regUser');
 Route::post('/updateprofile', [GeneralController::class, 'updprofile'])->name('updprofile');
 Route::post('/forgetProcess', [GeneralController::class, 'forgetProcess'])->name('forgetProcess');
-Route::post('/resetProcess/{id}', [GeneralController::class, 'resetProcess'])->name('resetProcess');
+Route::post('/resetProcess', [GeneralController::class, 'resetProcess'])->name('resetProcess');
 Route::post('/login', [GeneralController::class, 'login'])->name('login');
 Route::get('/logout', [GeneralController::class, 'logout'])->name('logout');
 Route::post('/data-pelatihan/add', [AdminController::class, 'create'])->name('create');
