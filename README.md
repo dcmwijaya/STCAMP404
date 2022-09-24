@@ -137,7 +137,7 @@ php artisan key:generate
 </tr>
 <tr>
 <td><img src="https://user-images.githubusercontent.com/54527592/192107215-f82e105a-3203-449f-9a62-19a86957665e.png" height="200" width="300" alt="Data-Pelatihan"></td>
-<td><img src="https://user-images.githubusercontent.com/54527592/192107371-c8842c98-3e4f-4c17-8639-89cbd6a123c1.png" height="200" width="300" alt="Data-Siswa"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192108245-5bf3e566-00f5-4d3b-9af5-ddb50b0b6a37.png" height="200" width="300" alt="Data-Siswa"></td>
 <td><img src="https://user-images.githubusercontent.com/54527592/192107438-279ae6dd-f53a-45ac-b3b4-074a9fd2a5ad.png" height="200" width="300" alt="Ubah-Data"></td>
 </tr></table><br>
 
