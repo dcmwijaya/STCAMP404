@@ -108,21 +108,32 @@ php artisan key:generate
 ### 7. Review
 <table>
 <tr>
-<th>Menu Home</th>
-<th>Menu Info Kegiatan</th>
-<th>Menu Dashboard</th>
+<th>View Home</th>
+<th>View Info Kegiatan</th>
+<th>View Dashboard</th>
 </tr>
 <tr>
-<td><img src="https://user-images.githubusercontent.com/54527592/192106681-ed063d96-f9bf-4ee0-848a-dadcf12a96f8.png" height="200" width="300" alt="Home"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107734-c8f90cf2-ac4b-41de-85b4-ebc80382eb12.png" height="200" width="300" alt="Home"></td>
 <td><img src="https://user-images.githubusercontent.com/54527592/192106990-2391de9b-f4c3-4115-a34c-d771242cd0f0.png" height="200" width="300" alt="Info-Kegiatan"></td>
 <td><img src="https://user-images.githubusercontent.com/54527592/192107108-fdc72d2c-ebf8-4685-acda-3d40c07538b8.png" height="200" width="300" alt="Dashboard"></td>
 </tr>
 </table>
 <table>
 <tr>
-<th>Menu Data Pelatihan</th>
-<th>Menu Data Siswa</th>
-<th>Menu Ubah Data</th>
+<th>View Registrasi</th>
+<th>View Lupa Password</th>
+<th>View Pelatihan Users</th>
+</tr>
+<tr>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107695-fb740c4a-6dcd-41d6-b011-244e41a92150.png" height="200" width="300" alt="Registrasi"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107714-1ba08a9b-e547-4bd9-8d40-5d23ecb03e8d.png" height="200" width="300" alt="Lupa-Password"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107799-2f87673d-8f71-4c74-8df6-cfa9e6e8a49e.png" height="200" width="300" alt="Pelatihan-Users"></td>
+</tr></table>
+<table>
+<tr>
+<th>View Data Pelatihan</th>
+<th>View Data Siswa</th>
+<th>View Ubah Data</th>
 </tr>
 <tr>
 <td><img src="https://user-images.githubusercontent.com/54527592/192107215-f82e105a-3203-449f-9a62-19a86957665e.png" height="200" width="300" alt="Data-Pelatihan"></td>
