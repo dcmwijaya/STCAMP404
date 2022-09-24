@@ -98,13 +98,39 @@ composer update
 ```bash
 php artisan key:generate
 ```
-
+</ul><br>
 <strong>Langkah Selanjutnya :</strong>
 <ul style="line-height:180%" style="list-style-type:square;">
 <li>Buat file .env terlebih dahulu dari file .env.example -> copy lalu paste</li>
-<li>Buka file tersebut lalu sesuaikan isinya.</li></ul><br>
+<li>Buka file tersebut lalu sesuaikan isinya.</li>
+</ul><br>
 
-### 7. Reminder
+### 7. Review
+<table>
+<tr>
+<th>Menu Home</th>
+<th>Menu Info Kegiatan</th>
+<th>Menu Dashboard</th>
+</tr>
+<tr>
+<td><img src="https://user-images.githubusercontent.com/54527592/192106681-ed063d96-f9bf-4ee0-848a-dadcf12a96f8.png" height="200" width="300" alt="Home"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192106990-2391de9b-f4c3-4115-a34c-d771242cd0f0.png" height="200" width="300" alt="Info-Kegiatan"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107108-fdc72d2c-ebf8-4685-acda-3d40c07538b8.png" height="200" width="300" alt="Dashboard"></td>
+</tr>
+</table>
+<table>
+<tr>
+<th>Menu Data Pelatihan</th>
+<th>Menu Data Siswa</th>
+<th>Menu Ubah Data</th>
+</tr>
+<tr>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107215-f82e105a-3203-449f-9a62-19a86957665e.png" height="200" width="300" alt="Data-Pelatihan"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107371-c8842c98-3e4f-4c17-8639-89cbd6a123c1.png" height="200" width="300" alt="Data-Siswa"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107438-279ae6dd-f53a-45ac-b3b4-074a9fd2a5ad.png" height="200" width="300" alt="Ubah-Data"></td>
+</tr></table><br>
+
+### 8. Reminder
 <p>Jika auto-increment database yang ada masih belum urut, maka anda dapat melakukan hal berikut pada phpMyAdmin :</p>
 
 ```bash
