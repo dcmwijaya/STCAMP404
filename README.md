@@ -1,10 +1,9 @@
-![FinalProject-Camp404](https://img.shields.io/badge/FinalProject-Camp404-blue?logo=github&color=%23F7DF1E)
 ![Laravel8](https://img.shields.io/badge/-Laravel8-white?style=flat&logo=laravel)
 ![PHP](https://img.shields.io/badge/-PHP-grey.svg?&logo=PHP&logoColor=white)
 ![MySQL](https://img.shields.io/badge/-MySQL-blue.svg?style=flat&logo=mysql&logoColor=white)
 
 # STCAMP404
-<p>STCAMP404 merupakan hasil dari pelatihan CAMP404 Batch 15 yang saya kerjakan secara custom.</p>
+<p>STCAMP404 merupakan hasil dari pelatihan reguler CAMP404 Batch 15 yang saya kerjakan secara custom.</p>
 
 <br>
 
