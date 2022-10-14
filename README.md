@@ -1,5 +1,7 @@
 ![Laravel8](https://img.shields.io/badge/-Laravel8-white?style=flat&logo=laravel)
 ![PHP](https://img.shields.io/badge/-PHP-grey.svg?&logo=PHP&logoColor=white)
+![HTML5](https://img.shields.io/badge/-HTML%205-purple.svg?&logo=html5)
+![CSS3](https://img.shields.io/badge/-CSS%203-green.svg?&logo=css3)
 ![MySQL](https://img.shields.io/badge/-MySQL-blue.svg?style=flat&logo=mysql&logoColor=white)
 
 # STCAMP404
