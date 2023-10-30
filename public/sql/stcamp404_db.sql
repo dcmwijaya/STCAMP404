@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Sep 2022 pada 11.15
--- Versi server: 10.4.17-MariaDB
--- Versi PHP: 7.4.15
+-- Waktu pembuatan: 30 Okt 2023 pada 13.00
+-- Versi server: 10.4.25-MariaDB
+-- Versi PHP: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -134,7 +134,7 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `siswa_id`, `name`, `role`, `email`, `image`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, NULL, 'Anastasya Geralda', 'admin', 'admin@stcamp404.ac.id', 'asset\\img\\profile\\admin.jpg', '$2y$10$sTFrUMwJgFADRIhmbqHJBe5Mqog2KAGDYJB9hqLjmohcmg5tcr7tO', NULL, NULL, NULL),
 (2, 20220101, 'Jaya Mangunati', 'siswa', '20220101@stcamp404.ac.id', 'asset\\img\\profile\\siswa.jpg', '$2y$10$27FeEhw9YVfZa3QyFrtl6OGFcxiu/6bTdNn5DUYWA4TxULmJosNJa', NULL, NULL, NULL),
-(3, 20220102, 'Jadiyan Marto', 'siswa', '20220102@stcamp404.ac.id', 'asset\\img\\profile\\default.jpg', '$2y$10$TwCx6BaKxr01JNkp1ja0g.siqqnnvDh14.qGarrOKEOGp2aT5GZVG', NULL, NULL, '2022-09-12 04:08:10');
+(3, 20220102, 'Jadiyan Marto', 'siswa', '20220102@stcamp404.ac.id', 'asset\\img\\profile\\default.jpg', '$2y$10$AkzQYtamtlQ0uG4kCncRguOe.MZXyTi1hATzXK/faKy51GKFDmn5q', NULL, '2023-10-30 11:58:20', '2023-10-30 11:58:20');
 
 --
 -- Indexes for dumped tables
