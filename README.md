@@ -50,8 +50,8 @@ localhost/phpmyadmin/
 | Role | Email | Full Name | Password |
 | --- | --- | --- | --- |
 | Admin | admin@stcamp404.ac.id | Anastasya Geralda | 123456 |
-| Siswa | 20220101@stcamp404.ac.id | Jaya Mangunati | 123456 |
-| Siswa | 20220102@stcamp404.ac.id | Jadiyan Marto | 123456 |
+| Student | 20220101@stcamp404.ac.id | Jaya Mangunati | 123456 |
+| Student | 20220102@stcamp404.ac.id | Jadiyan Marto | 123456 |
 
 <br>
 
@@ -74,9 +74,9 @@ php artisan serve
 ## Review
 <table>
 <tr>
-<th>View Home</th>
-<th>View Info Kegiatan</th>
-<th>View Dashboard</th>
+<th>Home View</th>
+<th>Activity Information View</th>
+<th>Dashboard View</th>
 </tr>
 <tr>
 <td><img src="https://user-images.githubusercontent.com/54527592/192107734-c8f90cf2-ac4b-41de-85b4-ebc80382eb12.png" height="200" width="300" alt="Home"></td>
@@ -86,9 +86,9 @@ php artisan serve
 </table>
 <table>
 <tr>
-<th>View Registrasi</th>
-<th>View Lupa Password</th>
-<th>View Pelatihan Users</th>
+<th>Registration View</th>
+<th>Forgot Password View</th>
+<th>User Training View</th>
 </tr>
 <tr>
 <td><img src="https://user-images.githubusercontent.com/54527592/192107695-fb740c4a-6dcd-41d6-b011-244e41a92150.png" height="200" width="300" alt="Registrasi"></td>
@@ -97,9 +97,9 @@ php artisan serve
 </tr></table>
 <table>
 <tr>
-<th>View Data Pelatihan</th>
-<th>View Data Siswa</th>
-<th>View Ubah Data</th>
+<th>Training Data View</th>
+<th>Student Data View</th>
+<th>Change Data View</th>
 </tr>
 <tr>
 <td><img src="https://user-images.githubusercontent.com/54527592/192107215-f82e105a-3203-449f-9a62-19a86957665e.png" height="200" width="300" alt="Data-Pelatihan"></td>
