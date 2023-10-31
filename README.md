@@ -79,7 +79,7 @@ php artisan serve
 <th>Dashboard View</th>
 </tr>
 <tr>
-<td><img src="https://user-images.githubusercontent.com/54527592/192107734-c8f90cf2-ac4b-41de-85b4-ebc80382eb12.png" height="200" width="600" alt="Home"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107734-c8f90cf2-ac4b-41de-85b4-ebc80382eb12.png" height="200" width="700" alt="Home"></td>
 <td><img src="https://user-images.githubusercontent.com/54527592/192106990-2391de9b-f4c3-4115-a34c-d771242cd0f0.png" height="200" width="600" alt="Info-Kegiatan"></td>
 <td><img src="https://user-images.githubusercontent.com/54527592/192107108-fdc72d2c-ebf8-4685-acda-3d40c07538b8.png" height="200" width="600" alt="Dashboard"></td>
 </tr>
@@ -91,9 +91,9 @@ php artisan serve
 <th>User Training View</th>
 </tr>
 <tr>
-<td><img src="https://user-images.githubusercontent.com/54527592/192107695-fb740c4a-6dcd-41d6-b011-244e41a92150.png" height="200" width="300" alt="Registrasi"></td>
-<td><img src="https://user-images.githubusercontent.com/54527592/192107714-1ba08a9b-e547-4bd9-8d40-5d23ecb03e8d.png" height="200" width="300" alt="Lupa-Password"></td>
-<td><img src="https://user-images.githubusercontent.com/54527592/192107799-2f87673d-8f71-4c74-8df6-cfa9e6e8a49e.png" height="200" width="300" alt="Pelatihan-Users"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107695-fb740c4a-6dcd-41d6-b011-244e41a92150.png" height="200" width="618" alt="Registrasi"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107714-1ba08a9b-e547-4bd9-8d40-5d23ecb03e8d.png" height="200" width="600" alt="Lupa-Password"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107799-2f87673d-8f71-4c74-8df6-cfa9e6e8a49e.png" height="200" width="600" alt="Pelatihan-Users"></td>
 </tr></table>
 <table>
 <tr>
@@ -102,9 +102,9 @@ php artisan serve
 <th>Change Data View</th>
 </tr>
 <tr>
-<td><img src="https://user-images.githubusercontent.com/54527592/192107215-f82e105a-3203-449f-9a62-19a86957665e.png" height="200" width="300" alt="Data-Pelatihan"></td>
-<td><img src="https://user-images.githubusercontent.com/54527592/192108245-5bf3e566-00f5-4d3b-9af5-ddb50b0b6a37.png" height="200" width="300" alt="Data-Siswa"></td>
-<td><img src="https://user-images.githubusercontent.com/54527592/192107438-279ae6dd-f53a-45ac-b3b4-074a9fd2a5ad.png" height="200" width="300" alt="Ubah-Data"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107215-f82e105a-3203-449f-9a62-19a86957665e.png" height="200" width="645" alt="Data-Pelatihan"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192108245-5bf3e566-00f5-4d3b-9af5-ddb50b0b6a37.png" height="200" width="612" alt="Data-Siswa"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107438-279ae6dd-f53a-45ac-b3b4-074a9fd2a5ad.png" height="200" width="600" alt="Ubah-Data"></td>
 </tr></table>
 
 <br><br>
