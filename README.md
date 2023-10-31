@@ -79,9 +79,9 @@ php artisan serve
 <th>Dashboard View</th>
 </tr>
 <tr>
-<td><img src="https://user-images.githubusercontent.com/54527592/192107734-c8f90cf2-ac4b-41de-85b4-ebc80382eb12.png" height="200" width="300" alt="Home"></td>
-<td><img src="https://user-images.githubusercontent.com/54527592/192106990-2391de9b-f4c3-4115-a34c-d771242cd0f0.png" height="200" width="300" alt="Info-Kegiatan"></td>
-<td><img src="https://user-images.githubusercontent.com/54527592/192107108-fdc72d2c-ebf8-4685-acda-3d40c07538b8.png" height="200" width="300" alt="Dashboard"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107734-c8f90cf2-ac4b-41de-85b4-ebc80382eb12.png" height="200" width="600" alt="Home"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192106990-2391de9b-f4c3-4115-a34c-d771242cd0f0.png" height="200" width="600" alt="Info-Kegiatan"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107108-fdc72d2c-ebf8-4685-acda-3d40c07538b8.png" height="200" width="600" alt="Dashboard"></td>
 </tr>
 </table>
 <table>
