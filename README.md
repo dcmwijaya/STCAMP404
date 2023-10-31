@@ -74,9 +74,9 @@ php artisan serve
 ## Review
 <table>
 <tr>
-<th width="350" height="50">Home View</th>
-<th width="350" height="50">Activity Information View</th>
-<th width="350" height="50">Dashboard View</th>
+<th width="280">Home View</th>
+<th width="280">Activity Information View</th>
+<th width="280">Dashboard View</th>
 </tr>
 <tr>
 <td><img src="https://user-images.githubusercontent.com/54527592/192107734-c8f90cf2-ac4b-41de-85b4-ebc80382eb12.png" alt="Home"></td>
@@ -86,9 +86,9 @@ php artisan serve
 </table>
 <table>
 <tr>
-<th width="350" height="50">Registration View</th>
-<th width="350" height="50">Forgot Password View</th>
-<th width="350" height="50">User Training View</th>
+<th width="280">Registration View</th>
+<th width="280">Forgot Password View</th>
+<th width="280">User Training View</th>
 </tr>
 <tr>
 <td><img src="https://user-images.githubusercontent.com/54527592/192107695-fb740c4a-6dcd-41d6-b011-244e41a92150.png" alt="Registrasi"></td>
@@ -97,9 +97,9 @@ php artisan serve
 </tr></table>
 <table>
 <tr>
-<th width="350" height="50">Training Data View</th>
-<th width="350" height="50">Student Data View</th>
-<th width="350" height="50">Change Data View</th>
+<th width="280">Training Data View</th>
+<th width="280">Student Data View</th>
+<th width="280">Change Data View</th>
 </tr>
 <tr>
 <td><img src="https://user-images.githubusercontent.com/54527592/192107215-f82e105a-3203-449f-9a62-19a86957665e.png" alt="Data-Pelatihan"></td>
