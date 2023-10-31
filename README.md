@@ -71,7 +71,7 @@ php artisan serve
 
 <br><br>
 
-## Review
+## Highlights
 <table>
 <tr>
 <th width="280">Home View</th>
