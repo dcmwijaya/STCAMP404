@@ -74,37 +74,37 @@ php artisan serve
 ## Review
 <table>
 <tr>
-<th>Home View</th>
-<th>Activity Information View</th>
-<th>Dashboard View</th>
+<th width="350" height="50">Home View</th>
+<th width="350" height="50">Activity Information View</th>
+<th width="350" height="50">Dashboard View</th>
 </tr>
 <tr>
-<td><img src="https://user-images.githubusercontent.com/54527592/192107734-c8f90cf2-ac4b-41de-85b4-ebc80382eb12.png" height="200" width="700" alt="Home"></td>
-<td><img src="https://user-images.githubusercontent.com/54527592/192106990-2391de9b-f4c3-4115-a34c-d771242cd0f0.png" height="200" width="700" alt="Info-Kegiatan"></td>
-<td><img src="https://user-images.githubusercontent.com/54527592/192107108-fdc72d2c-ebf8-4685-acda-3d40c07538b8.png" height="200" width="700" alt="Dashboard"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107734-c8f90cf2-ac4b-41de-85b4-ebc80382eb12.png" alt="Home"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192106990-2391de9b-f4c3-4115-a34c-d771242cd0f0.png" alt="Info-Kegiatan"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107108-fdc72d2c-ebf8-4685-acda-3d40c07538b8.png" alt="Dashboard"></td>
 </tr>
 </table>
 <table>
 <tr>
-<th>Registration View</th>
-<th>Forgot Password View</th>
-<th>User Training View</th>
+<th width="350" height="50">Registration View</th>
+<th width="350" height="50">Forgot Password View</th>
+<th width="350" height="50">User Training View</th>
 </tr>
 <tr>
-<td><img src="https://user-images.githubusercontent.com/54527592/192107695-fb740c4a-6dcd-41d6-b011-244e41a92150.png" height="200" width="700" alt="Registrasi"></td>
-<td><img src="https://user-images.githubusercontent.com/54527592/192107714-1ba08a9b-e547-4bd9-8d40-5d23ecb03e8d.png" height="200" width="700" alt="Lupa-Password"></td>
-<td><img src="https://user-images.githubusercontent.com/54527592/192107799-2f87673d-8f71-4c74-8df6-cfa9e6e8a49e.png" height="200" width="700" alt="Pelatihan-Users"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107695-fb740c4a-6dcd-41d6-b011-244e41a92150.png" alt="Registrasi"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107714-1ba08a9b-e547-4bd9-8d40-5d23ecb03e8d.png" alt="Lupa-Password"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107799-2f87673d-8f71-4c74-8df6-cfa9e6e8a49e.png" alt="Pelatihan-Users"></td>
 </tr></table>
 <table>
 <tr>
-<th>Training Data View</th>
-<th>Student Data View</th>
-<th>Change Data View</th>
+<th width="350" height="50">Training Data View</th>
+<th width="350" height="50">Student Data View</th>
+<th width="350" height="50">Change Data View</th>
 </tr>
 <tr>
-<td><img src="https://user-images.githubusercontent.com/54527592/192107215-f82e105a-3203-449f-9a62-19a86957665e.png" height="200" width="700" alt="Data-Pelatihan"></td>
-<td><img src="https://user-images.githubusercontent.com/54527592/192108245-5bf3e566-00f5-4d3b-9af5-ddb50b0b6a37.png" height="200" width="700" alt="Data-Siswa"></td>
-<td><img src="https://user-images.githubusercontent.com/54527592/192107438-279ae6dd-f53a-45ac-b3b4-074a9fd2a5ad.png" height="200" width="700" alt="Ubah-Data"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107215-f82e105a-3203-449f-9a62-19a86957665e.png" alt="Data-Pelatihan"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192108245-5bf3e566-00f5-4d3b-9af5-ddb50b0b6a37.png" alt="Data-Siswa"></td>
+<td><img src="https://user-images.githubusercontent.com/54527592/192107438-279ae6dd-f53a-45ac-b3b4-074a9fd2a5ad.png" alt="Ubah-Data"></td>
 </tr></table>
 
 <br><br>
