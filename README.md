@@ -19,30 +19,32 @@
 <br>
 
 ## Download & Install
-1.XAMPP with PHP version 7.4 :
-```bash
-https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/7.4.30/xampp-windows-x64-7.4.30-1-VC15-installer.exe/download
-```
-2.Visual Studio Code :
-```bash
-https://code.visualstudio.com/docs/?dv=win
-```
-3.Git :
-```bash
-https://git-scm.com/download/win
-```
+1. XAMPP with PHP version 7.4 :
+
+   ```bash
+   https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/7.4.30/xampp-windows-x64-7.4.30-1-VC15-installer.exe/download
+   ```
+
+2. Visual Studio Code :
+
+   ```bash
+   https://code.visualstudio.com/docs/?dv=win
+   ```
+
+3. Git :
+
+   ```bash
+   https://git-scm.com/download/win
+   ```
 
 <br>
 
 ## Database
-1.Open XAMPP, then start the Apache & MySQL section. This aims to be able to support the website optimally.<br>
-2.Access the browser first in order to open the database admin panel, please copy the following link:
-```bash
-localhost/phpmyadmin/
-```
-3.Create a database called "stcamp404" on local.<br>
-4.Open the "stcamp404" database and Import the database (stcamp404_db.sql) in the STCAMP404/public/sql directory.<br>
-5.Then open the XAMP file (php.ini) -> remove semicolon (;) in front of extension=intl -> save.
+1.Open ``` XAMPP ```, then start the ``` Apache ``` & ``` MySQL ``` section. This aims to be able to support the website optimally.<br>
+2.Access the browser first in order to open the database admin panel, please copy the following link: ``` localhost/phpmyadmin/ ```.
+3.Create a database called ``` stcamp404 ``` on local.<br>
+4.Open the ``` stcamp404 ``` database and Import ``` stcamp404_db.sql ``` in the ``` STCAMP404/public/sql ``` directory.<br>
+5.Then open the XAMP file: ``` php.ini ``` -> remove ``` semicolon (;) ``` in front of ``` extension=intl ``` -> save.
 
 <br>
 
@@ -56,20 +58,20 @@ localhost/phpmyadmin/
 <br>
 
 ## Running
-1.Download this repository.<br>
-2.Open the "STCAMP404" directory, then open GitBash inside that directory.
-<ul>
-<li>First, check whether there is a problem or not, if there is still an error, just adjust it according to the situation.</li>
-<li>Secondly, this step is mandatory, so please copy the following command:</li><br>
+1. Download this repository.<br>
+2. Open the ``` STCAMP404 ``` directory, then open ``` GitBash ``` inside that directory.
+   <ul>
+       <li>First, check whether there is a problem or not, if there is still an error, just adjust it according to the situation.</li>
+       <li>Secondly, this step is mandatory, so please copy the following command:<br><br></li>
+       
+   ````bash
+   php artisan serve
+   ````
+   </ul>
+4. Open your browser (New tab), then type -> ``` http://127.0.0.1:8000/ ``` or customize the one on your GitBash.<br>
+5. Please login and access the features, enjoy [Done].
     
-````bash
-php artisan serve
-````
-</ul>
-3. Open your browser (New tab), then type -> http://127.0.0.1:8000/ or customize the one on your GitBash.<br>
-4. Please login and access the features, enjoy [Done].
-
-<br><br>
+<br>
 
 ## Highlights
 <table>
@@ -107,7 +109,7 @@ php artisan serve
 <td><img src="https://user-images.githubusercontent.com/54527592/192107438-279ae6dd-f53a-45ac-b3b4-074a9fd2a5ad.png" alt="Ubah-Data"></td>
 </tr></table>
 
-<br><br>
+<br>
 
 ## Reminder
 <p>If the database auto-increment is still not in order, then you can do the following in phpMyAdmin:</p>
@@ -118,7 +120,7 @@ UPDATE your_table SET id = @num := (@num+1);
 ALTER TABLE your_table AUTO_INCREMENT =1;
 ```
 
-<br><br>
+<br>
 
 ## LICENSE
 MIT License - Copyright (c) 2020 - Devan C. M. Wijaya, S.Kom
