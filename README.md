@@ -68,8 +68,8 @@
    php artisan serve
    ````
    </ul>
-4. Open your browser (New tab), then type -> ``` http://127.0.0.1:8000/ ``` or customize the one on your GitBash.<br>
-5. Please login and access the features, enjoy [Done].
+3. Open your browser (New tab), then type -> ``` http://127.0.0.1:8000/ ``` or customize the one on your GitBash.<br>
+4. Please login and access the features, enjoy [Done].
     
 <br>
 
@@ -130,4 +130,3 @@ Permission is hereby granted without charge to any person obtaining a copy of th
 The above copyright notice and this permission notice must accompany all copies or substantial portions of the Software.
 
 IN ANY EVENT, THE AUTHOR OR COPYRIGHT HOLDER HEREIN RETAINS FULL OWNERSHIP RIGHTS. THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, THEREFORE IF ANY DAMAGE, LOSS, OR OTHERWISE ARISES FROM THE USE OR OTHER DEALINGS IN THE SOFTWARE, THE AUTHOR OR COPYRIGHT HOLDER SHALL NOT BE LIABLE, AS THE USE OF THE SOFTWARE IS NOT COMPELLED AT ALL, SO THE RISK IS YOUR OWN.
-
