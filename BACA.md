@@ -19,8 +19,7 @@
 <br>
 
 ## Unduh & Instal
-1.XAMPP dengan PHP versi 7.4 :
-
+1. XAMPP dengan PHP versi 7.4 :
    ```bash
    https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/7.4.30/xampp-windows-x64-7.4.30-1-VC15-installer.exe/download
    ```
