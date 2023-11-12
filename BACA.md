@@ -67,7 +67,7 @@
    php artisan serve
    ````
    </ul>
-3. Buka peramban Anda (Tab baru), lalu ketik -> ``` http://127.0.0.1:8000/ ``` atau sesuaikan dengan yang ada di GitBash Anda.<br>
+3. Buka ``` peramban ``` Anda (Tab baru), lalu ketik -> ``` http://127.0.0.1:8000/ ``` atau sesuaikan dengan yang ada di ``` GitBash ``` Anda.<br>
 4. Silakan masuk dan akses fitur-fiturnya, selamat menikmati [Selesai].
 
 <br>
