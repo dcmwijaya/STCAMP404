@@ -14,7 +14,7 @@
 | --- | --- |
 | Features | Login, Create, Read, Update, Delete, Validation, Pagination, Search, Charts, Access Rights by Session/Middleware, ETC |
 | Framework | Laravel 8, Bootstrap 5 |
-| Tools | Visual Studio Code, XAMPP (PHP Version 7.4), Composer, Git |
+| Tools | Visual Studio Code, XAMPP (PHP Version 7.4), Git |
 
 <br>
 
