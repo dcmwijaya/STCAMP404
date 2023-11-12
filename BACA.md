@@ -57,7 +57,7 @@
 <br>
 
 ## Memulai
-1. Unduh repositori ini.<br>
+1. Unduh  dan ekstrak repositori ini.<br>
 2. Buka direktori ``` STCAMP404 ```, lalu buka ``` GitBash ``` di dalam direktori tersebut.
    <ul>
        <li>Pertama, periksa apakah ada masalah atau tidak, jika masih ada kesalahan, sesuaikan saja dengan situasinya.</li>
