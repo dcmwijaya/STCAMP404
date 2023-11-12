@@ -58,7 +58,7 @@
 <br>
 
 ## Get Started
-1. Download this repository.<br>
+1. Download and extract this repository.<br>
 2. Open the ``` STCAMP404 ``` directory, then open ``` GitBash ``` inside that directory.
    <ul>
        <li>First, check whether there is a problem or not, if there is still an error, just adjust it according to the situation.</li>
@@ -68,7 +68,7 @@
    php artisan serve
    ````
    </ul>
-3. Open your browser (New tab), then type -> ``` http://127.0.0.1:8000/ ``` or customize the one on your GitBash.<br>
+3. Open your ``` browser ``` (New tab), then type -> ``` http://127.0.0.1:8000/ ``` or customize the one on your ``` GitBash ```.<br>
 4. Please login and access the features, enjoy [Done].
     
 <br>
