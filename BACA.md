@@ -14,7 +14,7 @@
 | --- | --- |
 | Fitur | Masuk, Buat, Baca, Ubah, Hapus, Paginasi, Pencarian, Validasi, Hak akses dengan sesi, Grafik, DLL |
 | Kerangka Kerja | Laravel 8, Bootstrap 5 |
-| Peralatan | Visual Studio Code, XAMPP (PHP Versi 7.4), Composer, Git |
+| Peralatan | Visual Studio Code, XAMPP (PHP Versi 7.4), Git |
 
 <br>
 
