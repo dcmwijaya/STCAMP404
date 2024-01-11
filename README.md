@@ -9,7 +9,7 @@
 
 <br>
 
-## Features / Framework / Tools
+## Project Requirements
 | Part | Description |
 | --- | --- |
 | Features | Login, Create, Read, Update, Delete, Validation, Pagination, Search, Charts, Access Rights by Session/Middleware, ETC |
