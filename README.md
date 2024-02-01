@@ -1,3 +1,6 @@
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?style=flat)](https://github.com/ellerbrock/open-source-badges/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?logo=github&color=%23F7DF1E)](https://opensource.org/licenses/MIT)
+![GitHub last commit](https://img.shields.io/github/last-commit/devancakra/STCAMP404)
 ![Laravel8](https://img.shields.io/badge/-Laravel8-white?style=flat&logo=laravel)
 ![PHP](https://img.shields.io/badge/-PHP-grey.svg?&logo=PHP&logoColor=white)
 ![HTML5](https://img.shields.io/badge/-HTML%205-purple.svg?&logo=html5)
@@ -128,7 +131,7 @@ This application has been created by including third-party sources. Third partie
 <br>
 
 ## LICENSE
-MIT License - Copyright (c) 2020 - Devan C. M. Wijaya, S.Kom
+MIT License - Copyright © 2020 - Devan C. M. Wijaya, S.Kom
 
 Permission is hereby granted without charge to any person obtaining a copy of this software and the software-related documentation files to deal in them without restriction, including without limitation the right to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons receiving the Software to be furnished therewith on the following terms:
 
