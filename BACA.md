@@ -93,7 +93,7 @@
    </td></tr></table>
    </ul><br>
    
-3. Buka ``` peramban ``` Anda (Tab baru), lalu ketik -> ``` http://127.0.0.1:8000/ ``` atau sesuaikan dengan yang ada di ``` GitBash ``` anda.<br><br>
+3. Buka ``` peramban ``` anda (Tab baru), lalu ketik -> ``` http://127.0.0.1:8000/ ``` atau sesuaikan dengan yang ada di ``` GitBash ``` anda.<br><br>
 
 4. Silakan masuk dan akses fitur-fiturnya, selamat menikmati [Selesai].
 
@@ -138,7 +138,7 @@
 <br><br>
 
 ## Pengingat
-<p>Jika penambahan otomatis basis data masih belum beres, maka Anda dapat melakukan hal berikut ini di phpMyAdmin:</p>
+<p>Jika penambahan otomatis basis data masih belum beres, maka anda dapat melakukan hal berikut ini di phpMyAdmin:</p>
 
 <table><tr><td width="840">
 
