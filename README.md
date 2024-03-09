@@ -10,7 +10,7 @@
 # STCAMP404
 <p>STCAMP404 is the result of the regular CAMP404 Batch 15 training that I customized.</p>
 
-<br>
+<br><br>
 
 ## Project Requirements
 | Part | Description |
@@ -19,37 +19,53 @@
 | Framework | Laravel 8, Bootstrap 5 |
 | Tools | Visual Studio Code, XAMPP (PHP Version 7.4), Git |
 
-<br>
+<br><br>
 
 ## Download & Install
-1. XAMPP with PHP version 7.4 :
+1. XAMPP with PHP version 7.4
 
-   ```bash
+   <table><tr><td width="810">
+
+   ```
    https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/7.4.30/xampp-windows-x64-7.4.30-1-VC15-installer.exe/download
    ```
 
-2. Visual Studio Code :
+   </td></tr></table><br>
 
-   ```bash
+2. Visual Studio Code
+
+   <table><tr><td width="810">
+
+   ```
    https://code.visualstudio.com/docs/?dv=win
    ```
 
-3. Git :
+   </td></tr></table><br>
 
-   ```bash
+3. Git
+
+   <table><tr><td width="810">
+
+   ```
    https://git-scm.com/download/win
    ```
 
-<br>
+   </td></tr></table>
+
+<br><br>
 
 ## Database
 1. Open ``` XAMPP ```, then start the ``` Apache ``` & ``` MySQL ``` section. This aims to be able to support the website optimally.<br><br>
+
 2. Access the browser first in order to open the database admin panel, please copy the following link: ``` localhost/phpmyadmin/ ```.<br><br>
+
 3. Create a database called ``` stcamp404 ``` on local.<br><br>
+
 4. Open the ``` stcamp404 ``` database and Import ``` stcamp404_db.sql ``` in the ``` STCAMP404/public/sql ``` directory.<br><br>
+
 5. Then open the XAMP file: ``` php.ini ``` -> remove ``` semicolon (;) ``` in front of ``` extension=intl ``` -> save.
 
-<br>
+<br><br>
 
 ## Default Account
 | Role | Email | Full Name | Password |
@@ -58,23 +74,30 @@
 | Student | 20220101@stcamp404.ac.id | Jaya Mangunati | 123456 |
 | Student | 20220102@stcamp404.ac.id | Jadiyan Marto | 123456 |
 
-<br>
+<br><br>
 
 ## Get Started
-1. Download and extract this repository.<br>
+1. Download and extract this repository.<br><br>
+
 2. Open the ``` STCAMP404 ``` directory, then open ``` GitBash ``` inside that directory.
    <ul>
-       <li>First, check whether there is a problem or not, if there is still an error, just adjust it according to the situation.</li>
+       <li>First, check whether there is a problem or not, if there is still an error, just adjust it according to the situation.</li><br>
        <li>Secondly, this step is mandatory, so please copy the following command:<br><br></li>
        
+   <table><tr><td width="810">
+     
    ````bash
    php artisan serve
    ````
-   </ul>
-3. Open your ``` browser ``` (New tab), then type -> ``` http://127.0.0.1:8000/ ``` or customize the one on your ``` GitBash ```.<br>
+
+   </td></tr></table>
+   </ul><br>
+   
+3. Open your ``` browser ``` (New tab), then type -> ``` http://127.0.0.1:8000/ ``` or customize the one on your ``` GitBash ```.<br><br>
+
 4. Please login and access the features, enjoy [Done].
     
-<br>
+<br><br>
 
 ## Highlights
 <table>
@@ -112,28 +135,32 @@
 <td><img src="https://user-images.githubusercontent.com/54527592/192107438-279ae6dd-f53a-45ac-b3b4-074a9fd2a5ad.png" alt="Ubah-Data"></td>
 </tr></table>
 
-<br>
+<br><br>
 
 ## Reminder
 <p>If the database auto-increment is still not in order, then you can do the following in phpMyAdmin:</p>
 
-```bash
+<table><tr><td width="840">
+
+```sql
 SET  @num := 0;
 UPDATE your_table SET id = @num := (@num+1);
 ALTER TABLE your_table AUTO_INCREMENT =1;
 ```
 
-<br>
+</td></tr></table>
+
+<br><br>
 
 ## Appreciation
 If you find this work useful, please support it as a token of appreciation to the author by clicking the ``` ⭐Star ``` button.
 
-<br>
+<br><br>
 
 ## Disclaimer
 This application has been created by including third-party sources. Third parties here are service providers, whose services are in the form of libraries, frameworks, and others. I thank you very much for the service. It has proven to be very helpful and implementable.
 
-<br>
+<br><br>
 
 ## LICENSE
 MIT License - Copyright © 2020 - Devan C. M. Wijaya, S.Kom
