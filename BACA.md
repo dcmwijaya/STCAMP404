@@ -84,7 +84,7 @@
        <li>Pertama, periksa apakah ada masalah atau tidak, jika masih ada kesalahan, sesuaikan saja dengan situasinya.</li>
        <li>Kedua, langkah ini wajib dilakukan, jadi silakan salin perintah berikut ini:<br><br></li>
        
-   <table><tr><td width="810">
+   <table><tr><td width="780">
      
    ````bash
    php artisan serve
