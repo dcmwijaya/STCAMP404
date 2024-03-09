@@ -10,7 +10,7 @@
 # STCAMP404
 <p>STCAMP404 adalah hasil dari pelatihan reguler CAMP404 Batch 15 yang saya sesuaikan.</p>
 
-<br>
+<br><br>
 
 ## Kebutuhan Proyek
 | Bagian | Deskripsi |
@@ -19,36 +19,53 @@
 | Kerangka Kerja | Laravel 8, Bootstrap 5 |
 | Peralatan | Visual Studio Code, XAMPP (PHP Versi 7.4), Git |
 
-<br>
+<br><br>
 
 ## Unduh & Instal
-1. XAMPP dengan PHP versi 7.4 :
-   ```bash
+1. XAMPP with PHP version 7.4
+
+   <table><tr><td width="810">
+
+   ```
    https://sourceforge.net/projects/xampp/files/XAMPP%20Windows/7.4.30/xampp-windows-x64-7.4.30-1-VC15-installer.exe/download
    ```
 
-2. Visual Studio Code :
+   </td></tr></table><br>
 
-   ```bash
+2. Visual Studio Code
+
+   <table><tr><td width="810">
+
+   ```
    https://code.visualstudio.com/docs/?dv=win
    ```
 
-3. Git :
+   </td></tr></table><br>
 
-   ```bash
+3. Git
+
+   <table><tr><td width="810">
+
+   ```
    https://git-scm.com/download/win
    ```
 
-<br>
+   </td></tr></table>
+
+<br><br>
 
 ## Basis data
 1. Buka ``` XAMPP ```, lalu tekan tombol mulai di bagian ``` Apache ``` & ``` MySQL ```. Hal ini bertujuan untuk dapat mendukung website secara optimal.<br><br>
+
 2. Akses peramban terlebih dahulu untuk membuka panel admin basis data, silakan salin tautan berikut: ``` localhost/phpmyadmin/ ```.<br><br>
+
 3. Buat basis data bernama ``` stcamp404 ``` di lokal.<br><br>
+
 4. Buka basis data ``` stcamp404 ``` dan Impor ``` stcamp404_db.sql ``` di direktori ``` STCAMP404/public/sql ```.<br><br>
+
 5. Kemudian buka berkas XAMP: ``` php.ini ``` -> hapus ``` titik koma (;) ``` di depan ``` extension=intl ``` -> simpan.
 
-<br>
+<br><br>
 
 ## Akun Bawaan
 | Peran | Surel | Nama Lengkap | Kata Sandi |
@@ -57,23 +74,30 @@
 | Siswa | 20220101@stcamp404.ac.id | Jaya Mangunati | 123456 |
 | Siswa | 20220102@stcamp404.ac.id | Jadiyan Marto | 123456 |
 
-<br>
+<br><br>
 
 ## Memulai
-1. Unduh  dan ekstrak repositori ini.<br>
+1. Unduh  dan ekstrak repositori ini.<br><br>
+
 2. Buka direktori ``` STCAMP404 ```, lalu buka ``` GitBash ``` di dalam direktori tersebut.
    <ul>
        <li>Pertama, periksa apakah ada masalah atau tidak, jika masih ada kesalahan, sesuaikan saja dengan situasinya.</li>
        <li>Kedua, langkah ini wajib dilakukan, jadi silakan salin perintah berikut ini:<br><br></li>
        
+   <table><tr><td width="810">
+     
    ````bash
    php artisan serve
    ````
-   </ul>
-3. Buka ``` peramban ``` Anda (Tab baru), lalu ketik -> ``` http://127.0.0.1:8000/ ``` atau sesuaikan dengan yang ada di ``` GitBash ``` Anda.<br>
+
+   </td></tr></table>
+   </ul><br>
+   
+3. Buka ``` peramban ``` Anda (Tab baru), lalu ketik -> ``` http://127.0.0.1:8000/ ``` atau sesuaikan dengan yang ada di ``` GitBash ``` anda.<br><br>
+
 4. Silakan masuk dan akses fitur-fiturnya, selamat menikmati [Selesai].
 
-<br>
+<br><br>
 
 ## Sorotan
 <table>
@@ -111,23 +135,27 @@
 <td><img src="https://user-images.githubusercontent.com/54527592/192107438-279ae6dd-f53a-45ac-b3b4-074a9fd2a5ad.png" alt="Ubah-Data"></td>
 </tr></table>
 
-<br>
+<br><br>
 
 ## Pengingat
 <p>Jika penambahan otomatis basis data masih belum beres, maka Anda dapat melakukan hal berikut ini di phpMyAdmin:</p>
 
-```bash
+<table><tr><td width="840">
+
+```sql
 SET  @num := 0;
 UPDATE your_table SET id = @num := (@num+1);
 ALTER TABLE your_table AUTO_INCREMENT =1;
 ```
 
-<br>
+</td></tr></table>
+
+<br><br>
 
 ## Penafian
 Aplikasi ini dibuat dengan menyertakan sumber-sumber dari pihak ketiga. Pihak ketiga di sini adalah penyedia layanan, yang layanannya berupa pustaka, kerangka kerja, dan lain-lain. Saya ucapkan terima kasih banyak atas layanannya. Telah terbukti sangat membantu dan dapat diimplementasikan.
 
-<br>
+<br><br>
 
 ## LISENSI 
 LISENSI MIT - Hak Cipta © 2020 - Devan C. M. Wijaya, S.Kom
